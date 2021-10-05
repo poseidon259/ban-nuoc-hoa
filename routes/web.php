@@ -28,3 +28,7 @@ Route::get('/shop-cart', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+//Test routes
+Route::get('/test', 'TestController@index');
+Route::get('/test/{id}', 'TestController@view');
