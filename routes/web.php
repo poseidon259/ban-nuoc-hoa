@@ -21,3 +21,10 @@ Route::get('/shop', function () {
     return view('shop');
 });
 
+Route::get('/shop-cart', function () {
+    return view('shop-cart');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
