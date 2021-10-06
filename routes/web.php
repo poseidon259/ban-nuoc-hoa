@@ -14,9 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
 
 Route::get('/shop', function () {
     return view('shop');
 });
+
+Route::get('/shop-cart', function () {
+    return view('shop-cart');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+//Test routes
+Route::get('/test', 'TestController@index');
+Route::get('/test/{id}', 'TestController@view');
