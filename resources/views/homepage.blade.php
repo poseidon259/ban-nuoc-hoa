@@ -52,7 +52,7 @@
                     </div>
                     <div class="hero__item set-bg" data-setbg="{{url('public/frontend')}}/img/Hero/banner-2.jpg">
                         <div class="hero__text">
-                            <a href="#" class="primary-btn">SHOP NOW</a>
+                            <a href="./shop" class="primary-btn">SHOP NOW</a>
                         </div>
                     </div>
                 </div>

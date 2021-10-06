@@ -169,6 +169,10 @@ ol {
 	font-weight: 700;
 	background: #e5989b;
 	letter-spacing: 2px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 24%;
 }
 
 .site-btn {
@@ -731,6 +735,7 @@ ol {
 	display: flex;
 	align-items: center;
 	padding-left: 75px;
+	position: relative;
 }
 
 .hero__text span {
@@ -1046,14 +1051,14 @@ ol {
 
 .breadcrumb__text h2 {
 	font-size: 46px;
-	color: black;
+	color: #ffffff;
 	font-weight: 700;
 }
 
 .breadcrumb__option a {
 	display: inline-block;
 	font-size: 16px;
-	color: black;
+	color: #ffffff;
 	font-weight: 700;
 	margin-right: 20px;
 	position: relative;
@@ -1065,14 +1070,14 @@ ol {
 	top: 13px;
 	height: 1px;
 	width: 10px;
-	background: black;
+	background: #ffffff;
 	content: "";
 }
 
 .breadcrumb__option span {
 	display: inline-block;
 	font-size: 16px;
-	color: black;
+	color: #ffffff;
 	font-weight: 700;
 
 }
@@ -1326,8 +1331,8 @@ ol {
 }
 
 .product__item__pic__hover li:hover a {
-	background: #7fad39;
-	border-color: #7fad39;
+	background: #e5989b;
+	border-color: #e5989b;
 }
 
 .product__item__pic__hover li:hover a i {
@@ -1566,8 +1571,8 @@ ol {
 }
 
 .product__item__pic__hover li:hover a {
-	background: #7fad39;
-	border-color: #7fad39;
+	background: #e5989b;
+	border-color: #e5989b;
 }
 
 .product__item__pic__hover li:hover a i {
