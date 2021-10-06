@@ -167,7 +167,7 @@ ol {
 	color: #ffffff;
 	text-transform: uppercase;
 	font-weight: 700;
-	background: #7fad39;
+	background: #e5989b;
 	letter-spacing: 2px;
 }
 
@@ -178,7 +178,7 @@ ol {
 	text-transform: uppercase;
 	display: inline-block;
 	padding: 13px 30px 12px;
-	background: #7fad39;
+	background: #e5989b;
 	border: none;
 }
 
@@ -449,7 +449,7 @@ ol {
 }
 
 .header__menu ul li .header__menu__dropdown li:hover>a {
-	color: #7fad39;
+	color: #e5989b;
 }
 
 .header__menu ul li .header__menu__dropdown li a {
@@ -460,7 +460,7 @@ ol {
 }
 
 .header__menu ul li.active a {
-	color: #7fad39;
+	color: #e5989b;
 }
 
 .header__menu ul li:hover .header__menu__dropdown {
@@ -470,7 +470,7 @@ ol {
 }
 
 .header__menu ul li:hover>a {
-	color: #7fad39;
+	color: #e5989b;
 }
 
 .header__menu ul li:last-child {
@@ -587,7 +587,7 @@ ol {
 }
 
 .hero__categories__all {
-	background: #7fad39;
+	background: #e5989b;
 	position: relative;
 	padding: 10px 25px 10px 40px;
 	cursor: pointer;
