@@ -13,7 +13,7 @@ class TestController extends Controller
 
     // /test/1
     public function view($id) {
-        $data = Test::all();
+        $data = Test::paginate(1);
         return view('Test.view', compact('data'));
     }
 }
