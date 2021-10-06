@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{url('public/frontend')}}/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="{{url('public/frontend')}}/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="{{url('public/frontend')}}/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="{{url('public/frontend')}}/css/Style.css" type="text/css">
+    <link rel="stylesheet" href="{{url('public/frontend')}}/css/style1.css" type="text/css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="{{url('public/frontend')}}/img/logo.png" alt=""></a>
+            <a href="#"><img src="{{url('public/frontend')}}/img/Logo1.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
