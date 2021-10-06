@@ -55,12 +55,12 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="{{url('public/frontend')}}/img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="{{url('public/frontend')}}/img/bread1.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Organi Shop</h2>
+                        <h2>The Parfum Shop</h2>
                         <div class="breadcrumb__option">
                             <a href="./index.html">Home</a>
                             <span>Shop</span>
@@ -183,7 +183,7 @@
                                     <div class="latest-prdouct__slider__item">
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="{{url('public/frontend')}}/img/latest-product/lp-1.jpg" alt="">
+                                                <img src="{{url('public/frontend')}}/img/Latest-product/lp-1.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Crab Pool Security</h6>
@@ -192,7 +192,7 @@
                                         </a>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="{{url('public/frontend')}}/img/latest-product/lp-2.jpg" alt="">
+                                                <img src="{{url('public/frontend')}}/img/Latest-product/lp-2.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Crab Pool Security</h6>
@@ -201,7 +201,7 @@
                                         </a>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="{{url('public/frontend')}}/img/latest-product/lp-3.jpg" alt="">
+                                                <img src="{{url('public/frontend')}}/img/Latest-product/lp-3.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Crab Pool Security</h6>
@@ -212,7 +212,7 @@
                                     <div class="latest-prdouct__slider__item">
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="{{url('public/frontend')}}/img/latest-product/lp-1.jpg" alt="">
+                                                <img src="{{url('public/frontend')}}/img/Latest-product/lp-1.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Crab Pool Security</h6>
@@ -221,7 +221,7 @@
                                         </a>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="{{url('public/frontend')}}/img/latest-product/lp-2.jpg" alt="">
+                                                <img src="{{url('public/frontend')}}/img/Latest-product/lp-2.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Crab Pool Security</h6>
@@ -230,7 +230,7 @@
                                         </a>
                                         <a href="#" class="latest-product__item">
                                             <div class="latest-product__item__pic">
-                                                <img src="{{url('public/frontend')}}/img/latest-product/lp-3.jpg" alt="">
+                                                <img src="{{url('public/frontend')}}/img/Latest-product/lp-3.jpg" alt="">
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>Crab Pool Security</h6>
@@ -253,7 +253,7 @@
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{url('public/frontend')}}/img/product/discount/pd-1.jpg">
+                                            data-setbg="{{url('public/frontend')}}/img/product/Discount/pd-1.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -271,7 +271,7 @@
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{url('public/frontend')}}/img/product/discount/pd-2.jpg">
+                                            data-setbg="{{url('public/frontend')}}/img/product/Discount/pd-2.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -289,7 +289,7 @@
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{url('public/frontend')}}/img/product/discount/pd-3.jpg">
+                                            data-setbg="{{url('public/frontend')}}/img/product/Discount/pd-3.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -307,7 +307,7 @@
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{url('public/frontend')}}/img/product/discount/pd-4.jpg">
+                                            data-setbg="{{url('public/frontend')}}/img/product/Discount/pd-4.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -325,7 +325,7 @@
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{url('public/frontend')}}/img/product/discount/pd-5.jpg">
+                                            data-setbg="{{url('public/frontend')}}/img/product/Discount/pd-5.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -343,7 +343,7 @@
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{url('public/frontend')}}/img/product/discount/pd-6.jpg">
+                                            data-setbg="{{url('public/frontend')}}/img/product/Discount/pd-6.jpg">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -388,7 +388,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-13.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product1.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -403,7 +403,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-2.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product2.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -418,7 +418,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-3.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product3.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -433,7 +433,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-4.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product4.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -448,7 +448,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-5.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product5.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -463,7 +463,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-6.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product6.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -478,7 +478,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-7.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product7.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -493,7 +493,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-8.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product8.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -508,7 +508,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-9.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product9.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -523,7 +523,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-10.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product10.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -538,7 +538,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-11.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product11.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -553,7 +553,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product-12.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product12.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fa fa-retweet"></i></a></li>
