@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{url('public/frontend')}}/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="{{url('public/frontend')}}/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="{{url('public/frontend')}}/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="{{url('public/frontend')}}/css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{url('public/frontend')}}/css/Style.css" type="text/css">
 </head>
 
 <body>
