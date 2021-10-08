@@ -14,8 +14,13 @@
                         <span>Categories</span>
                     </div>
                     <ul>
+<<<<<<< HEAD
                         @foreach($data as $d)
                         <li><a href="{{$d->link}}">{{$d->category_name}}</a></li>
+=======
+                        @foreach($data as $item)
+                        <li><a href="#">{{$item->category_name}}</a></li>
+>>>>>>> 52a86d8462c1db5d18c471624a6208f4611f9501
                         @endforeach
                     </ul>
                 </div>
