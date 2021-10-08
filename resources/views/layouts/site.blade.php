@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{url('public/frontend')}}/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="{{url('public/frontend')}}/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="{{url('public/frontend')}}/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="{{url('public/frontend')}}/css/style1.css" type="text/css">
+    <link rel="stylesheet" href="{{url('public/frontend')}}/css/style2.css" type="text/css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="{{url('public/frontend')}}/img/Logo1.png" alt=""></a>
+            <a href="#"><img src="{{url('public/frontend')}}/img/logo1.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -62,13 +62,11 @@
                 <li><a href="/shop">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
                         <li><a href="./shop-cart">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
+                        <li><a href="./checkout">Check Out</a></li>
                     </ul>
                 </li>
-                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./blog">Blog</a></li>
                 <li><a href="./contact">Contact</a></li>
             </ul>
         </nav>
@@ -130,7 +128,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./"><img src="{{url('public/frontend')}}/img/logo.png" alt=""></a>
+                        <a href="./"><img src="{{url('public/frontend')}}/img/logo1.png" alt="" width="200px" height="100px"></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
