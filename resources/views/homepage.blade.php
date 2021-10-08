@@ -11,20 +11,12 @@
                 <div class="hero__categories">
                     <div class="hero__categories__all">
                         <i class="fa fa-bars"></i>
-                        <span>All departments</span>
+                        <span>Categories</span>
                     </div>
                     <ul>
+                        @for($i = 0; $i < 7; $i++)
                         <li><a href="#">Fresh Meat</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruit & Nut Gifts</a></li>
-                        <li><a href="#">Fresh Berries</a></li>
-                        <li><a href="#">Ocean Foods</a></li>
-                        <li><a href="#">Butter & Eggs</a></li>
-                        <li><a href="#">Fastfood</a></li>
-                        <li><a href="#">Fresh Onion</a></li>
-                        <li><a href="#">Papayaya & Crisps</a></li>
-                        <li><a href="#">Oatmeal</a></li>
-                        <li><a href="#">Fresh Bananas</a></li>
+                        @endfor
                     </ul>
                 </div>
             </div>
@@ -88,31 +80,12 @@
     <div class="container">
         <div class="row">
             <div class="categories__slider owl-carousel">
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="{{url('public/frontend')}}/img/Categories/cat-1.jpg">
-                        <h5><a href="#">Gift-set</a></h5>
+                @for($i = 1; $i <= 12; $i++)
+                <div class="col-md-4">
+                    <div class="categories__item set-bg" data-setbg="{{url('public/frontend')}}/img/Categories/thuonghieu-{{$i}}.jpg">
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="{{url('public/frontend')}}/img/Categories/cat-2.jpg">
-                        <h5><a href="#">Combo nước hoa</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="{{url('public/frontend')}}/img/Categories/cat-3.jpg">
-                        <h5><a href="#">Gift son</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="{{url('public/frontend')}}/img/Categories/cat-4.jpg">
-                        <h5><a href="#">Son môi</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="{{url('public/frontend')}}/img/Categories/cat-5.jpg">
-                        <h5><a href="#">Nước hoa nữ</a></h5>
-                    </div>
-                </div>
+                @endfor
             </div>
         </div>
     </div>

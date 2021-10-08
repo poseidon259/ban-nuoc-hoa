@@ -763,7 +763,8 @@ ol {
 -----------------------*/
 
 .categories__item {
-	height: 270px;
+	width: 200px;
+	height: 200px;
 	position: relative;
 }
 
