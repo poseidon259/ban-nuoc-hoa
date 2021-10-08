@@ -62,10 +62,8 @@
                 <li><a href="/shop">Shop</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
                         <li><a href="./shop-cart">Shoping Cart</a></li>
-                        <li><a href="./checkout.html">Check Out</a></li>
-                        <li><a href="./blog-details.html">Blog Details</a></li>
+                        <li><a href="./checkout">Check Out</a></li>
                     </ul>
                 </li>
                 <li><a href="./blog.html">Blog</a></li>
