@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,12 @@ Route::get('/shop-cart', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::get('/checkout', function() {
+    return view('checkout');
+});
+
+Route::get('/category/{id}', 'CategoryController@view');
 
 //Test routes
 Route::get('/test', 'TestController@index');
