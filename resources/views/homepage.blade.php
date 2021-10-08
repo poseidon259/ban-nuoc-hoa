@@ -14,9 +14,9 @@
                         <span>Categories</span>
                     </div>
                     <ul>
-                        @for($i = 0; $i < 7; $i++)
-                        <li><a href="#">Fresh Meat</a></li>
-                        @endfor
+                        @foreach($data as $item)
+                        <li><a href="#">{{$item->category_name}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
