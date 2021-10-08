@@ -1,0 +1,41 @@
+Category
+-> id
+-> name
+
+Product
+-> id
+-> Tên SP
+-> Giá
+-> có sẵn
+
+Blog
+-> id
+-> title
+-> img
+-> descrip (substr -> short)
+-> category
+-> created_at
+
+order_detail
+-> order_id
+-> product_id
+-> quantity
+-> price
+-> name
+-> country
+-> address
+-> phone
+-> email
+
+user
+->user_id
+->user_name
+->password
+->email
+-> cart_id
+
+cart
+-> cart_id
+-> product_id
+
+
