@@ -39,6 +39,7 @@
                             <h5>+65 11.188.888</h5>
                             <span>support 24/7 time</span>
                         </div>
+
                     </div>
                 </div>
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
