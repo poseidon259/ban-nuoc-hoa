@@ -7,6 +7,7 @@ Product
 -> Tên SP
 -> Giá
 -> có sẵn
+-> desc
 
 Blog
 -> id
@@ -27,15 +28,8 @@ order_detail
 -> phone
 -> email
 
-user
-->user_id
-->user_name
-->password
-->email
--> cart_id
 
-cart
--> cart_id
--> product_id
+
+
 
 
