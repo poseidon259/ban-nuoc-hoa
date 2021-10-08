@@ -1,0 +1,35 @@
+Category
+-> id
+-> name
+
+Product
+-> id
+-> Tên SP
+-> Giá
+-> có sẵn
+-> desc
+
+Blog
+-> id
+-> title
+-> img
+-> descrip (substr -> short)
+-> category
+-> created_at
+
+order_detail
+-> order_id
+-> product_id
+-> quantity
+-> price
+-> name
+-> country
+-> address
+-> phone
+-> email
+
+
+
+
+
+
