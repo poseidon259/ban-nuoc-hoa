@@ -138,13 +138,13 @@
                             <li><a href="./shop">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    
                                     <li><a href="./shop-cart">Shoping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="./checkout">Check Out</a></li>
+                                    
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="./blog">Blog</a></li>
                             <li><a href="./contact">Contact</a></li>
                         </ul>
                     </nav>
@@ -175,7 +175,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="{{url('public/frontend')}}/img/logo.png" alt=""></a>
+                            <a href="./"><img src="{{url('public/frontend')}}/img/logo.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>
