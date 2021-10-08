@@ -29,6 +29,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/checkout', function() {
+    return view('checkout');
+});
+
 //Test routes
 Route::get('/test', 'TestController@index');
 Route::get('/test/{id}', 'TestController@view');
