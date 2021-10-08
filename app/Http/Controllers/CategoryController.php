@@ -8,6 +8,6 @@ use PhpParser\Node\Expr\FuncCall;
 class CategoryController extends Controller
 {
     public function view($id) {
-        return view('');
+        return view('category');
     }
 }
