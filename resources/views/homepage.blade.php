@@ -14,8 +14,9 @@
                         <span>Categories</span>
                     </div>
                     <ul>
-                        @for($i = 0; $i < 7; $i++) <li><a href="#">Fresh Meat</a></li>
-                            @endfor
+                        @foreach($data as $d)
+                        <li><a href="{{$d->link}}">{{$d->category_name}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -76,7 +77,7 @@
 <!-- Hero Section End -->
 
 <!-- Categories Section Begin -->
-<section class="categories">
+<section class="categories" id="thuonghieu">
     <div class="container">
         <div class="row">
             <div class="categories__slider owl-carousel">
@@ -159,10 +160,8 @@
                 <div class="latest-product__text">
                     <h4>Review Products</h4>
                     <div class="latest-product__slider owl-carousel">
-                        @for($i = 1; $i < 3; $i++) 
-                        <div class="latest-prdouct__slider__item">
-                            @for($j = 1; $j < 4; $j++) 
-                            <a href="#" class="latest-product__item">
+                        @for($i = 1; $i < 3; $i++) <div class="latest-prdouct__slider__item">
+                            @for($j = 1; $j < 4; $j++) <a href="#" class="latest-product__item">
                                 <div class="latest-product__item__pic">
                                     <img src="{{url('public/frontend')}}/img/Latest-product/lp-{{$j}}.jpg" alt="">
                                 </div>
@@ -170,8 +169,8 @@
                                     <h6>Crab Pool Security</h6>
                                     <span>$30.00</span>
                                 </div>
-                            </a>
-                            @endfor
+                                </a>
+                                @endfor
                     </div>
                     @endfor
                 </div>
