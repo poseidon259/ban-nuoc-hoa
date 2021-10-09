@@ -18,17 +18,13 @@ Route::get('/', 'HomepageController@view');
 
 Route::get('/shop', 'ShopController@view');
 
-Route::get('/shop-cart', function () {
-    return view('shop-cart');
-});
+Route::get('/shop-cart', 'ShoppingCartController@view');
 
 Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/checkout', function() {
-    return view('checkout');
-});
+Route::get('/checkout', 'CheckOutController@view');
 
 Route::get('/blog', function() {
     return view('blog');
