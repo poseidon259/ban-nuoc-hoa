@@ -94,27 +94,50 @@
 <!-- Categories Section End -->
 
 <!-- Featured Section Begin -->
-<section class="featured spad">
+<section class="featured spad" id="nuochoanam">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Featured Product</h2>
-                </div>
-                <div class="featured__controls">
-                    <ul>
-                        <li class="active" data-filter="*">Tất cả</li>
-                        <li data-filter=".oranges">Nước hoa nam</li>
-                        <li data-filter=".fresh-meat">Nước hoa nữ</li>
-                        <li data-filter=".vegetables">Nước hoa unisex</li>
-                        <li data-filter=".fastfood">Nước hoa theo mùa</li>
-                    </ul>
+                    <h2>Nước Hoa Nam</h2>
                 </div>
             </div>
         </div>
         <div class="row featured__filter">
             @for($i = 1; $i <= 8; $i++) 
-            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/Featured/feature-{{$i}}.jpg">
+                        <ul class="featured__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="featured__item__text">
+                        <h6><a href="#">Crab Pool Security</a></h6>
+                        <h5>$30.00</h5>
+                    </div>
+                </div>
+            </div>
+            @endfor
+        </div>
+    </div>
+</section>
+<!-- Featured Section End -->
+<!-- Featured Section Begin -->
+<section class="featured spad" id="nuochoanu">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Nước Hoa Nữ</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row featured__filter">
+            @for($i = 1; $i <= 8; $i++) 
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="featured__item">
                     <div class="featured__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/Featured/feature-{{$i}}.jpg">
                         <ul class="featured__item__pic__hover">
