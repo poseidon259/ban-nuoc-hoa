@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomepageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +14,7 @@ use App\Http\Controllers\HomepageController;
 */
 
 
+Route::get('/', 'HomepageController@view');
 
 Route::get('/shop', 'ShopController@view');
 
@@ -34,6 +34,3 @@ Route::get('/product/{id}', 'ProductController@view');
 
 
 
-Route::get('/admin', 'SignInController@index');
-
-Route::get('/', 'HomepageController@view');
