@@ -37,6 +37,3 @@ Route::get('/product/{id}', 'ProductController@view');
 Route::get('/admin', 'SignInController@index');
 Route::get('/admin/sign-in', 'SignInController@handleRequest');
 
-//Test routes
-Route::get('/test', 'TestController@index');
-Route::get('/test/{id}', 'TestController@view');
