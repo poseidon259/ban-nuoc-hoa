@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\FuncCall;
 use App\Models\Category;
-class CategoryController extends Controller
+class BlogController extends Controller
 {
     public function view() {
         $data = Category::all();
-        return view('category', compact('data'));
+        return view('blog', compact('data'));
     }
 }
+

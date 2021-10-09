@@ -24,9 +24,7 @@ Route::get('/checkout', 'CheckOutController@view');
 
 Route::get('/contact', 'ContactController@view');
 
-Route::get('/blog', function() {
-    return view('blog');
-});
+Route::get('/blog', 'BlogController@view');
 
 Route::get('/category/{id}', 'CategoryController@view');
 
