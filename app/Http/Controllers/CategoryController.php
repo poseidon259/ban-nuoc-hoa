@@ -8,13 +8,10 @@ use PhpParser\Node\Expr\FuncCall;
 use App\Models\Category;
 class CategoryController extends Controller
 {
-    public function view() {
-        $data = Category::all();
-        return view('category', compact('data'));
-    }
-
-    public function detail($category_id) {   
+    
+    public function detail($category_id) {  
+        $data = Category::all(); 
         $title = Category::where('category_id', $category_id)->first();
-        return view('category', compact('title'));
+        return view('categorydetail', compact('data', 'title'));
     }
 }

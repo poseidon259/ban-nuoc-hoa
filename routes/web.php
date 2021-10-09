@@ -32,6 +32,8 @@ Route::get('/category/{category_id}', 'CategoryController@detail');
 
 Route::get('/product/{id}', 'ProductController@view');
 
+
+
 Route::get('/admin', 'SignInController@index');
 Route::get('/admin/sign-in', 'SignInController@handleRequest');
 
