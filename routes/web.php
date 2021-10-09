@@ -20,7 +20,6 @@ Route::get('/shop', 'ShopController@view');
 
 Route::get('/shop-cart', 'ShoppingCartController@view');
 
-
 Route::get('/checkout', 'CheckOutController@view');
 
 Route::get('/contact', 'ContactController@view');
