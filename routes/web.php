@@ -20,11 +20,10 @@ Route::get('/shop', 'ShopController@view');
 
 Route::get('/shop-cart', 'ShoppingCartController@view');
 
-Route::get('/contact', function () {
-    return view('contact');
-});
 
 Route::get('/checkout', 'CheckOutController@view');
+
+Route::get('/contact', 'ContactController@view');
 
 Route::get('/blog', function() {
     return view('blog');
