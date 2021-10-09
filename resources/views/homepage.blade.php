@@ -72,9 +72,10 @@
             </div>
         </div>
     </div>
-    </div>
 </section>
 <!-- Hero Section End -->
+
+
 
 <!-- Categories Section Begin -->
 <section class="categories" id="thuonghieu">
@@ -181,10 +182,9 @@
 <section class="latest-product spad">
     <div class="container">
         <div class="row">
-            @for($l = 0; $l < 3; $l++) 
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-6 col-md-6" id="noibat">
                 <div class="latest-product__text">
-                    <h4>Review Products</h4>
+                    <h4>Nổi Bật</h4>
                     <div class="latest-product__slider owl-carousel">
                         @for($i = 1; $i < 3; $i++) 
                         <div class="latest-prdouct__slider__item">
@@ -201,11 +201,32 @@
                             @endfor
                         </div>
                         @endfor
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6" id="banchay">
+                <div class="latest-product__text">
+                    <h4>Bán Chạy</h4>
+                    <div class="latest-product__slider owl-carousel">
+                        @for($i = 1; $i < 3; $i++) 
+                        <div class="latest-prdouct__slider__item">
+                            @for($j = 1; $j < 4; $j++) 
+                            <a href="#" class="latest-product__item">
+                                <div class="latest-product__item__pic">
+                                    <img src="{{url('public/frontend')}}/img/Latest-product/lp-{{$j}}.jpg" alt="">
+                                </div>
+                                <div class="latest-product__item__text">
+                                    <h6>Crab Pool Security</h6>
+                                    <span>$30.00</span>
+                                </div>
+                            </a>
+                            @endfor
+                        </div>
+                        @endfor
+                    </div>
                 </div>
             </div>
         </div>
-        @endfor
-    </div>
     </div>
 </section>
 <!-- Latest Product Section End -->
