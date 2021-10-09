@@ -27,13 +27,10 @@ Route::get('/contact', 'ContactController@view');
 
 Route::get('/blog', 'BlogController@view');
 
-Route::get('/category/{id}', 'CategoryController@view');
+Route::get('/category', 'CategoryController@view');
 
 Route::get('/product/{id}', 'ProductController@view');
 
-Route::get('/admin', 'SignInController@index');
-Route::get('/admin/sign-in', 'SignInController@handleRequest');
 
-//Test routes
-Route::get('/test', 'TestController@index');
-Route::get('/test/{id}', 'TestController@view');
+//
+Route::get('/test', 'CategoryController@handleData');

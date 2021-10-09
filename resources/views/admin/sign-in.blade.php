@@ -127,7 +127,6 @@
     <div class="container" id="container">
         <div class="form-container">
             <form action="" method="post">
-                {{ csrf_field()}}
                 <h1>Sign in</h1>
                 <span>or use your account</span>
                 <input type="text" placeholder="Email or Username" name="email"/>
