@@ -175,7 +175,7 @@
                             </div>
                             <ul>
                                 @foreach($data as $d)
-                                <li><a href="{{$d->link}}">{{$d->category_name}}</a></li>
+                                <li><a href="./category/{{$d->category_id}}">{{$d->category_name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
