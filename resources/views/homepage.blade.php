@@ -14,13 +14,8 @@
                         <span>Categories</span>
                     </div>
                     <ul>
-<<<<<<< HEAD
                         @foreach($data as $d)
                         <li><a href="{{$d->link}}">{{$d->category_name}}</a></li>
-=======
-                        @foreach($data as $item)
-                        <li><a href="#">{{$item->category_name}}</a></li>
->>>>>>> 52a86d8462c1db5d18c471624a6208f4611f9501
                         @endforeach
                     </ul>
                 </div>
@@ -86,13 +81,14 @@
     <div class="container">
         <div class="row">
             <div class="categories__slider owl-carousel">
-                @for($i = 1; $i <= 12; $i++) <div class="col-md-4">
+                @for($i = 1; $i <= 12; $i++) 
+                <div class="col-md-4">
                     <div class="categories__item set-bg" data-setbg="{{url('public/frontend')}}/img/Categories/thuonghieu-{{$i}}.jpg">
                     </div>
+                </div>
+                @endfor
             </div>
-            @endfor
         </div>
-    </div>
     </div>
 </section>
 <!-- Categories Section End -->
@@ -117,7 +113,8 @@
             </div>
         </div>
         <div class="row featured__filter">
-            @for($i = 1; $i <= 8; $i++) <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+            @for($i = 1; $i <= 8; $i++) 
+            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                 <div class="featured__item">
                     <div class="featured__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/Featured/feature-{{$i}}.jpg">
                         <ul class="featured__item__pic__hover">
@@ -131,9 +128,9 @@
                         <h5>$30.00</h5>
                     </div>
                 </div>
+            </div>
+            @endfor
         </div>
-        @endfor
-    </div>
     </div>
 </section>
 <!-- Featured Section End -->
@@ -161,12 +158,15 @@
 <section class="latest-product spad">
     <div class="container">
         <div class="row">
-            @for($l = 0; $l < 3; $l++) <div class="col-lg-4 col-md-6">
+            @for($l = 0; $l < 3; $l++) 
+            <div class="col-lg-4 col-md-6">
                 <div class="latest-product__text">
                     <h4>Review Products</h4>
                     <div class="latest-product__slider owl-carousel">
-                        @for($i = 1; $i < 3; $i++) <div class="latest-prdouct__slider__item">
-                            @for($j = 1; $j < 4; $j++) <a href="#" class="latest-product__item">
+                        @for($i = 1; $i < 3; $i++) 
+                        <div class="latest-prdouct__slider__item">
+                            @for($j = 1; $j < 4; $j++) 
+                            <a href="#" class="latest-product__item">
                                 <div class="latest-product__item__pic">
                                     <img src="{{url('public/frontend')}}/img/Latest-product/lp-{{$j}}.jpg" alt="">
                                 </div>
@@ -174,14 +174,14 @@
                                     <h6>Crab Pool Security</h6>
                                     <span>$30.00</span>
                                 </div>
-                                </a>
-                                @endfor
-                    </div>
-                    @endfor
+                            </a>
+                            @endfor
+                        </div>
+                        @endfor
                 </div>
+            </div>
         </div>
-    </div>
-    @endfor
+        @endfor
     </div>
     </div>
 </section>
@@ -198,10 +198,11 @@
             </div>
         </div>
         <div class="row">
-            @for($i = 1; $i < 4; $i++) <div class="col-lg-4 col-md-4 col-sm-6">
+            @for($i = 1; $i < 4; $i++) 
+            <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="blog__item">
                     <div class="blog__item__pic">
-                        <img src="{{url('public/frontend')}}/img/Blog/blog-{{$i}}.jpg" alt="">
+                        <img src="{{url('public/frontend')}}/img/Blog/blog-{{ $i }}.jpg" alt="">
                     </div>
                     <div class="blog__item__text">
                         <ul>
@@ -211,10 +212,9 @@
                         <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
                     </div>
                 </div>
+            </div>
+            @endfor
         </div>
-        @endfor
-
-    </div>
     </div>
 </section>
 <!-- Blog Section End -->
