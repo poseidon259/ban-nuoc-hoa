@@ -26,7 +26,9 @@ Route::get('/contact', 'ContactController@view');
 
 Route::get('/blog', 'BlogController@view');
 
-Route::get('/category/{id}', 'CategoryController@view');
+Route::get('/category', 'CategoryController@view');
+
+Route::get('/category/{category_id}', 'CategoryController@detail');
 
 //Test routes
 Route::get('/test', 'TestController@index');
