@@ -26,7 +26,7 @@
             <div class="col-lg-4 col-md-5">
                 <div class="blog__sidebar">
                     <div class="blog__sidebar__item">
-                        <h4>Categories</h4>
+                        <h4>Tags</h4>
                         <ul>
                             <li><a href="#">All</a></li>
                             <li><a href="#">Beauty (20)</a></li>
