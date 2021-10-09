@@ -8,7 +8,7 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    public function view() {
+    public function view($id) {
         return view('category');
     }
 }
