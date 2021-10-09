@@ -16,9 +16,7 @@ use App\Http\Controllers\HomepageController;
 
 Route::get('/', 'HomepageController@view');
 
-Route::get('/shop', function () {
-    return view('shop');
-});
+Route::get('/shop', 'ShopController@view');
 
 Route::get('/shop-cart', function () {
     return view('shop-cart');
