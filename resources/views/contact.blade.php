@@ -1,10 +1,6 @@
 @extends('layouts.site')
 
 @section('child-ui')
-<!-- Hero Section Begin -->
-
-    <!-- Hero Section End -->
-
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="">
         <div class="container">
