@@ -33,7 +33,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="{{url('public/frontend')}}/img/logo1.png" alt=""></a>
+            <a href="#"><img src="{{url('public/frontend')}}/img/logo2.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -177,7 +177,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./"><img src="{{url('public/frontend')}}/img/logo.png" alt=""></a>
+                            <a href="./"><img src="{{url('public/frontend')}}/img/logo2.png" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>

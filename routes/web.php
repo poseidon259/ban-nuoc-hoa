@@ -30,6 +30,10 @@ Route::get('/checkout', function() {
     return view('checkout');
 });
 
+Route::get('/blog', function() {
+    return view('blog');
+});
+
 Route::get('/category/{id}', 'CategoryController@view');
 
 //Test routes
