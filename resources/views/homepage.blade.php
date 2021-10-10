@@ -193,7 +193,7 @@
             @for($i = 1; $i < 4; $i++) <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="blog__item">
                     <div class="blog__item__pic">
-                        <img src="{{url('public/frontend')}}/img/Blog/blog-{{ $i }}.jpg" alt="">
+                        <img src="{{url('public/frontend')}}/img/Blog/blog{{ $i }}.jpg" alt="">
                     </div>
                     <div class="blog__item__text">
                         <ul>
