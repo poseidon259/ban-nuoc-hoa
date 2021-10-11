@@ -31,4 +31,6 @@ Route::get('/category', 'CategoryController@view');
 Route::get('/category/{category_id}', 'CategoryController@detail');
 
 Route::get('/product/{id}', 'ProductController@view');
+Route::get('/admin', 'AdminController@SignIn');
+Route::post('/admin', 'AdminController@getSignIn')->name('getSignIn');
 

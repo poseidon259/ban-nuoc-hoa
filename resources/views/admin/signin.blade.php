@@ -126,12 +126,13 @@
 <body>
     <div class="container" id="container">
         <div class="form-container">
-            <form action="" method="post">
+            <form action="{{ route('getSignIn') }}" method="post">
+                @csrf
                 <h1>Sign in</h1>
                 <span>or use your account</span>
                 <input type="text" placeholder="Email or Username" name="email"/>
                 <input type="password" placeholder="Password" name="pwd"/>
-                <button>Sign In</button>
+                <button type="submit">Sign In</button>
             </form>
         </div>
     </div>
