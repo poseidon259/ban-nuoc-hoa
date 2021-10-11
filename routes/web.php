@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomepageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +12,7 @@ use App\Http\Controllers\HomepageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::get('/', 'HomepageController@view');
 
@@ -26,7 +26,9 @@ Route::get('/contact', 'ContactController@view');
 
 Route::get('/blog', 'BlogController@view');
 
-Route::get('/category/{id}', 'CategoryController@view');
+Route::get('/category', 'CategoryController@view');
+
+Route::get('/category/{category_id}', 'CategoryController@detail');
 
 Route::get('/product/{id}', 'ProductController@view');
 
