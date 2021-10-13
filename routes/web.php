@@ -19,7 +19,7 @@ Route::get('/blog', 'BlogController@view')->name('blog');
 
 Route::get('/category/{category_id}', 'CategoryController@detail');
 
-Route::get('/product/{id}', 'ProductController@view');
+Route::get('/product/{id}', 'ProductController@view')->name('product');
 
 Route::get('/register', 'RegisterController@view');
 
