@@ -65,7 +65,7 @@
                     <div class="featured__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/{{$product->image}}">
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i></a></li>
+                            <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
@@ -97,7 +97,7 @@
                     <div class="featured__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/{{$product->image}}">
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i></a></li>
+                            <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
