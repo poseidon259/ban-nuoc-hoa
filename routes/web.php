@@ -25,6 +25,10 @@ Route::get('/product/{id}', 'ProductController@view');
 
 Route::get('/register', 'RegisterController@view');
 
+Route::get('/login', 'LoginController@form');
+
+Route::post('/login', 'LoginController@login');
+
 Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('admin', 'AdminController@view');
 });
