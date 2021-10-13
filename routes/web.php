@@ -32,7 +32,9 @@ Route::get('/category/{category_id}', 'CategoryController@detail');
 
 Route::get('/product/{id}', 'ProductController@view');
 
-
+Route::group(['middleware' => 'isAdmin'], function () {
+    Route::get('admin', 'adminController@adminDashboard');
+});
 
 Route::get('/admin', 'SignInController@index');
 Route::get('/admin/sign-in', 'SignInController@handleRequest');

@@ -71,14 +71,14 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./"><img src="{{url('public/frontend')}}/img/logo1.png" alt="" width="200px" height="100px"></a>
+                        <a href="/laravel-project2"><img src="{{url('public/frontend')}}/img/logo1.png" alt="" width="200px" height="100px"></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="./">Home</a></li>
-                            <li><a href="./shop">Shop</a></li>
+                            <li><a href="/laravel-project2/shop">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     
@@ -118,7 +118,7 @@
                             </div>
                             <ul>
                                 @foreach($data as $d)
-                                <li><a href="./category/{{$d->category_id}}">{{$d->category_name}}</a></li>
+                                <li><a href="category/{{$d->category_id}}">{{$d->category_name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
