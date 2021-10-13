@@ -21,9 +21,10 @@ Route::get('/category/{category_id}', 'CategoryController@detail');
 
 Route::get('/product/{id}', 'ProductController@view');
 
-Route::get('/register', 'RegisterController@view');
+Route::get('/register', 'RegisterController@create')->name('register');
+Route::post('register', 'RegisterController@store');
 
-Route::get('/login', 'LoginController@form');
+Route::get('/login', 'LoginController@form')->name('login');
 
 Route::post('/login', 'LoginController@login');
 
