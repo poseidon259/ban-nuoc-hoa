@@ -34,10 +34,10 @@ class isAdmin
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->back(); //todo h peut-etre une fenetre modale pour dire acces refusé ici...
+                return redirect()->back();
             }
         }
 
-    return $next($request);
+        return $next($request);
     }
 }
