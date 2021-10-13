@@ -78,17 +78,17 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="{{route('home')}}">Home</a></li>
-                            <li><a href="./shop">Shop</a></li>
+                            <li><a href="{{route('shop')}}">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
                                     
-                                    <li><a href="./shop-cart">Shoping Cart</a></li>
-                                    <li><a href="./checkout">Check Out</a></li>
+                                    <li><a href="{{route('shop-cart')}}">Shoping Cart</a></li>
+                                    <li><a href="{{route('checkout')}}">Check Out</a></li>
                                     
                                 </ul>
                             </li>
-                            <li><a href="./blog">Blog</a></li>
-                            <li><a href="./contact">Contact</a></li>
+                            <li><a href="{{route('blog')}}">Blog</a></li>
+                            <li><a href="{{route('contact')}}">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
