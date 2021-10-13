@@ -33,5 +33,6 @@ Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('admin', 'AdminController@view');
 });
 
-
+Route::get('/admin', 'AdminController@SignIn');
+Route::post('/admin', 'AdminController@getSignIn')->name('getSignIn');
 
