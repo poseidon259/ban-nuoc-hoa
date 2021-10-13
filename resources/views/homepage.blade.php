@@ -59,9 +59,10 @@
             </div>
         </div>
         <div class="row featured__filter">
-            @for($i = 1; $i <= 8; $i++) <div class="col-lg-3 col-md-4 col-sm-6">
+            @foreach($productForMan as $product)
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/Featured/feature-{{$i}}.jpg">
+                    <div class="featured__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/{{$product->image}}">
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i></a></li>
@@ -69,12 +70,12 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
+                        <h6><a href="#">{{$product->product_name}}</a></h6>
+                        <h5>${{$product->price}}</h5>
                     </div>
                 </div>
-        </div>
-        @endfor
+            </div>
+            @endforeach
     </div>
     </div>
 </section>
@@ -90,9 +91,10 @@
             </div>
         </div>
         <div class="row featured__filter">
-            @for($i = 1; $i <= 8; $i++) <div class="col-lg-3 col-md-4 col-sm-6">
+            @foreach($productForWoman as $product) 
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/Featured/feature-{{$i}}.jpg">
+                    <div class="featured__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/{{$product->image}}">
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i></a></li>
@@ -100,12 +102,12 @@
                         </ul>
                     </div>
                     <div class="featured__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
+                        <h6><a href="#">{{$product->product_name}}</a></h6>
+                        <h5>${{$product->price}}</h5>
                     </div>
                 </div>
-        </div>
-        @endfor
+            </div>
+            @endforeach
     </div>
     </div>
 </section>
@@ -138,8 +140,10 @@
                 <div class="latest-product__text">
                     <h4>Nổi Bật</h4>
                     <div class="latest-product__slider owl-carousel">
-                        @for($i = 1; $i < 3; $i++) <div class="latest-prdouct__slider__item">
-                            @for($j = 1; $j < 4; $j++) <a href="#" class="latest-product__item">
+                        @for($i = 0; $i < 2; $i++) 
+                        <div class="latest-prdouct__slider__item">
+                            @for($j = 0; $j < 3; $j++) 
+                            <a href="#" class="latest-product__item">
                                 <div class="latest-product__item__pic">
                                     <img src="{{url('public/frontend')}}/img/Latest-product/lp-{{$j}}.jpg" alt="">
                                 </div>
@@ -147,10 +151,10 @@
                                     <h6>Crab Pool Security</h6>
                                     <span>$30.00</span>
                                 </div>
-                                </a>
-                                @endfor
-                    </div>
-                    @endfor
+                            </a>
+                            @endfor
+                        </div>
+                        @endfor
                 </div>
             </div>
         </div>
