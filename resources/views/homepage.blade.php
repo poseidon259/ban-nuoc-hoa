@@ -132,57 +132,6 @@
 </div>
 <!-- Banner End -->
 
-<!-- Latest Product Section Begin -->
-<section class="latest-product spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6" id="noibat">
-                <div class="latest-product__text">
-                    <h4>Nổi Bật</h4>
-                    <div class="latest-product__slider owl-carousel">
-                        @for($i = 0; $i < 2; $i++) 
-                        <div class="latest-prdouct__slider__item">
-                            @for($j = 0; $j < 3; $j++) 
-                            <a href="#" class="latest-product__item">
-                                <div class="latest-product__item__pic">
-                                    <img src="{{url('public/frontend')}}/img/Latest-product/lp-{{$j}}.jpg" alt="">
-                                </div>
-                                <div class="latest-product__item__text">
-                                    <h6>Crab Pool Security</h6>
-                                    <span>$30.00</span>
-                                </div>
-                            </a>
-                            @endfor
-                        </div>
-                        @endfor
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 col-md-6" id="banchay">
-            <div class="latest-product__text">
-                <h4>Bán Chạy</h4>
-                <div class="latest-product__slider owl-carousel">
-                    @for($i = 1; $i < 3; $i++) <div class="latest-prdouct__slider__item">
-                        @for($j = 1; $j < 4; $j++) <a href="#" class="latest-product__item">
-                            <div class="latest-product__item__pic">
-                                <img src="{{url('public/frontend')}}/img/Latest-product/lp-{{$j}}.jpg" alt="">
-                            </div>
-                            <div class="latest-product__item__text">
-                                <h6>Crab Pool Security</h6>
-                                <span>$30.00</span>
-                            </div>
-                            </a>
-                            @endfor
-                </div>
-                @endfor
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-</section>
-<!-- Latest Product Section End -->
-
 <!-- Blog Section Begin -->
 <section class="from-blog spad">
     <div class="container">

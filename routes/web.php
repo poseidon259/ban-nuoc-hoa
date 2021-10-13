@@ -14,19 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'HomepageController@view');
+Route::get('/', 'HomepageController@view')->name('home');
 
-Route::get('/shop', 'ShopController@view');
+Route::get('/shop', 'ShopController@view')->name('shop');
 
-Route::get('/shop-cart', 'ShoppingCartController@view');
+Route::get('/shop-cart', 'ShoppingCartController@view')->name('shop-cart');
 
-Route::get('/checkout', 'CheckOutController@view');
+Route::get('/checkout', 'CheckOutController@view')->name('checkout');
 
-Route::get('/contact', 'ContactController@view');
+Route::get('/contact', 'ContactController@view')->name('contact');
 
-Route::get('/blog', 'BlogController@view');
-
-Route::get('/category', 'CategoryController@view');
+Route::get('/blog', 'BlogController@view')->name('blog');
 
 Route::get('/category/{category_id}', 'CategoryController@detail');
 
