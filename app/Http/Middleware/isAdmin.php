@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Middleware\Auth;
+use Illuminate\Support\Facades\Auth;
 class isAdmin
 {
     /**
