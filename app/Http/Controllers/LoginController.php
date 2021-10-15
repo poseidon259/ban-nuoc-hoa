@@ -4,35 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\Session\Session;
-use App\Models\Account;
-use Illuminate\Support\Facades\DB;
+
 
 class LoginController extends Controller
 {
-    public function __construct()
-    {
-        @session_start();
+    protected $table = 'account';
+    public function index() {
+        return redirect()->route('login');
     }
-
     public function form() {
-        return view('login');
+        return view('admin.login');
     }
 
     public function login(Request $request) {
-        $email = $request->input('email');
-		$password = $request->input('password');
-        $auth = DB::table('account')->where('email', $email)->where('password', $password);
-		if($auth) {
+        $arr = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+		if(Auth::attempt($arr)) {
 			// Kiểm tra đúng email và mật khẩu sẽ chuyển trang
-            
-			return redirect('/');
+            return redirect()->route('dashboard');
 		} else {
-			// Kiểm tra không đúng sẽ hiển thị thông báo lỗi
-			$request->session()->flash('error', 'Email hoặc mật khẩu không đúng!');
-			return redirect('login');
+			// Kiểm tra không đúng ko cho đăng nhập
+            return redirect()->route('login');
 		}
     }
 
-   
+   public function logout() {
+       Auth::logout();
+       return redirect()->route('login');
+   }
 }

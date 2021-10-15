@@ -8,30 +8,19 @@ use Illuminate\Support\Facades\DB;
 class RegisterController extends Controller
 {
     public function create() {
-        return view('register');
+        return view('admin.register');
     }
 
     public function store(Request $request) {
-        $this->validate(request(), [
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
-        $phonenumber = $request->input('phonenumber');
-        $address = $request->input('address');
-        
-        DB::table('account')->insert([
-            'account_name'=> $name,
-            'email' => $email,
-            'password' => $password,
-            'phonenumber' => $phonenumber,
-            'address' => $address
-        ]);
-        
-        
-        return redirect()->to('/');
 
+        $item = [
+            'account_name'=> $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'phonenumber' => $request->phonenumber,
+            'address' => $request->address
+        ];
+        Account::insert($item);
+        return Redirect()->route('login');
     }
 }

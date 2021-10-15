@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1>DashBoard</h1>
+    <a href="{{route('logout')}}">Logout</a>
 </body>
 </html>

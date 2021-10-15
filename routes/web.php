@@ -21,19 +21,16 @@ Route::get('/category/{category_id}', 'CategoryController@detail');
 
 Route::get('/product/{id}', 'ProductController@view')->name('product');
 
-Route::get('/register', 'RegisterController@create')->name('register');
-Route::post('register', 'RegisterController@store');
+Route::get('/admin/register', 'RegisterController@create')->name('register');
+Route::post('/admin/register', 'RegisterController@store');
 
-Route::get('/login', 'LoginController@form')->name('login');
+Route::get('/admin', 'LoginController@index');
+Route::get('/admin/login', 'LoginController@form')->name('login')->middleware('isAdmin');
+Route::post('/admin/login', 'LoginController@login');
+Route::get('/admin/logout', 'LoginController@logout')->name('logout');
 
-Route::post('/login', 'LoginController@login');
+Route::get('/admin/dashboard', 'AdminController@index')->name('dashboard');
 
-Route::group(['middleware' => 'isAdmin'], function () {
-    Route::get('admin', 'AdminController@view');
-});
-
-Route::get('/admin', 'AdminController@SignIn');
-Route::post('/admin', 'AdminController@getSignIn')->name('getSignIn');
 
 
 

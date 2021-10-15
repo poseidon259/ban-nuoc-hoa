@@ -53,7 +53,7 @@
         margin: 15px 0;
     }
 
-    button {
+    a, button{
         border-radius: 20px;
         border: 1px solid #FF4B2B;
         background-color: #FF4B2B;
@@ -68,15 +68,15 @@
         cursor: pointer;
     }
 
-    button:active {
+    a:active, button:active {
         transform: scale(0.95);
     }
 
-    button:focus {
+    a:focus, button:focus {
         outline: none;
     }
 
-    button.ghost {
+    a.ghost, button.ghost {
         background-color: transparent;
         border-color: #FFFFFF;
     }
@@ -266,50 +266,20 @@
     }
 </style>
 
-@if ( Session::has('success') )
-	<div class="alert alert-success alert-dismissible" role="alert">
-		<strong>{{ Session::get('success') }}</strong>
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			<span class="sr-only">Close</span>
-		</button>
-	</div>
-@endif
-<?php //Hiển thị thông báo lỗi?>
-@if ( Session::has('error') )
-	<div class="alert alert-danger alert-dismissible" role="alert">
-		<strong>{{ Session::get('error') }}</strong>
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			<span class="sr-only">Close</span>
-		</button>
-	</div>
-@endif
-@if ($errors->any())
-	<div class="alert alert-danger alert-dismissible" role="alert">
-		<ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			<span class="sr-only">Close</span>
-		</button>
-	</div>
-@endif
-
 <body>
     <div class="container" id="container">
         
         <div class="form-container sign-in-container">
-            <form action="/laravel-project2/login" method="POST">
-                {{ csrf_field() }}
-                <h1>Sign In</h1>
-                <span>Welcome back!</span>
-                <input type="email" id="email" name="email" placeholder="Email" />
+            <form action="" method="POST">
+                @csrf
+                <h1>Sign Up</h1>
+                <span>Join us now</span>
+                <input type="text" id="name" name="name" placeholder="Your name" />
+                <input type="text" id="email" name="email" placeholder="Email" />
                 <input type="password" id="password" name="password" placeholder="Password" />
-                <button>Sign In</button>
+                <input type="text" id="phonenumber" name="phonenumber" placeholder="Phone number" />
+                <input type="text" id="address" name="address" placeholder="Address" />
+                <button>Sign Up</button>
             </form>
         </div>
         <div class="overlay-container">
@@ -322,7 +292,7 @@
                 <div class="overlay-panel overlay-right">
                     <h1>Hello, Friend!</h1>
                     <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp"><a href="{{'register'}}">Sign Up</a></button>
+                    <a href="{{route('login')}}" class="ghost" id="signUp">Sign In</a>
                 </div>
             </div>
         </div>
