@@ -14,4 +14,6 @@ class ProductController extends Controller
         //dd($product_byID);
         return view('product', compact('data', 'product_byID'));
     }
+
+    
 }

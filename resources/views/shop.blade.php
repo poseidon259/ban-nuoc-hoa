@@ -3,7 +3,7 @@
 @section('child-ui')
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="{{url('public/frontend')}}/img/bread1.jpg">
+    <section class="breadcrumb-section set-bg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -35,33 +35,7 @@
                             </ul>
                         </div>
                 
-                        <div class="sidebar__item">
-                            <h4>Popular Size</h4>
-                            <div class="sidebar__item__size">
-                                <label for="large">
-                                    Large
-                                    <input type="radio" id="large">
-                                </label>
-                            </div>
-                            <div class="sidebar__item__size">
-                                <label for="medium">
-                                    Medium
-                                    <input type="radio" id="medium">
-                                </label>
-                            </div>
-                            <div class="sidebar__item__size">
-                                <label for="small">
-                                    Small
-                                    <input type="radio" id="small">
-                                </label>
-                            </div>
-                            <div class="sidebar__item__size">
-                                <label for="tiny">
-                                    Tiny
-                                    <input type="radio" id="tiny">
-                                </label>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
@@ -80,7 +54,7 @@
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                                 <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li ><a  href="#"class="add-to-cart" data-url="{{route('addToCart', ['id'=>$product->product_id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
@@ -126,7 +100,7 @@
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="#" class="add-to-cart" data-url="{{route('addToCart', ['id'=>$product->product_id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -146,4 +120,33 @@
         </div>
     </section>
     <!-- Product Section End -->
+    <script src="{{url('public/frontend')}}/js/jquery-3.3.1.min.js"></script>
+    <script src="{{url('public/frontend')}}/js/bootstrap.min.js"></script>
+    <script src="{{url('public/frontend')}}/js/jquery.nice-select.min.js"></script>
+    <script src="{{url('public/frontend')}}/js/jquery-ui.min.js"></script>
+    <script src="{{url('public/frontend')}}/js/jquery.slicknav.js"></script>
+    <script src="{{url('public/frontend')}}/js/mixitup.min.js"></script>
+    <script src="{{url('public/frontend')}}/js/owl.carousel.min.js"></script>
+    <script src="{{url('public/frontend')}}/js/main.js"></script>
+<script>
+    function addToCart(e) {
+        e.preventDefault();
+        let urlCart = $(this).data('url');
+      
+        $.ajax({
+            type: "GET",
+            url: urlCart,
+            dataType: "json",
+            success: function(data) {
+                console.log("success")
+            },
+            error: function () {
+                console.log("error")
+            }
+        })
+    }
+    $(function() {
+        $('.add-to-cart').on('click', addToCart);
+    })
+</script>
 @stop()

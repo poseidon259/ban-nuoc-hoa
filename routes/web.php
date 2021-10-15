@@ -28,6 +28,8 @@ Route::get('/login', 'LoginController@form')->name('login');
 
 Route::post('/login', 'LoginController@login');
 
+Route::get('shop/add-to-cart/{id}', 'ShopController@addToCart')->name('addToCart');
+
 Route::group(['middleware' => 'isAdmin'], function () {
     Route::get('admin', 'AdminController@view');
 });
