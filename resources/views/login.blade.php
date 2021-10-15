@@ -266,20 +266,50 @@
     }
 </style>
 
+@if ( Session::has('success') )
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<strong>{{ Session::get('success') }}</strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			<span class="sr-only">Close</span>
+		</button>
+	</div>
+@endif
+<?php //Hiển thị thông báo lỗi?>
+@if ( Session::has('error') )
+	<div class="alert alert-danger alert-dismissible" role="alert">
+		<strong>{{ Session::get('error') }}</strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			<span class="sr-only">Close</span>
+		</button>
+	</div>
+@endif
+@if ($errors->any())
+	<div class="alert alert-danger alert-dismissible" role="alert">
+		<ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			<span class="sr-only">Close</span>
+		</button>
+	</div>
+@endif
+
 <body>
     <div class="container" id="container">
         
         <div class="form-container sign-in-container">
-            <form action="/laravel-project2/register" method="POST">
+            <form action="/laravel-project2/login" method="POST">
                 {{ csrf_field() }}
-                <h1>Sign Up</h1>
-                <span>Join us now</span>
-                <input type="text" id="name" name="name" placeholder="Your name" />
+                <h1>Sign In</h1>
+                <span>Welcome back!</span>
                 <input type="email" id="email" name="email" placeholder="Email" />
                 <input type="password" id="password" name="password" placeholder="Password" />
-                <input type="text" id="phonenumber" name="phonenumber" placeholder="Phone number" />
-                <input type="text" id="address" name="address" placeholder="Address" />
-                <button>Sign Up</button>
+                <button>Sign In</button>
             </form>
         </div>
         <div class="overlay-container">
@@ -292,7 +322,7 @@
                 <div class="overlay-panel overlay-right">
                     <h1>Hello, Friend!</h1>
                     <p>Enter your personal details and start journey with us</p>
-                    {{-- <button class="ghost" id="signUp">Sign Up</button> --}}
+                    <button class="ghost" id="signUp"><a href="{{'register'}}">Sign Up</a></button>
                 </div>
             </div>
         </div>
