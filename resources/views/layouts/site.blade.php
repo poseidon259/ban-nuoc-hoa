@@ -96,7 +96,7 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="{{route('shop-cart')}}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                         <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>
@@ -118,7 +118,7 @@
                             </div>
                             <ul>
                                 @foreach($data as $d)
-                                <li><a href="category/{{$d->category_id}}">{{$d->category_name}}</a></li>
+                                    <li><a href="{{ route('category', ['category_id' => $d->category_id]) }}">{{$d->category_name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>

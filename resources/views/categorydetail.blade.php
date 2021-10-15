@@ -22,38 +22,14 @@
                 <div class="sidebar">
                     <div class="sidebar__item">
                         <h4>Danh mục nổi bật</h4>
+                        @foreach ($data as $item)
                         <ul>
-                        
+                            <li>{{$item->category_name}}</li>
                         </ul>
+                        @endforeach
                     </div>
             
-                    <div class="sidebar__item">
-                        <h4>Popular Size</h4>
-                        <div class="sidebar__item__size">
-                            <label for="large">
-                                Large
-                                <input type="radio" id="large">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__size">
-                            <label for="medium">
-                                Medium
-                                <input type="radio" id="medium">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__size">
-                            <label for="small">
-                                Small
-                                <input type="radio" id="small">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__size">
-                            <label for="tiny">
-                                Tiny
-                                <input type="radio" id="tiny">
-                            </label>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <div class="col-lg-9 col-md-7">
@@ -71,7 +47,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="filter__found">
-                                <h6><span>16</span> Products found</h6>
+                                <h6><span></span> Products found</h6>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-3">
@@ -83,10 +59,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    @for($i = 1; $i <= 12; $i++)
+                    @foreach($product as $item)
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product{{$i}}.jpg">
+                            <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/{{$item->image}}">
                                 <ul class="product__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -94,12 +70,12 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="#">Crab Pool Security</a></h6>
-                                <h5>$30.00</h5>
+                                <h6><a href="#">{{$item->product_name}}</a></h6>
+                                <h5>${{$item->price}}</h5>
                             </div>
                         </div>
                     </div>
-                    @endfor
+                    @endforeach
                 </div>
                 <div class="product__pagination">
                     <a href="#">1</a>
