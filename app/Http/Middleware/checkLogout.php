@@ -16,7 +16,7 @@ class checkLogout
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::guest()) {
+        if(!Auth::check()) {
             return redirect()->intended('admin/login');
         }
 

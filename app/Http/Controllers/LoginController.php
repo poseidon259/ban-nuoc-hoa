@@ -24,15 +24,15 @@ class LoginController extends Controller
 
 		if(Auth::attempt($arr)) {
 			// Kiểm tra đúng email và mật khẩu sẽ chuyển trang
-            return redirect()->route('dashboard');
+            return redirect()->intended('admin/dashboard');
 		} else {
 			// Kiểm tra không đúng ko cho đăng nhập
-            return redirect()->route('login');
+            return redirect()->intended('admin/login');
 		}
     }
 
    public function logout() {
        Auth::logout();
-       return redirect()->route('login');
+       return redirect()->intended('admin/login');
    }
 }

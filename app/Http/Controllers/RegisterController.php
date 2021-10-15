@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Account;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 class RegisterController extends Controller
 {
@@ -14,13 +14,11 @@ class RegisterController extends Controller
     public function store(Request $request) {
 
         $item = [
-            'account_name'=> $request->name,
+            'name'=> $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'phonenumber' => $request->phonenumber,
-            'address' => $request->address
+            'password' => bcrypt($request->password)
         ];
-        Account::insert($item);
+        User::insert($item);
         return Redirect()->route('login');
     }
 }

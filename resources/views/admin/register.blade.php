@@ -277,8 +277,6 @@
                 <input type="text" id="name" name="name" placeholder="Your name" />
                 <input type="text" id="email" name="email" placeholder="Email" />
                 <input type="password" id="password" name="password" placeholder="Password" />
-                <input type="text" id="phonenumber" name="phonenumber" placeholder="Phone number" />
-                <input type="text" id="address" name="address" placeholder="Address" />
                 <button>Sign Up</button>
             </form>
         </div>

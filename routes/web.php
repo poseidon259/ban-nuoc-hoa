@@ -29,7 +29,7 @@ Route::get('/admin/login', 'LoginController@form')->name('login')->middleware('i
 Route::post('/admin/login', 'LoginController@login');
 Route::get('/admin/logout', 'LoginController@logout')->name('logout');
 
-Route::get('/admin/dashboard', 'AdminController@index')->name('dashboard');
+Route::get('/admin/dashboard', 'AdminController@index')->name('dashboard')->middleware('checkLogout');
 
 
 
