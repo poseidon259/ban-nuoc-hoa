@@ -29,9 +29,9 @@
                         <div class="sidebar__item">
                             <h4>Danh mục nổi bật</h4>
                             <ul>
-                                @for($i=4; $i>=0; $i--)
-                                <li><a href="#">{{$data[$i]->category_name}}</a></li>
-                                @endfor
+                                @foreach($data as $item)
+                                <li><a href="#">{{$item->category_name}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                 
@@ -71,26 +71,26 @@
                         </div>
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
-                                @for($i = 1; $i <= 6; $i++)
+                                @foreach($productSale as $product)
                                 <div class="col-lg-4">
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{url('public/frontend')}}/img/product/Discount/pd-{{$i}}.jpg">
+                                            data-setbg="{{url('public/frontend')}}/img/product/{{$product->image}}">
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
                                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
-                                            <span>Dried Fruit</span>
-                                            <h5><a href="#">Raisin’n’nuts</a></h5>
-                                            <div class="product__item__price">$30.00 <span>$36.00</span></div>
+                                            <span>Sale</span>
+                                            <h5><a href="{{ route('product', ['id' => $product->product_id]) }}">{{$product->product_name}}</a></h5>
+                                            <div class="product__item__price">${{$product->price - $product->price * $product->sale}} <span>${{$product->price}}</span></div>
                                         </div>
                                     </div>
                                 </div>
-                                @endfor
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
+                                    <h6><span>{{$amount}}</span> Products found</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -119,29 +119,27 @@
                         </div>
                     </div>
                     <div class="row">
-                        @for($i = 1; $i <= 12; $i++)
+                        @foreach($products as $product)
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/product{{$i}}.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/{{$product->image}}">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
-                                    <h5>$30.00</h5>
+                                    <h6><a href="{{ route('product', ['id' => $product->product_id]) }}">{{$product->product_name}}</a></h6>
+                                    <h5>${{$product->price}}</h5>
                                 </div>
                             </div>
                         </div>
-                        @endfor
+                        @endforeach
                     </div>
-                    <div class="product__pagination">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                    <div class="">
+                        {{ $products->links() }}
+                        
                     </div>
                 </div>
             </div>

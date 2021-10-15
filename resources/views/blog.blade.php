@@ -48,7 +48,6 @@
                             <div class="blog__item__text">
                                 <ul>
                                     <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
                                 </ul>
                                 <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
                                 <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
@@ -57,91 +56,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="{{url('public/frontend')}}/img/blog/blog2.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Visit the clean farm in the US</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p>
-                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="{{url('public/frontend')}}/img/blog/blog3.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p>
-                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="{{url('public/frontend')}}/img/blog/blog4.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p>
-                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="{{url('public/frontend')}}/img/blog/blog5.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">The Moment You Need To Remove Garlic From The Menu</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p>
-                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="{{url('public/frontend')}}/img/blog/blog6.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p>
-                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <div class="col-lg-12">
                         <div class="product__pagination blog__pagination">
                             <a href="#">1</a>
