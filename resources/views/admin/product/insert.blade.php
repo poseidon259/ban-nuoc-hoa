@@ -279,7 +279,7 @@
                 <input type="text" id="description" name="description" placeholder="Description" value="" />
                 <input type="text" id="category_id" name="category_id" placeholder="Category ID" value="" />
                 <input type="text" id="gender" name="gender" placeholder="Gender" value="" />
-                <input type="text" id="status" name="status" placeholder="Status" value="" />
+                <input type="text" id="sale" name="sale" placeholder="sale" value="" />
                 <input type="text" id="image" name="image" placeholder="Image" value="" />
 
                 <button>Insert</button>

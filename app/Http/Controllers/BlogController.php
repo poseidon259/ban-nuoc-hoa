@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function view() {
         $data = Category::all();
-        $blog = DB::table('blog')->get();
+        $blog = Blog::paginate(4);
         return view('blog', compact('data', 'blog'));
     }
 

@@ -272,18 +272,14 @@
         <div class="form-container sign-in-container">
             <form action="" method="POST">
                 @csrf
-                <h1>Edit Product</h1>
-                <span>Product ID: {{$pEdit->product_id}}</span>
-                <input type="text" id="name" name="name" placeholder="Name" value="{{$pEdit->product_name}}" />
-                <input type="text" id="price" name="price" placeholder="Price" value="{{$pEdit->price}}" />
-                <input type="text" id="avalible" name="available" placeholder="Available" value="{{$pEdit->available}}" />
-                <input type="text" id="description" name="description" placeholder="Description" value="{{$pEdit->description}}" />
-                <input type="text" id="category_id" name="category_id" placeholder="Category ID" value="{{$pEdit->category_id}}" />
-                <input type="text" id="gender" name="gender" placeholder="Gender" value="{{$pEdit->gender}}" />
-                <input type="text" id="sale" name="sale" placeholder="Sale" value="{{$pEdit->sale}}" />
-                <input type="text" id="image" name="image" placeholder="Image" value="{{$pEdit->image}}" />
+                <h1>Insert Blog</h1>
+                <input type="text" id="title" name="title" placeholder="Title"  />
+                <input type="text" id="img" name="img" placeholder="Image"  />
+                <input type="text" id="description" name="description" placeholder="Description"  />
+                <input type="text" id="tag" name="tag" placeholder="Tag" />
+                <input type="text" id="created_at" name="created_at" placeholder="Created At"  />
 
-                <button>Edit</button>
+                <button>Insert</button>
             </form>
         </div>
     </div>

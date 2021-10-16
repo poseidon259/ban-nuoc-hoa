@@ -44,8 +44,15 @@ Route::get('/admin/product/insert', 'AdminController@viewInsertP')->name('insert
 Route::post('/admin/product/insert', 'AdminController@insertProduct');
 Route::get('/admin/product/delete/{id}', 'AdminController@deleteProduct')->name('deleteProduct');
 
-Route::get('/admin/blog', 'AdminController@product')->name('adminBlog');
-Route::get('/admin/category', 'AdminController@product')->name('adminCategory');
+Route::get('/admin/blog', 'AdminController@blog')->name('adminBlog');
+Route::get('/admin/blog/edit/{id}', 'AdminController@editBlog')->name('editBlog');
+Route::post('/admin/blog/edit/{id}', 'AdminController@updateBlog');
+Route::get('/admin/blog/insert', 'AdminController@viewInsertBlog')->name('insertBlog');
+Route::post('/admin/blog/insert', 'AdminController@insertBlog');
+Route::get('/admin/blog/delete/{id}', 'AdminController@deleteBlog')->name('deleteBlog');
+
+
+Route::get('/admin/category', 'AdminController@category')->name('adminCategory');
 
 
 

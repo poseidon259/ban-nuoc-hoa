@@ -20,7 +20,7 @@ class CategoryController extends Controller
         $product = DB::table('category')
                     ->join('product', 'product.category_id', '=', 'category.category_id')
                     ->where('product.category_id', '=', $category_id)
-                    ->get();
+                    ->paginate(6);
         // dd($product);
         return view('categorydetail', compact('data', 'title','product'));
     }
