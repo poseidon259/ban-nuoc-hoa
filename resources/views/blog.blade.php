@@ -28,11 +28,9 @@
                     <div class="blog__sidebar__item">
                         <h4>Tags</h4>
                         <ul>
-                            <li><a href="#">All</a></li>
-                            <li><a href="#">Beauty (20)</a></li>
-                            <li><a href="#">Food (5)</a></li>
-                            <li><a href="#">Life Style (9)</a></li>
-                            <li><a href="#">Travel (10)</a></li>
+                            @foreach ($blog as $item)
+                                <li><a>{{$item->tag}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                     
@@ -40,22 +38,24 @@
             </div>
             <div class="col-lg-8 col-md-7">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="{{url('public/frontend')}}/img/blog/blog1.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                </ul>
-                                <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                                <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                    quaerat </p>
-                                <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                    @foreach ($blog as $item)
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="blog__item">
+                                <div class="blog__item__pic">
+                                    <img src="{{url('public/frontend')}}/img/blog/{{$item->img}}" alt="">
+                                </div>
+                                <div class="blog__item__text">
+                                    <ul>
+                                        <li><i class="fa fa-calendar-o"></i>{{$item->created_at}}</li>
+                                    </ul>
+                                    <h5><a>{{$item->title}}</a></h5>
+                                    <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
+                                        quaerat </p>
+                                    <a href="{{route('blogdetail', ['id' => $item->blog_id])}}" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                    
                     <div class="col-lg-12">
                         <div class="product__pagination blog__pagination">
