@@ -32,6 +32,17 @@ Route::post('/admin/login', 'LoginController@login');
 Route::get('/admin/logout', 'LoginController@logout')->name('logout');
 
 Route::get('/admin/dashboard', 'AdminController@index')->name('dashboard')->middleware('checkLogout');
+Route::get('/admin/product', 'AdminController@product')->name('adminProduct');
+Route::get('/admin/product/edit/{id}', 'AdminController@editProduct')->name('editProduct');
+Route::post('/admin/product/edit/{id}', 'AdminController@updateProduct');
+
+Route::get('/admin/product/insert', 'AdminController@viewInsertP')->name('insertProduct');
+Route::post('/admin/product/insert', 'AdminController@insertProduct');
+Route::get('/admin/product/delete/{id}', 'AdminController@deleteProduct')->name('deleteProduct');
+
+Route::get('/admin/blog', 'AdminController@product')->name('adminBlog');
+Route::get('/admin/category', 'AdminController@product')->name('adminCategory');
+
 
 
 
