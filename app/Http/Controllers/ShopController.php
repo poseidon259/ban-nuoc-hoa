@@ -20,7 +20,9 @@ class ShopController extends Controller
         
         $cart = array();
         $product = DB::table('product')
-                    ->where('product_id', $id);
+                    ->where('product_id', $id)
+                    ->get();
+        dd($product->product_name);
         if (isset($cart[$id])) {
             $cart[$id]['quantity'] += 1; 
         } else {

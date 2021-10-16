@@ -21,6 +21,8 @@ Route::get('/category/{category_id}', 'CategoryController@detail')->name('catego
 
 Route::get('/product/{id}', 'ProductController@view')->name('product');
 
+Route::get('shop/add-to-cart/{id}', 'ShopController@addToCart')->name('addToCart');
+
 Route::get('/admin/register', 'RegisterController@create')->name('register');
 Route::post('/admin/register', 'RegisterController@store');
 
