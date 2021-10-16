@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+
 class ShopController extends Controller
 {
-    public function view() {
+    public function view()
+    {
         $data = Category::all();
         $productSale = Product::all()->take(4);
         $products = Product::paginate(6);
@@ -16,25 +18,43 @@ class ShopController extends Controller
         return view('shop', compact('data', 'productSale', 'products', 'amount'));
     }
 
-    public function addToCart($id) {
-        
-        $cart = array();
+    public function addToCart($id)
+    {
+
+        // session()->flush();
+        // dd("end");
         $product = DB::table('product')
-                    ->where('product_id', $id)
-                    ->get();
-        dd($product->product_name);
+            ->where('product_id', $id)
+            ->get();
+        // dd($product[0]);
+
+        $cart = session()->get('cart');
         if (isset($cart[$id])) {
-            $cart[$id]['quantity'] += 1; 
+            $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
         } else {
             $cart[$id] = [
-                'name' => $product->product_name,
-                'price' => $product->price,
-                'quantity' => 1
+                'name' => $product[0]->product_name,
+                'price' => $product[0]->price,
+                'quantity' => 1,
+                'image' => $product[0]->image
             ];
         }
         session()->put('cart', $cart);
 
         echo "<pre>";
-        print_r(session()->get);
+        return response()->json([
+            'code' => 200,
+            'message' => 'sucess'
+        ]);
+    }
+
+    public function deleteCart(Request $request) {
+        $cart = session()->pull('cart', []); 
+        // dd($request);
+        // if(($key = array_search($id, $cart)) !== false) {
+        //     unset($cart[$key]);
+        // }
+        
+        // session()->put('products', $cart);
     }
 }

@@ -66,7 +66,7 @@
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
-                            <li class="add-to-cart"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="#" class="add-to-cart" data-url="{{route('addToCart', ['id'=>$product->product_id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
                     <div class="featured__item__text">
@@ -99,7 +99,7 @@
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i>
                             </a></li>
-                            <li><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart "></i></a></li>
+                            <li><a href="#" class="add-to-cart" data-url="{{route('addToCart', ['id'=>$product->product_id])}}"><i class="fa fa-shopping-cart "></i></a></li>
                         </ul>
                     </div>
                     <div class="featured__item__text">
@@ -174,8 +174,22 @@
     <script src="{{url('public/frontend')}}/js/main.js">
 </script>
 <script>
-    function addToCart() {
-        alert('123')
+     function addToCart(e) {
+        e.preventDefault();
+        let urlCart = $(this).data('url');
+      
+        $.ajax({
+            type: "GET",
+            url: urlCart,
+            dataType: "json",
+            success: function(data) {
+                alert("Added to cart")
+            },
+            error: function () {
+                console.log("error")
+            }
+        })
+        alert("Added to your cart!");
     }
     $(function() {
         $('.add-to-cart').on('click', addToCart);
