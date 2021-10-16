@@ -23,6 +23,8 @@ Route::get('/product/{id}', 'ProductController@view')->name('product');
 
 Route::get('shop/add-to-cart/{id}', 'ShopController@addToCart')->name('addToCart');
 
+Route::get('shop-cart/{id}', 'ShopController@deleteCart')->name('deleteCart');
+
 Route::get('/admin/register', 'RegisterController@create')->name('register');
 Route::post('/admin/register', 'RegisterController@store');
 

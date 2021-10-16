@@ -54,7 +54,7 @@
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                                 <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
-                                                <li ><a  href="#"class="add-to-cart" data-url="{{route('addToCart', ['id'=>$product->product_id])}}"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li ><a href="#" class="add-to-cart" data-url="{{route('addToCart', ['id'=>$product->product_id])}}"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
@@ -94,6 +94,7 @@
                     </div>
                     <div class="row">
                         @foreach($products as $product)
+                       
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/{{$product->image}}">
@@ -127,7 +128,6 @@
     <script src="{{url('public/frontend')}}/js/jquery.slicknav.js"></script>
     <script src="{{url('public/frontend')}}/js/mixitup.min.js"></script>
     <script src="{{url('public/frontend')}}/js/owl.carousel.min.js"></script>
-    <script src="{{url('public/frontend')}}/js/main.js"></script>
 <script>
     function addToCart(e) {
         e.preventDefault();
@@ -138,10 +138,10 @@
             url: urlCart,
             dataType: "json",
             success: function(data) {
-                console.log("success")
+                alert("Added to cart")
             },
             error: function () {
-                console.log("error")
+                
             }
         })
     }
