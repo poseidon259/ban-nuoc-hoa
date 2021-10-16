@@ -17,6 +17,8 @@ Route::get('/contact', 'ContactController@view')->name('contact');
 
 Route::get('/blog', 'BlogController@view')->name('blog');
 
+Route::get('/blog/{id}', 'BlogController@detail')->name('blogdetail');
+
 Route::get('/category/{category_id}', 'CategoryController@detail')->name('category');
 
 Route::get('/product/{id}', 'ProductController@view')->name('product');
