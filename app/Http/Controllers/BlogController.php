@@ -15,10 +15,13 @@ class BlogController extends Controller
     }
 
     public function detail($id) {
+        $count = Blog::all()->count();
+        $id_rand = rand(0, $count);
         $data = Category::all();
         $blog = DB::table('blog')
         ->where('blog_id', $id)
-        ->get();
-        return view('blogdetail', compact('blog', 'data'));
+        ->first();
+        $review = Blog::where('blog_id','<>' ,$id_rand)->take(3)->get();
+        return view('blogdetail', compact('blog', 'data', 'review'));
     }
 }

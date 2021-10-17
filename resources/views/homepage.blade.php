@@ -160,7 +160,7 @@
                 </div>
             </div>
             @endforeach
-    </div>
+        </div>
     </div>
 </section>
 <!-- Blog Section End -->
