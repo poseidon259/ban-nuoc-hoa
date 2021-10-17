@@ -7,7 +7,7 @@ use App\Models\Account;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\Blog;
-
+use App\Models\Category;
 class AdminController extends Controller
 {
     //
@@ -185,5 +185,71 @@ class AdminController extends Controller
         } else {
             return redirect()->intended('admin');
         }
+    }
+
+
+    public function category() {
+        if(Auth::check()) {
+            $category = Category::paginate(5);
+            $name = Auth::user()->name;
+            return view('admin.category.category', compact('name', 'category'));
+        }else
+            return redirect()->intended('admin');
+    }
+
+    public function editCategory($id) {
+        if(Auth::check()) {
+            $data = Category::where('category_id', $id)->first();
+            $name = Auth::user()->name;
+            return view('admin.category.edit', compact('name', 'data'));
+        }else
+            return redirect()->intended('admin');
+    }
+
+    public function updateCategory($id, Request $request) {
+        if(Auth::check()) {
+            $newData = [
+                'category_name' => $request->name
+            ];
+            $name = Auth::user()->name;
+
+            Category::where('category_id', $id)
+                    ->update($newData);
+
+            return redirect()->intended('admin/category');
+        }else
+            return redirect()->intended('admin');
+    }
+
+    public function viewInsertCategory() {
+        if(Auth::check()) {
+            return view('admin.category.insert');
+        } else
+            return redirect()->intended('admin');
+    }
+
+
+    public function insertCategory(Request $request) {
+        if(Auth::check()) {
+            $newData = new Category();
+            $newData->category_name = $request->name;
+
+            $newData->save();
+            return redirect()->intended('admin/category');
+        } else {
+            return redirect()->intended('admin');
+        }
+    }
+
+
+    public function deleteCategory($id) {
+        if (Auth::check()) {
+
+            Category::where('category_id', $id)
+                    ->delete();
+                    
+            return redirect()->intended('admin/category');
+        } else
+            return redirect()->intended('admin');
     }
 }
