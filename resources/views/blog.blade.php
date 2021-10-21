@@ -49,22 +49,13 @@
                                         <li><i class="fa fa-calendar-o"></i>{{$item->created_at}}</li>
                                     </ul>
                                     <h5><a>{{$item->title}}</a></h5>
-                                    <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                                        quaerat </p>
+                                    <p>{{Str::limit($item->description, 100)}}</p> </p>
                                     <a href="{{route('blogdetail', ['id' => $item->blog_id])}}" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-                   
-                    <div class="col-lg-12">
-                        <div class="product__pagination blog__pagination">
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
+                    {{$blog->links()}}
                 </div>
             </div>
         </div>

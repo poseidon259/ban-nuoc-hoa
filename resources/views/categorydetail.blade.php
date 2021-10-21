@@ -65,7 +65,7 @@
                             <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/{{$item->image}}">
                                 <ul class="product__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                    <li><a href="{{route('product', ['id' => $item->product_id])}}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
@@ -77,12 +77,8 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="product__pagination">
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                </div>
+
+                {{$product->links()}}
             </div>
         </div>
     </div>

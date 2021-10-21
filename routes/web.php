@@ -19,7 +19,7 @@ Route::get('/blog', 'BlogController@view')->name('blog');
 
 Route::get('/blog/{id}', 'BlogController@detail')->name('blogdetail');
 
-Route::get('/category/{category_id}', 'CategoryController@detail')->name('category');
+Route::get('/category/{id}', 'CategoryController@detail')->name('category');
 
 Route::get('/product/{id}', 'ProductController@view')->name('product');
 
@@ -36,6 +36,29 @@ Route::post('/admin/login', 'LoginController@login');
 Route::get('/admin/logout', 'LoginController@logout')->name('logout');
 
 Route::get('/admin/dashboard', 'AdminController@index')->name('dashboard')->middleware('checkLogout');
+
+Route::get('/admin/product', 'AdminController@product')->name('adminProduct');
+Route::get('/admin/product/edit/{id}', 'AdminController@editProduct')->name('editProduct');
+Route::post('/admin/product/edit/{id}', 'AdminController@updateProduct');
+Route::get('/admin/product/insert', 'AdminController@viewInsertP')->name('insertProduct');
+Route::post('/admin/product/insert', 'AdminController@insertProduct');
+Route::get('/admin/product/delete/{id}', 'AdminController@deleteProduct')->name('deleteProduct');
+
+Route::get('/admin/blog', 'AdminController@blog')->name('adminBlog');
+Route::get('/admin/blog/edit/{id}', 'AdminController@editBlog')->name('editBlog');
+Route::post('/admin/blog/edit/{id}', 'AdminController@updateBlog');
+Route::get('/admin/blog/insert', 'AdminController@viewInsertBlog')->name('insertBlog');
+Route::post('/admin/blog/insert', 'AdminController@insertBlog');
+Route::get('/admin/blog/delete/{id}', 'AdminController@deleteBlog')->name('deleteBlog');
+
+
+Route::get('/admin/category', 'AdminController@category')->name('adminCategory');
+Route::get('/admin/category/edit/{id}', 'AdminController@editCategory')->name('editCategory');
+Route::post('/admin/category/edit/{id}', 'AdminController@updateCategory');
+Route::get('/admin/category/insert', 'AdminController@viewInsertCategory')->name('insertCategory');
+Route::post('/admin/category/insert', 'AdminController@insertCategory');
+Route::get('/admin/category/delete/{id}', 'AdminController@deleteCategory')->name('deleteCategory');
+
 
 
 

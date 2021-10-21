@@ -117,8 +117,8 @@
                                 <span>Categories</span>
                             </div>
                             <ul>
-                                @foreach($data as $d)
-                                    <li><a href="{{ route('category', ['category_id' => $d->category_id]) }}">{{$d->category_name}}</a></li>
+                                @foreach($data as $item)
+                                    <li><a href="{{ route('category', ['id' => $item->category_id]) }}">{{$item->category_name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
