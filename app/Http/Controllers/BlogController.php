@@ -11,7 +11,13 @@ class BlogController extends Controller
     public function view() {
         $data = Category::all();
         $blog = Blog::paginate(4);
-        return view('blog', compact('data', 'blog'));
+
+        $dataCart = session()->all();
+        $count = 0;
+        foreach($dataCart as $index => $product) {
+            $count++;
+        }
+        return view('blog', compact('data', 'blog', 'count'));
     }
 
     public function detail($id) {
@@ -22,6 +28,13 @@ class BlogController extends Controller
         ->where('blog_id', $id)
         ->first();
         $review = Blog::where('blog_id','<>' ,$id_rand)->take(3)->get();
-        return view('blogdetail', compact('blog', 'data', 'review'));
+
+        $dataCart = session()->all();
+        $count = -3;
+        foreach($dataCart as $index => $product) {
+            $count++;
+        }
+
+        return view('blogdetail', compact('blog', 'data', 'review', 'count'));
     }
 }

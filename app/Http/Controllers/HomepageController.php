@@ -14,6 +14,11 @@ class HomepageController extends Controller
         $productForWoman = Product::all()->where('gender', 0)->take(4);
         $blog = Blog::all()->take(3);
 
-        return view('homepage', compact('data', 'productForMan', 'productForWoman', 'blog'));
+        $dataCart = session()->all();
+        $count = -3;
+        foreach($dataCart as $index => $product) {
+            $count++;
+        }
+        return view('homepage', compact('data', 'productForMan', 'productForWoman', 'blog', 'count'));
     }
 }

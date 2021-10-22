@@ -8,6 +8,13 @@ class CheckOutController extends Controller
 {
     public function view() {
         $data = Category::all();
-        return view('checkout', compact('data'));
+
+        $dataCart = session()->all();
+        $count = -3;
+        foreach($dataCart as $index => $product) {
+            $count++;
+        }
+
+        return view('checkout', compact('data', 'count'));
     }
 }

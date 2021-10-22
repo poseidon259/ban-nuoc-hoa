@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" data-url="{{route('addToCart', ['id'=>$product_byID->product_id])}}" class="primary-btn add-to-cart" style="margin-top: 4rem;">ADD TO CARD</a>
+                    <a href="#" class="primary-btn add-to-cart" style="margin-top: 4rem;">ADD TO CARD</a>
                     <ul>
                         <li><b>Availability</b>
                             @if ($product_byID->available = 0)
@@ -89,36 +89,5 @@
         </div>
     </div>
 </section>
-
-<script src="{{url('public/frontend')}}/js/jquery-3.3.1.min.js"></script>
-<script src="{{url('public/frontend')}}/js/bootstrap.min.js"></script>
-<script src="{{url('public/frontend')}}/js/jquery.nice-select.min.js"></script>
-<script src="{{url('public/frontend')}}/js/jquery-ui.min.js"></script>
-<script src="{{url('public/frontend')}}/js/jquery.slicknav.js"></script>
-<script src="{{url('public/frontend')}}/js/mixitup.min.js"></script>
-<script src="{{url('public/frontend')}}/js/owl.carousel.min.js"></script>
-
-<script>
-    function addToCart(e) {
-       e.preventDefault();
-       let urlCart = $(this).data('url');
-     
-       $.ajax({
-           type: "GET",
-           url: urlCart,
-           dataType: "json",
-           success: function(data) {
-               alert("Added to cart")
-           },
-           error: function () {
-               console.log("error")
-           }
-       })
-       alert("Added to your cart!");
-   }
-   $(function() {
-       $('.add-to-cart').on('click', addToCart);
-   })
-</script>
 
 @stop()

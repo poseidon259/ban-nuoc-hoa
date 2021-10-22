@@ -66,7 +66,7 @@
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
-                            <li><a href="#" class="add-to-cart" data-url="{{route('addToCart', ['id'=>$product->product_id])}}"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="{{ route('handleCart', ['id' => $product->product_id]) }}"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
                     <div class="featured__item__text">
@@ -99,7 +99,7 @@
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i>
                             </a></li>
-                            <li><a href="#" class="add-to-cart" data-url="{{route('addToCart', ['id'=>$product->product_id])}}"><i class="fa fa-shopping-cart "></i></a></li>
+                            <li><a href="{{ route('handleCart', ['id' => $product->product_id]) }}"><i class="fa fa-shopping-cart "></i></a></li>
                         </ul>
                     </div>
                     <div class="featured__item__text">
@@ -132,7 +132,7 @@
     </div>
 </div>
 <!-- Banner End -->
-
+ 
 <!-- Blog Section Begin -->
 <section class="from-blog spad">
     <div class="container">
@@ -165,35 +165,4 @@
 </section>
 <!-- Blog Section End -->
 
-<script src="{{url('public/frontend')}}/js/jquery-3.3.1.min.js"></script>
-    <script src="{{url('public/frontend')}}/js/bootstrap.min.js"></script>
-    <script src="{{url('public/frontend')}}/js/jquery.nice-select.min.js"></script>
-    <script src="{{url('public/frontend')}}/js/jquery-ui.min.js"></script>
-    <script src="{{url('public/frontend')}}/js/jquery.slicknav.js"></script>
-    <script src="{{url('public/frontend')}}/js/mixitup.min.js"></script>
-    <script src="{{url('public/frontend')}}/js/owl.carousel.min.js"></script>
-    <script src="{{url('public/frontend')}}/js/main.js">
-</script>
-<script>
-     function addToCart(e) {
-        e.preventDefault();
-        let urlCart = $(this).data('url');
-      
-        $.ajax({
-            type: "GET",
-            url: urlCart,
-            dataType: "json",
-            success: function(data) {
-                alert("Added to cart")
-            },
-            error: function () {
-                console.log("error")
-            }
-        })
-        alert("Added to your cart!");
-    }
-    $(function() {
-        $('.add-to-cart').on('click', addToCart);
-    })
-</script>
 @stop()

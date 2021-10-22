@@ -10,6 +10,10 @@ Route::get('/', 'HomepageController@view')->name('home');
 Route::get('/shop', 'ShopController@view')->name('shop');
 
 Route::get('/shop-cart', 'ShoppingCartController@view')->name('shop-cart');
+Route::get('/shop-cart/{id}', 'ShoppingCartController@handle')->name('handleCart');
+Route::get('/session/getData', 'ShoppingCartController@getData');
+Route::get('/session/deleteData', 'ShoppingCartController@deleteData');
+Route::get('/delete-cart/{id}', 'ShoppingCartController@deleteDataByID')->name('deleteCart');
 
 Route::get('/checkout', 'CheckOutController@view')->name('checkout');
 
@@ -23,9 +27,9 @@ Route::get('/category/{id}', 'CategoryController@detail')->name('category');
 
 Route::get('/product/{id}', 'ProductController@view')->name('product');
 
-Route::get('shop/add-to-cart/{id}', 'ShopController@addToCart')->name('addToCart');
+//Route::get('shop/add-to-cart/{id}', 'ShopController@addToCart')->name('addToCart');
 
-Route::get('shop-cart/{id}', 'ShopController@deleteCart')->name('deleteCart');
+//Route::get('shop-cart/{id}', 'ShopController@deleteCart')->name('deleteCart');
 
 Route::get('/admin/register', 'RegisterController@create')->name('register');
 Route::post('/admin/register', 'RegisterController@store');
