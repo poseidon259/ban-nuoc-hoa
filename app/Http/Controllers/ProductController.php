@@ -13,13 +13,7 @@ class ProductController extends Controller
         $product_byID = Product::all()->where('product_id', $id)->first();
         //dd($product_byID);
 
-        $dataCart = session()->all();
-        $count = -3;
-        foreach($dataCart as $index => $product) {
-            $count++;
-        }
-
-        return view('product', compact('data', 'product_byID', 'count'));
+        return view('product', compact('data', 'product_byID'));
     }
 
     

@@ -29,12 +29,6 @@ class BlogController extends Controller
         ->first();
         $review = Blog::where('blog_id','<>' ,$id_rand)->take(3)->get();
 
-        $dataCart = session()->all();
-        $count = -3;
-        foreach($dataCart as $index => $product) {
-            $count++;
-        }
-
-        return view('blogdetail', compact('blog', 'data', 'review', 'count'));
+        return view('blogdetail', compact('blog', 'data', 'review'));
     }
 }

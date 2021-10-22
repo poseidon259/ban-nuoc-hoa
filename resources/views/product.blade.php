@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn add-to-cart" style="margin-top: 4rem;">ADD TO CARD</a>
+                    <a href="{{route('handleCart', ['id' => $product_byID->product_id]) }}" class="primary-btn add-to-cart" style="margin-top: 4rem;">ADD TO CARD</a>
                     <ul>
                         <li><b>Availability</b>
                             @if ($product_byID->available = 0)

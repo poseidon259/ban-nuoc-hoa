@@ -23,12 +23,6 @@ class CategoryController extends Controller
                     ->paginate(6);
         // dd($product);
 
-        $dataCart = session()->all();
-        $count = -3;
-        foreach($dataCart as $index => $product2) {
-            $count++;
-        }
-
         return view('categorydetail', compact('data', 'title','product','count'));
     }
 }

@@ -16,12 +16,7 @@ class ShoppingCartController extends Controller
         
         // dd($addedToCart);
         $cart = session()->all();
-        $dataCart = session()->all();
-        $count = -3;
-        foreach($dataCart as $index => $product) {
-            $count++;
-        }
-        return view('shop-cart', compact('data', 'cart', 'count'));
+        return view('shop-cart', compact('data', 'cart'));
     }
 
     public function handle($id) {
