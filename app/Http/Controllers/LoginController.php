@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    protected $table = 'account';
+    protected $table = 'users';
     public function index() {
         return redirect()->route('login');
     }
