@@ -1,35 +1,49 @@
 @extends('admin.site')
 @section('content')
-<table class="table" style="position: relative;">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Category ID</th>
-            <th scope="col">Category Name</th>
-            <th colspan="2">Features</th>
+<div class="container-fluid">
 
-        </tr>
-    </thead>
-    <!-- 
-    
-     -->
-    <tbody>
-        @foreach($category as $item)
-        <tr>
-            <th scope="row">{{$item->category_id}}</th>
-            <td>{{$item->category_name}}</td> 
-            <td><a class="btn btn-primary btn-sm text-white" href="{{route('editCategory', ['id' => $item->category_id])}}">Edit</a></td>
-            <td><a class="btn btn-danger btn-sm text-white" href="{{route('deleteCategory', ['id' => $item->category_id])}}">Delete</a></td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
-<a href="{{route('insertCategory')}}" class="btn btn-success btn-large text-white " style="height: 100%">Insert</a>
-@endsection
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Danh mục sản phẩm</h1>
+    @if(Session::has('error'))
+    <div class="alert alert-danger" role="alert">
+        <strong>{{Session::get('error')}}</strong>
+    </div>
+    @endif
 
-@section('next')
+    @if(Session::has('success'))
+    <div class="alert alert-success" role="alert">
+        <strong>{{Session::get('success')}}</strong>
+    </div>
+    @endif
 
-<div class="" style="position: absolute; top: 80%; left: 50%; right: 0; ">
-    {{$category->links()}}
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4 text-center">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên danh mục</th>
+                            <th colspan="2">Features</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($category as $item)
+                        <tr>
+                            <td>{{$item->category_id}}</td>
+                            <td>{{$item->category_name}}</td>
+                            <td><a class="btn btn-primary btn-sm text-white" href="{{route('editCategory', ['id'=>$item->category_id])}}">Edit</a></td>
+                            <td><a class="btn btn-danger btn-sm text-white" href="{{route('deleteCategory', ['id'=>$item->category_id])}}" onClick="return confirm('Bạn xác nhận muốn xóa bản ghi ?')">Delete</a></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
+<div class="">{{$category->links()}}</div>
 
 @stop()

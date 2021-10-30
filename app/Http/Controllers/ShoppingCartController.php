@@ -23,7 +23,7 @@ class ShoppingCartController extends Controller
         $item = Product::where('product_id', $id)->first();
         session()->put($id, $item);
 
-        return redirect()->intended('/shop');
+        return redirect()->intended('/shop-cart');
     }
 
     public function getData() {

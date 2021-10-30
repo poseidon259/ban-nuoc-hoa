@@ -21,8 +21,7 @@ class CategoryController extends Controller
                     ->join('product', 'product.category_id', '=', 'category.category_id')
                     ->where('product.category_id', '=', $category_id)
                     ->paginate(6);
-        // dd($product);
 
-        return view('categorydetail', compact('data', 'title','product','count'));
+        return view('categorydetail', compact('data', 'title','product'));
     }
 }
