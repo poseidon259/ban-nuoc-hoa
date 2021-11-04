@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 17, 2021 lúc 07:00 PM
+-- Thời gian đã tạo: Th10 04, 2021 lúc 06:54 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 7.4.23
 
@@ -54,8 +54,8 @@ CREATE TABLE `blog` (
   `title` varchar(255) COLLATE utf8_bin NOT NULL,
   `img` varchar(255) COLLATE utf8_bin NOT NULL,
   `description` text COLLATE utf8_bin NOT NULL,
-  `tag` varchar(100) COLLATE utf8_bin NOT NULL,
-  `created_at` date NOT NULL,
+  `tag` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `created_at` date DEFAULT current_timestamp(),
   `author` varchar(100) COLLATE utf8_bin DEFAULT 'Admin'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -78,7 +78,7 @@ INSERT INTO `blog` (`blog_id`, `title`, `img`, `description`, `tag`, `created_at
 --
 
 CREATE TABLE `category` (
-  `category_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `category_name` varchar(255) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -86,13 +86,13 @@ CREATE TABLE `category` (
 -- Đang đổ dữ liệu cho bảng `category`
 --
 
-INSERT INTO `category` (`category_id`, `category_name`) VALUES
-(1, 'Nước Hoa Nam'),
-(2, 'Nước Hoa Nữ'),
-(3, 'Nước Hoa Unisex'),
-(4, 'Nước Hoa Nổi Bật'),
+INSERT INTO `category` (`id`, `category_name`) VALUES
+(17, 'Dolce & Gabana'),
 (6, 'Nước Hoa Bán Chạy'),
-(11, 'Dolce & Gabana');
+(1, 'Nước Hoa Nam'),
+(4, 'Nước Hoa Nổi Bật'),
+(2, 'Nước Hoa Nữ'),
+(3, 'Nước Hoa Unisex');
 
 -- --------------------------------------------------------
 
@@ -212,12 +212,12 @@ INSERT INTO `product` (`product_id`, `product_name`, `price`, `available`, `desc
 (9, 'The One Eau de Parfum', 300, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, 0, 'product12.jpg'),
 (10, 'Chloe Love Story', 300, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 2, 0, 0, 'product10.jpg'),
 (14, 'Le labo Santal 33', 300, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 1, 0.1, 'product13.jpg'),
-(16, 'Dolce & Gabana', 300, 0, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 4, 0, 0.5, 'product4.jpg'),
 (17, 'Allure Home Sport', 300, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 6, 1, 0, 'product14.jpg'),
 (18, 'Chanel Chance', 300, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 4, 0, 0, 'product15.jpg'),
 (19, 'Chanel Coco Noir', 300, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 6, 0, 0, 'product16.jpg'),
 (20, 'Chanel No 5', 300, 1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 6, 0, 0, 'product17.jpg'),
-(21, 'Chanel Coco Eau', 300, 0, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 4, 0, 0.1, 'product18.jpg');
+(21, 'Chanel Coco Eau', 300, 0, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 4, 0, 0.1, 'product18.jpg'),
+(29, 'So Scandal', 300, 0, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, 0, 0, 'scandal.jpg');
 
 -- --------------------------------------------------------
 
@@ -231,8 +231,9 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` int(11) NOT NULL DEFAULT 2,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -240,9 +241,11 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin', NULL, '$2y$10$muiKS4ii2kFifiu1qaBUvOK3sJ8VkSlCDhBAP1sEqP6fAnOJa68/K', NULL, NULL, NULL),
-(2, 'hung', 'hung', NULL, '$2y$10$vXXAdSopAcqWAg9qOotBhO6te3Su2/54DyJPzU8RdUUAAmApMYJxe', NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(2, 'hungadmin', 'hung@gmail.com', NULL, '$2y$10$ZlbRSASn.TAN2.ARMVs6rOZeGKQ.wGf0jY4uoxudq9b9kvIgnnkfa', 1, NULL, '2021-11-04 17:00:00', '2021-11-04 08:39:23'),
+(6, 'manhadmin', 'manhadmin@gmail.com', NULL, '$2y$10$JIuq/0p3KepfvxkBrmAaauPljkK1SmJvNF8BzLd3O.hLgPHSJnNOS', 1, NULL, '2021-11-04 17:00:00', '2021-11-04 09:39:21'),
+(7, 'admin', 'admin@gmail.com', NULL, '$2y$10$/8uWS9.jSha.XwkTqhqtcuzgGM7E7nlfTeCuMdKClZzWt/aK6bdg.', 0, NULL, '2021-11-04 09:52:13', NULL),
+(8, 'trqhung', 'trqhung@gmail.com', NULL, '$2y$10$OyAeZFljkWKQTwa8RxpCcOy7hw.lJQJgbZXGkAcq9Bnx/bA9An/o6', 2, NULL, '2021-11-05 17:00:00', '2021-11-04 10:00:55');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -264,7 +267,8 @@ ALTER TABLE `blog`
 -- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`category_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `category_name` (`category_name`);
 
 --
 -- Chỉ mục cho bảng `failed_jobs`
@@ -310,8 +314,7 @@ ALTER TABLE `product`
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -327,13 +330,13 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT cho bảng `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `failed_jobs`
@@ -363,13 +366,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -379,8 +382,8 @@ ALTER TABLE `users`
 -- Các ràng buộc cho bảng `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
