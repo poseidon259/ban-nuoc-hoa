@@ -117,7 +117,7 @@
                             </div>
                             <ul>
                                 @foreach($data as $item)
-                                    <li><a href="{{ route('category', ['id' => $item->category_id]) }}">{{$item->category_name}}</a></li>
+                                    <li><a href="{{ route('category', ['id' => $item->id]) }}">{{$item->category_name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>

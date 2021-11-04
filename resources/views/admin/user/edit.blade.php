@@ -5,7 +5,8 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Thêm bài viết</h4>
+                    <h4 class="card-title">Sửa tài khoản</h4>
+
                 </div>
                 @if ($errors->any())
                 <div class="alert alert-danger">
@@ -24,48 +25,40 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="id">ID</label>
-                                        <input type="text" id="id" class="form-control" name="id" readonly value="AUTO_INCREMENT">
+                                        <input type="text" id="id" class="form-control" name="id" readonly value="{{$user->id}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="name">Tên bài viết</label>
-                                        <input type="text" id="name" class="form-control" name="name">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="date">Ngày tạo</label>
-                                        <input type="date" id="date" class="form-control" name="date">
+                                        <label for="name">Tên tài khoản</label>
+                                        <input type="text" id="name" class="form-control" name="name" value="{{$user->name}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
-                                        <label for="tag">Tag</label>
-                                        <input type="text" id="tag" class="form-control" name="tag">
+                                        <label for="email">Email</label>
+                                        <input type="text" id="email" class="form-control" name="email" value="{{$user->email}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <div class="form-group">
-                                        <label for="author">Tác giả</label>
-                                        <input type="text" id="author" class="form-control" name="author">
-                                    </div>
+                                    <label for="password">Mật khẩu</label>
+                                    <input type="password" id="password" class="form-control" name="password" value="">
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <label for="image">Ảnh</label>
-                                    <div class="form-group">
-                                        <input type="file" id="image" name="image"><br><br>
-                                    </div>
+                                    <label for="date">Ngày tạo</label>
+                                    <input type="date" id="date" class="form-control" name="date" value="{{$user->created_at}}">
                                 </div>
                                 <div class="col-md-6 col-12">
+                                    <label for="role">Quyền</label>
                                     <div class="form-group">
-                                        <label for="description">Nội dung</label>
-                                        <textarea cols="5" rows="5" id="description" class="form-control" name="description"> </textarea>
+                                        <select class="form-control" id="role" name="role" >
+                                            <option value="1">Admin</option>
+                                            <option value="2">User</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-12 d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary me-1 mb-1" onClick="return confirm('Bạn xác nhận muốn thêm mới bản ghi ?')">Thêm mới</button>
+                                    <button type="submit" class="btn btn-primary me-1 mb-1" onClick="return confirm('Bạn xác nhận muốn sửa bản ghi ?')">Xác nhận</button>
                                     <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                 </div>
                             </div>
@@ -76,5 +69,6 @@
         </div>
     </div>
 </section>
+
 
 @stop

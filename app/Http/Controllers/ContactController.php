@@ -9,6 +9,6 @@ class ContactController extends Controller
     public function view() {
         $data = Category::all();
 
-        return view('contact', compact('data', 'count'));
+        return view('contact', compact('data'));
     }
 }

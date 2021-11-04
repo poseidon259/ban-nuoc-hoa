@@ -11,10 +11,6 @@ class ShoppingCartController extends Controller
 
     public function view() {
         $data = Category::all();
-        //$cart = Cart::all();
-        //$addedToCart = session()->get('cart');
-        
-        // dd($addedToCart);
         $cart = session()->all();
         return view('shop-cart', compact('data', 'cart'));
     }

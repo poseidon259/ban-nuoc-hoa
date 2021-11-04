@@ -277,6 +277,18 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#users" aria-expanded="true" aria-controls="users">
+          <i class="fas fa-table"></i>
+          <span>Tài khoản</span>
+        </a>
+        <div id="users" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item font-weight-bold" href="{{route('insertUser')}}">Thêm mới</a>
+            <a class="collapse-item font-weight-bold" href="{{route('user')}}">Chi tiết bảng</a>
+          </div>
+        </div>
+      </li>
 
 
 

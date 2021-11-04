@@ -31,10 +31,10 @@
                     <tbody>
                         @foreach($category as $item)
                         <tr>
-                            <td>{{$item->category_id}}</td>
+                            <td>{{$item->id}}</td>
                             <td>{{$item->category_name}}</td>
-                            <td><a class="btn btn-primary btn-sm text-white" href="{{route('editCategory', ['id'=>$item->category_id])}}">Edit</a></td>
-                            <td><a class="btn btn-danger btn-sm text-white" href="{{route('deleteCategory', ['id'=>$item->category_id])}}" onClick="return confirm('Bạn xác nhận muốn xóa bản ghi ?')">Delete</a></td>
+                            <td><a class="btn btn-primary btn-sm text-white" href="{{route('editCategory', ['id'=>$item->id])}}">Edit</a></td>
+                            <td><a class="btn btn-danger btn-sm text-white" href="{{route('deleteCategory', ['id'=>$item->id])}}" onClick="return confirm('Bạn xác nhận muốn xóa bản ghi ?')">Delete</a></td>
                         </tr>
                         @endforeach
                     </tbody>

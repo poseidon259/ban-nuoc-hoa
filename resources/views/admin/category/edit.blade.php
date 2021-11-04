@@ -25,7 +25,7 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="id">ID</label>
-                                        <input type="text" id="id" class="form-control" name="id" readonly value="{{$data->category_id}}">
+                                        <input type="text" id="id" class="form-control" name="id" readonly value="{{$data->id}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">

@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Account;
+use App\Models\User;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,15 +14,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        Account::insert(
-            $item = [
-                'account_id' => 2,
-                'account_name' => 'admin2',
-                'email' => 'admin2',
-                'password' => bcrypt('admin2'),
-                'phonenumber' => '',
-                'address' => ''
-            ]
-        );
+        User::insert([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('123456'),
+            'role' => 0,
+            'created_at' => now()
+        ]);
     }
 }

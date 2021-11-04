@@ -16,9 +16,9 @@ class CategoryController extends Controller
 
     public function detail($category_id) {  
         $data = Category::all(); 
-        $title = Category::where('category_id', $category_id)->first();
+        $title = Category::where('id', $category_id)->first();
         $product = DB::table('category')
-                    ->join('product', 'product.category_id', '=', 'category.category_id')
+                    ->join('product', 'product.category_id', '=', 'category.id')
                     ->where('product.category_id', '=', $category_id)
                     ->paginate(6);
 
