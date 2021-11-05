@@ -23,6 +23,6 @@ class CategoryController extends Controller
                     ->paginate(6);
         // dd($product);
 
-        return view('categorydetail', compact('data', 'title','product','count'));
+        return view('categorydetail', compact('data', 'title','product'));
     }
 }
