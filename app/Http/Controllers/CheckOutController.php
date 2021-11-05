@@ -12,6 +12,8 @@ class CheckOutController extends Controller
         return view('checkout', compact('data', 'cart'));
     }
     public function checkout(Request $request) {
-        dd($request);
+        $input = $request->all();
+        $cart = session()->all();
+        dd($input, $cart);
     }
 }
