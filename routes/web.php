@@ -31,8 +31,8 @@ Route::get('/product/{id}', 'ProductController@view')->name('product');
 
 //Route::get('shop-cart/{id}', 'ShopController@deleteCart')->name('deleteCart');
 
-Route::get('/admin/register', 'RegisterController@create')->name('register');
-Route::post('/admin/register', 'RegisterController@store');
+// Route::get('/admin/register', 'RegisterController@create')->name('register');
+// Route::post('/admin/register', 'RegisterController@store');
 
 Route::get('/admin', 'LoginController@index');
 Route::get('/admin/login', 'LoginController@form')->name('login')->middleware('isAdmin');
@@ -62,6 +62,14 @@ Route::post('/admin/category/edit/{id}', 'AdminController@updateCategory');
 Route::get('/admin/category/insert', 'AdminController@viewInsertCategory')->name('insertCategory');
 Route::post('/admin/category/insert', 'AdminController@insertCategory');
 Route::get('/admin/category/delete/{id}', 'AdminController@deleteCategory')->name('deleteCategory');
+
+
+Route::get('/admin/user', 'AdminController@user')->name('user');
+Route::get('/admin/user/insert', 'AdminController@viewInsertUser')->name('insertUser');
+Route::post('/admin/user/insert', 'AdminController@insertUser');
+Route::get('/admin/user/edit/{id}', 'AdminController@editUser')->name('editUser');
+Route::post('/admin/user/edit/{id}', 'AdminController@updateUser');
+Route::get('/admin/category/user/{id}', 'AdminController@deleteUser')->name('deleteUser');
 
 
 

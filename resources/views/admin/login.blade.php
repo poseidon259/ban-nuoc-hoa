@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{url('public/frontend')}}/css/bootstrap.min.css" type="text/css">
 </head>
 
 <style>
@@ -107,7 +108,7 @@
             0 10px 10px rgba(0, 0, 0, 0.22);
         position: relative;
         overflow: hidden;
-        width: 768px;
+        width: 350px;
         max-width: 100%;
         min-height: 480px;
     }
@@ -121,7 +122,7 @@
 
     .sign-in-container {
         left: 0;
-        width: 50%;
+        width: 100%;
         z-index: 2;
     }
 
@@ -131,7 +132,7 @@
 
     .sign-up-container {
         left: 0;
-        width: 50%;
+        width: 100%;
         opacity: 0;
         z-index: 1;
     }
@@ -266,65 +267,25 @@
     }
 </style>
 
-@if ( Session::has('success') )
-	<div class="alert alert-success alert-dismissible" role="alert">
-		<strong>{{ Session::get('success') }}</strong>
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			<span class="sr-only">Close</span>
-		</button>
-	</div>
-@endif
-<?php //Hiển thị thông báo lỗi?>
-@if ( Session::has('error') )
-	<div class="alert alert-danger alert-dismissible" role="alert">
-		<strong>{{ Session::get('error') }}</strong>
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			<span class="sr-only">Close</span>
-		</button>
-	</div>
-@endif
-@if ($errors->any())
-	<div class="alert alert-danger alert-dismissible" role="alert">
-		<ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-			<span class="sr-only">Close</span>
-		</button>
-	</div>
-@endif
+
 
 <body>
+    @if(Session::has('error'))
+    <div class="alert alert-danger" role="alert">
+        <strong>{{Session::get('error')}}</strong>
+    </div>
+    @endif
     <div class="container" id="container">
-        
+
         <div class="form-container sign-in-container">
             <form action="" method="POST">
                 @csrf
                 <h1>Sign In</h1>
                 <span>Welcome back!</span>
-                <input type="text" id="email" name="email" placeholder="Email" />
+                <input type="text" id="name" name="name" placeholder="Name" />
                 <input type="password" id="password" name="password" placeholder="Password" />
                 <button>Sign In</button>
             </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp"><a href="{{route('register')}}">Sign Up</a></button>
-                </div>
-            </div>
         </div>
     </div>
 </body>
