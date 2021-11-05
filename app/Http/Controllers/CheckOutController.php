@@ -8,8 +8,10 @@ class CheckOutController extends Controller
 {
     public function view() {
         $data = Category::all();
-
-
-        return view('checkout', compact('data'));
+        $cart = session()->all();
+        return view('checkout', compact('data', 'cart'));
+    }
+    public function checkout(Request $request) {
+        dd($request);
     }
 }
