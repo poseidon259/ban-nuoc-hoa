@@ -83,7 +83,6 @@ class AdminController extends Controller
             $newData = [
                 'product_name' => $request->name,
                 'price' => $request->price,
-                'available' => $request->available,
                 'description' => $request->description,
                 'category_id' => $request->categoryP,
                 'gender' => $request->gender,
@@ -143,7 +142,6 @@ class AdminController extends Controller
             $newData = new Product();
             $newData->product_name = $request->name;
             $newData->price = $request->price;
-            $newData->available = $request->available;
             $newData->description = $request->description;
             $newData->category_id = $request->categoryP;
             $newData->gender = $request->gender;

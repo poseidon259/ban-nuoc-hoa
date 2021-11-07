@@ -27,7 +27,6 @@
                             <th>ID</th>
                             <th>Tên</th>
                             <th>Giá</th>
-                            <th>Kho</th>
                             <th>Chi tiết</th>
                             <th>Danh mục</th>
                             <th>Giới tính</th>
@@ -42,7 +41,6 @@
                             <td>{{$item->product_id}}</td>
                             <td>{{$item->product_name}}</td>
                             <td>{{$item->price}}</td>
-                            <td>{{$item->available}}</td>
                             <td>{{Str::limit($item->description, 10)}}</td>
                             <td>{{$item->category_id}}</td>
                             <td>{{$item->gender}}</td>

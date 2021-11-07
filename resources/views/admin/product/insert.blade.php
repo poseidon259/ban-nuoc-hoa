@@ -41,15 +41,6 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <label for="available">Kho</label>
-                                    <div class="form-group">
-                                        <select class="form-control" id="available" name="available" >
-                                            <option value="0">Hết hàng</option>
-                                            <option value="1">Còn hàng</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12">
                                     <label for="categoryP">Danh mục</label>
                                     <div class="form-group">
                                         <select class="form-control" id="categoryP" name="categoryP" >
