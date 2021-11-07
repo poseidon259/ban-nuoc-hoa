@@ -17,7 +17,8 @@ class AdminController extends Controller
     {
         if (Auth::check()) {
             $name = Auth::user()->name;
-            return view('admin.dashboard', compact('name'));
+            $doanhthu = [300, 1000, 2000, 3000, 4000, 5000, 500, 3500, 8000, 9000, 2000, 11000];
+            return view('admin.dashboard', compact('name', 'doanhthu'));
         } else {
             return redirect()->intended('admin/login');
         }

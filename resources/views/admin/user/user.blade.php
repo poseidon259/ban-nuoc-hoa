@@ -46,7 +46,7 @@
                             @elseif($item->role == 1)
                             <td>Admin</td>
                             @else
-                            <td>User</td>
+                            <td>Employee</td>
                             @endif
                             <td><a class="btn btn-primary btn-sm text-white" href="{{route('editUser', ['id' => $item->id])}}">Edit</a></td>
                             <td><a class="btn btn-danger btn-sm text-white" href="{{route('deleteUser', ['id' => $item->id])}}" onClick="return confirm('Bạn xác nhận muốn xóa bản ghi ?')">Delete</a></td>

@@ -4,21 +4,33 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\Cart;
 use App\Models\Product;
 class ShoppingCartController extends Controller
 {
 
-    public function view() {
+    public function view(Request $request) {
         $data = Category::all();
         $cart = session()->all();
         return view('shop-cart', compact('data', 'cart'));
     }
 
     public function handle($id) {
-        $item = Product::where('product_id', $id)->first();
-        session()->put($id, $item);
+        $data = Product::where('product_id', $id)->first();
 
+        $newData = [
+            'product_id' => $data->product_id,
+            'product_name' => $data->product_name,
+            'price' => $data->price,
+            'image' => $data->image,
+            'quantity' => 1,
+            'description' => $data->description,
+            'category_id' => $data->category_id,
+            'gender' => $data->gender,
+            'sale' => $data->sale,
+            'available' => $data->available
+        ];
+
+        session()->put($id, $newData);
         return redirect()->intended('/shop-cart');
     }
 

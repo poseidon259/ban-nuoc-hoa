@@ -108,7 +108,21 @@
 <!-- Content Row -->
 
 <div class="row">
-
+    @foreach($doanhthu as $value)
+    <div class="dataChart d-none">
+        <?php
+        echo htmlspecialchars($value);
+        ?>
+    </div>
+    <script>
+        var div = document.querySelectorAll('.dataChart');
+        var formatNumber = [];
+        div.forEach(item => {
+            item.innerHTML = item.innerHTML.trim();
+            formatNumber.push(item.innerHTML);
+        });
+    </script>
+    @endforeach
     <!-- Area Chart -->
     <div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4">
@@ -153,5 +167,4 @@
     </div>
 </div>
 
-
-@stop()
+@stop

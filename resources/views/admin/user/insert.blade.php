@@ -53,7 +53,7 @@
                                     <div class="form-group">
                                         <select class="form-control" id="role" name="role" >
                                             <option value="1">Admin</option>
-                                            <option value="2">User</option>
+                                            <option value="2">Employee</option>
                                         </select>
                                     </div>
                                 </div>

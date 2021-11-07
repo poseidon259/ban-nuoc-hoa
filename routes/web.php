@@ -17,7 +17,9 @@ Route::get('/delete-cart/{id}', 'ShoppingCartController@deleteDataByID')->name('
 
 
 Route::get('/checkout', 'CheckOutController@view')->name('checkout');
-Route::post('/checkout', 'CheckOutController@checkout');
+Route::post('/checkout', 'CheckOutController@view');
+Route::get('/checkout/process', 'CheckOutController@checkout')->name('processCheckout');
+Route::post('/checkout/process', 'CheckOutController@checkout');
 
 Route::get('/contact', 'ContactController@view')->name('contact');
 

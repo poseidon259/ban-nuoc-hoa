@@ -449,9 +449,8 @@
   <script src="{{url('public/backend')}}/vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="{{url('public/backend')}}/js/demo/Chart-area-demo.js"></script>
+  <script src="{{url('public/backend')}}/js/demo/thongkedt.js"></script>
   <script src="{{url('public/backend')}}/js/demo/chart-pie-demo.js"></script>
-
 </body>
 
 </html>
