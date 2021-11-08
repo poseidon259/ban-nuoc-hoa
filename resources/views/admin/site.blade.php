@@ -266,6 +266,30 @@
         </div>
       </li>
       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#input" aria-expanded="true" aria-controls="input">
+          <i class="fas fa-table"></i>
+          <span>Phiếu nhập</span>
+        </a>
+        <div id="input" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item font-weight-bold" href="{{route('insertInput')}}">Thêm mới</a>
+            <a class="collapse-item font-weight-bold" href="{{route('input')}}">Chi tiết bảng</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#inputDetail" aria-expanded="true" aria-controls="inputDetail">
+          <i class="fas fa-table"></i>
+          <span>Chi tiết phiếu nhập</span>
+        </a>
+        <div id="inputDetail" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item font-weight-bold" href="{{route('insertInputDetail')}}">Thêm mới</a>
+            <a class="collapse-item font-weight-bold" href="{{route('inputDetail')}}">Chi tiết bảng</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#order" aria-expanded="true" aria-controls="order">
           <i class="fas fa-table"></i>
           <span>Đơn hàng</span>

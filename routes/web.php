@@ -73,7 +73,22 @@ Route::get('/admin/user/insert', 'AdminController@viewInsertUser')->name('insert
 Route::post('/admin/user/insert', 'AdminController@insertUser');
 Route::get('/admin/user/edit/{id}', 'AdminController@editUser')->name('editUser');
 Route::post('/admin/user/edit/{id}', 'AdminController@updateUser');
-Route::get('/admin/category/user/{id}', 'AdminController@deleteUser')->name('deleteUser');
+Route::get('/admin/user/delete/{id}', 'AdminController@deleteUser')->name('deleteUser');
+
+Route::get('/admin/input', 'AdminController@input')->name('input');
+Route::get('/admin/input/insert', 'AdminController@viewInsertInput')->name('insertInput');
+Route::post('/admin/input/insert', 'AdminController@insertInput');
+Route::get('/admin/input/edit/{id}', 'AdminController@viewEditInput')->name('editInput');
+Route::post('/admin/input/edit/{id}', 'AdminController@updateInput');
+Route::get('/admin/input/delete/{id}', 'AdminController@deleteInput')->name('deleteInput');
+
+
+Route::get('/admin/inputDetail', 'AdminController@inputDetail')->name('inputDetail');
+Route::get('/admin/inputDetail/insert', 'AdminController@viewInsertInputDetail')->name('insertInputDetail');
+Route::post('/admin/inputDetail/insert', 'AdminController@insertInputDetail');
+Route::get('/admin/inputDetail/edit/{id}/{pid}', 'AdminController@viewEditInputDetail')->name('editInputDetail');
+Route::post('/admin/inputDetail/edit/{id}/{pid}', 'AdminController@updateInputDetail');
+Route::get('/admin/inputDetail/delete/{id}/{pid}', 'AdminController@deleteInputDetail')->name('deleteInputDetail');
 
 
 

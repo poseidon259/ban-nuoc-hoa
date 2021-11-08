@@ -9,6 +9,8 @@ use App\Models\Product;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Input;
+use App\Models\InputDetail;
 
 class AdminController extends Controller
 {
@@ -40,11 +42,12 @@ class AdminController extends Controller
         if (Auth::check()) {
             $name = Auth::user()->name;
             $category = Category::all();
-            if(Auth::user()->role < 2 ) {
+            if (Auth::user()->role < 2) {
                 $pEdit = Product::where('product_id', $id)->first();
 
                 return view('admin.product.edit', compact('pEdit', 'name', 'category'));
-            } return redirect()->intended('admin/product')->with('error', 'Bạn không có quyền chỉnh sửa sản phẩm này');
+            }
+            return redirect()->intended('admin/product')->with('error', 'Bạn không có quyền chỉnh sửa sản phẩm này');
         } else {
             return redirect()->intended('admin');
         }
@@ -54,7 +57,7 @@ class AdminController extends Controller
     {
         if (Auth::check()) {
             $request->validate([
-                'sale' => 'required|numeric|min:0|max:100',
+                'sale' => 'required|numeric|min:0|max:1',
                 'price' => 'required|numeric|min:0:',
                 'name' =>  'required',
                 'description' => 'required',
@@ -66,7 +69,7 @@ class AdminController extends Controller
                 'min' => 'Giá trị nhỏ nhất là 0',
                 'image.mimes' => 'Chỉ nhận các file có đuôi .jpeg, .jpg, .png, .gif',
                 'image.max' => 'Quá dung lượng cho phép',
-                'sale.max' => 'Tối đa là 100'
+                'sale.max' => 'Giảm giá tối đa là 1'
             ]);
 
             if ($request->has('image')) {
@@ -105,9 +108,10 @@ class AdminController extends Controller
         $category = Category::all();
         if (Auth::check()) {
 
-            if(Auth::user()->role < 2 ) {
+            if (Auth::user()->role < 2) {
                 return view('admin.product.insert', compact('name', 'category'));
-            } return redirect()->intended('admin/product')->with('error', 'Bạn không có quyền thêm mới sản phẩm');
+            }
+            return redirect()->intended('admin/product')->with('error', 'Bạn không có quyền thêm mới sản phẩm');
         } else {
             return redirect()->intended('admin');
         }
@@ -117,7 +121,7 @@ class AdminController extends Controller
     {
         if (Auth::check()) {
             $request->validate([
-                'sale' => 'required|numeric|min:0|max:100',
+                'sale' => 'required|numeric|min:0|max:1',
                 'price' => 'required|numeric|min:0:',
                 'name' =>  'required',
                 'description' => 'required',
@@ -129,7 +133,7 @@ class AdminController extends Controller
                 'min' => 'Giá trị nhỏ nhất là 0',
                 'mimes' => 'Chỉ nhận các file có đuôi .jpeg, .jpg, .png, .gif',
                 'image.max' => 'Quá dung lượng cho phép',
-                'sale.max' => 'Tối đa là 100'
+                'sale.max' => 'Giảm giá tối đa là 1'
             ]);
 
             if ($request->has('image')) {
@@ -158,7 +162,7 @@ class AdminController extends Controller
     public function deleteProduct($id)
     {
         if (Auth::check()) {
-            if(Auth::user()->role < 2 ) {
+            if (Auth::user()->role < 2) {
                 $file = Product::where('product_id', $id)->first();
                 $fileName = $file->image;
                 if (file_exists(public_path('/frontend/img/product/' . $fileName))) {
@@ -190,7 +194,7 @@ class AdminController extends Controller
     public function editBlog($id)
     {
         if (Auth::check()) {
-            if(Auth::user()->role < 2 ) {
+            if (Auth::user()->role < 2) {
                 $name = Auth::user()->name;
                 $data = Blog::where('blog_id', $id)->first();
                 return view('admin.blog.edit', compact('name', 'data'));
@@ -253,7 +257,7 @@ class AdminController extends Controller
     public function viewInsertBlog()
     {
         if (Auth::check()) {
-            if(Auth::user()->role < 2 ) {
+            if (Auth::user()->role < 2) {
                 $name = Auth::user()->name;
                 return view('admin.blog.insert', compact('name'));
             } else {
@@ -305,7 +309,7 @@ class AdminController extends Controller
     public function deleteBlog($id)
     {
         if (Auth::check()) {
-            if(Auth::user()->role < 2 ) {
+            if (Auth::user()->role < 2) {
                 $oldFile = Blog::where('blog_id', $id)->first();
                 $oldFileName = $oldFile->img;
 
@@ -341,7 +345,7 @@ class AdminController extends Controller
             $name = Auth::user()->name;
             $data = Category::where('id', $id)->first();
 
-            if($admin_role < 2 ) {
+            if ($admin_role < 2) {
                 return view('admin.category.edit', compact('name', 'data'));
             } else {
                 return redirect()->intended('admin/category')->with('error', 'Bạn không có quyền sửa danh mục này');
@@ -354,7 +358,7 @@ class AdminController extends Controller
     {
         if (Auth::check()) {
             $request->validate([
-                'name' => 'required|unique:category,category_name,'.$id,
+                'name' => 'required|unique:category,category_name,' . $id,
             ], [
                 'name.required' => 'Không được để trống',
                 'name.unique' => 'Tên danh mục đã tồn tại'
@@ -373,12 +377,12 @@ class AdminController extends Controller
 
     public function viewInsertCategory()
     {
-        
+
         if (Auth::check()) {
             $admin_role = Auth::user()->role;
             $name = Auth::user()->name;
 
-            if($admin_role < 2 ) {
+            if ($admin_role < 2) {
                 return view('admin.category.insert', compact('name'));
             } else {
                 return redirect()->intended('admin/category')->with('error', 'Bạn không có quyền thêm danh mục');
@@ -416,7 +420,7 @@ class AdminController extends Controller
                 ->where('category.id', $id)->count();
 
             $admin_role = Auth::user()->role;
-            if($admin_role < 2 ) {
+            if ($admin_role < 2) {
                 if ($count == 0) {
                     Category::where('id', $id)
                         ->delete();
@@ -443,9 +447,10 @@ class AdminController extends Controller
 
     public function viewInsertUser()
     {
-        $name = Auth::user()->name;
+
         if (Auth::check()) {
-            if(Auth::user()->role < 2 ) {
+            $name = Auth::user()->name;
+            if (Auth::user()->role < 2) {
                 return view('admin.user.insert', compact('name'));
             } else {
                 return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền thêm mới tài khoản quản trị');
@@ -495,10 +500,10 @@ class AdminController extends Controller
     {
         if (Auth::check()) {
             $admin_role = Auth::user()->role;
-            if($admin_role < 2 ) {
+            if ($admin_role < 2) {
                 $user = User::where('id', $id)->first();
                 $name = Auth::user()->name;
-                if($admin_role < $user->role) {
+                if ($admin_role < $user->role) {
                     return view('admin.user.edit', compact('name', 'user'));
                 } else {
                     return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền sửa mục này');
@@ -550,9 +555,9 @@ class AdminController extends Controller
     {
         if (Auth::check()) {
             $admin_role = Auth::user()->role;
-            if($admin_role < 2 ) {
+            if ($admin_role < 2) {
                 $user = User::where('id', $id)->first();
-                if($admin_role < $user->role) {
+                if ($admin_role < $user->role) {
                     $user->delete();
                     return redirect()->intended('admin/user')->with('success', 'Xóa thành công !');
                 } else {
@@ -561,6 +566,200 @@ class AdminController extends Controller
             } else {
                 return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền xóa người dùng này');
             }
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function input()
+    {
+        if (Auth::check()) {
+            $data = Input::orderby('created_at', 'desc')->paginate(6);
+            $name = Auth::user()->name;
+            return view('admin.input.input', compact('name', 'data'));
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function viewInsertInput()
+    {
+        if (Auth::check()) {
+            $name = Auth::user()->name;
+            return view('admin.input.insert', compact('name'));
+        } else {
+            return redirect()->intended('admin');
+        }
+    }
+
+    public function insertInput(Request $request)
+    {
+        if (Auth::check()) {
+            $request->validate([
+                'name' => 'required',
+                'address' => 'required',
+                'date' => 'required|after_or_equal:today',
+            ], [
+                'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
+                'after_or_equal' => 'Ngày tạo phải lớn hơn hoặc bằng ngày hiện tại'
+            ]);
+
+            $newData = new Input();
+            $newData->emp_name = $request->name;
+            $newData->created_at = $request->date;
+            $newData->address = $request->address;
+            $newData->save();
+
+            return redirect()->intended('admin/input')->with('success', 'Thêm mới thành công !');
+        } else {
+            return redirect()->intended('admin');
+        }
+    }
+
+    public function viewEditInput($id)
+    {
+        if (Auth::check()) {
+            $name = Auth::user()->name;
+            $data = Input::where('id', $id)->first();
+
+            return view('admin.input.edit', compact('name', 'data'));
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function updateInput($id, Request $request)
+    {
+        if (Auth::check()) {
+            $request->validate([
+                'name' => 'required',
+                'address' => 'required',
+                'date' => 'required|after_or_equal:today',
+            ], [
+                'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
+                'after_or_equal' => 'Ngày tạo phải lớn hơn hoặc bằng ngày hiện tại'
+            ]);
+
+            $newData = [
+                'emp_name' => $request->name,
+                'address' => $request->address,
+                'created_at' => $request->date
+            ];
+
+            Input::where('id', $id)
+                ->update($newData);
+
+            return redirect()->intended('admin/input')->with('success', 'Sửa thành công !');
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function deleteInput($id)
+    {
+        if (Auth::check()) {
+            $data = Input::where('id', $id)->first();
+            $data->delete();
+            return redirect()->intended('admin/input')->with('success', 'Xóa thành công !');
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function inputDetail()
+    {
+        if (Auth::check()) {
+            $data = InputDetail::orderby('input_id', 'asc')->paginate(10);
+            $name = Auth::user()->name;
+            return view('admin.inputDetail.inputDetail', compact('name', 'data'));
+        } else
+            return redirect()->intended('admin');
+    }
+
+
+    public function viewInsertInputDetail()
+    {
+        if (Auth::check()) {
+            $name = Auth::user()->name;
+            $input = Input::all();
+            $product = Product::all();
+            return view('admin.inputDetail.insert', compact('name', 'input', 'product'));
+        } else {
+            return redirect()->intended('admin');
+        }
+    }
+
+    public function insertInputDetail(Request $request)
+    {
+        if (Auth::check()) {
+            $request->validate([
+                'id' => 'required',
+                'pid' => 'required',
+                'quantity' => 'required|numeric|min:1',
+                'price' => 'required|numeric|min:1'
+            ], [
+                'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
+                'numeric' => 'Dữ liệu phải là số',
+                'quantity.min' => 'Số lượng phải lớn hơn 0',
+                'price.min' => 'Số lượng phải lớn hơn 0',
+            ]);
+            $checkData = InputDetail::where('input_id', $request->id)->where('product_id', $request->pid)->count();
+            if($checkData > 0) {
+                return redirect()->intended('admin/inputDetail')->with('error', 'Sản phẩm này đã được nhập trong phiếu nhập này');
+            } else {
+                $newData = new InputDetail();
+                $newData->input_id = $request->id;
+                $newData->product_id = $request->pid;
+                $newData->quantity = $request->quantity;
+                $newData->price = $request->price;
+                $newData->save();
+
+                return redirect()->intended('admin/inputDetail')->with('success', 'Thêm mới thành công !');
+            }
+
+            return redirect()->intended('admin/inputDetail')->with('success', 'Thêm mới thành công !');
+        } else {
+            return redirect()->intended('admin');
+        }
+    }
+
+    public function deleteInputDetail($id, $pid)
+    {
+        if (Auth::check()) {
+            InputDetail::where('input_id', $id)->where('product_id', $pid)->delete();
+            return redirect()->intended('admin/inputDetail')->with('success', 'Xóa thành công !');
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function viewEditInputDetail($id, $pid)
+    {
+        if (Auth::check()) {
+            $name = Auth::user()->name;
+            $data = InputDetail::where('input_id', $id)->where('product_id', $pid)->first();
+
+            return view('admin.inputDetail.edit', compact('name', 'data'));
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function updateInputDetail($id, $pid, Request $request)
+    {
+        if (Auth::check()) {
+            $request->validate([
+                'quantity' => 'required|numeric|min:1',
+                'price' => 'required|numeric|min:1'
+            ], [
+                'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
+                'numeric' => 'Dữ liệu phải là số',
+                'quantity.min' => 'Số lượng phải lớn hơn 0',
+                'price.min' => 'Số lượng phải lớn hơn 0',
+            ]);
+
+            $newData = [
+                'quantity' => $request->quantity,
+                'price' => $request->price
+            ];
+
+            InputDetail::where('input_id', $id)->where('product_id', $pid)
+                ->update($newData);
+
+            return redirect()->intended('admin/inputDetail')->with('success', 'Sửa thành công !');
         } else
             return redirect()->intended('admin');
     }

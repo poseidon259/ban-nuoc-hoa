@@ -13,7 +13,7 @@ class ShopController extends Controller
     {
         $data = Category::all();
         $productSale = Product::where('sale', '<>', 0)->get();
-        $products = Product::paginate(6);
+        $products = Product::where('sale', 0)->paginate(6);
         $amount = Product::all()->count();
 
         return view('shop', compact('data', 'productSale', 'products', 'amount') );
