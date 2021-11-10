@@ -26,8 +26,7 @@ class ShoppingCartController extends Controller
             'description' => $data->description,
             'category_id' => $data->category_id,
             'gender' => $data->gender,
-            'sale' => $data->sale,
-            'available' => $data->available
+            'sale' => $data->sale
         ];
 
         session()->put($id, $newData);

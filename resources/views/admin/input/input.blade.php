@@ -39,7 +39,7 @@
                             <td>{{$item->address}}</td>
                             <td>{{$item->created_at}}</td>
                             <td><a class="btn btn-primary btn-sm text-white" href="{{route('editInput', ['id' => $item->id])}}">Edit</a></td>
-                            <td><a class="btn btn-danger btn-sm text-white" href="{{route('deleteInput', ['id' => $item->id])}}" onClick="return confirm('Bạn xác nhận muốn xóa bản ghi ?')">Delete</a></td>
+                            <td><a class="btn btn-danger btn-sm text-white" href="{{route('deleteInput', ['id' => $item->id])}}" onClick="return confirm('Nếu bạn xóa phiếu nhập này, tất cả sản phẩm nhập cũng bị xóa !!')">Delete</a></td>
                         </tr>
                         @endforeach
                     </tbody>

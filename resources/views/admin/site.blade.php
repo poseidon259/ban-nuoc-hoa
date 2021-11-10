@@ -226,7 +226,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Interface
+        Giao diện
       </div>
 
       <li class="nav-item">
@@ -296,8 +296,20 @@
         </a>
         <div id="order" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item font-weight-bold" href="">Thêm mới</a>
-            <a class="collapse-item font-weight-bold" href="">Chi tiết bảng</a>
+            <a class="collapse-item font-weight-bold" href="{{route('insertOrder')}}">Thêm mới</a>
+            <a class="collapse-item font-weight-bold" href="{{route('order')}}">Chi tiết bảng</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#orderDetail" aria-expanded="true" aria-controls="orderDetail">
+          <i class="fas fa-table"></i>
+          <span>Chi tiết đơn hàng</span>
+        </a>
+        <div id="orderDetail" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item font-weight-bold" href="{{route('insertOrderDetail')}}">Thêm mới</a>
+            <a class="collapse-item font-weight-bold" href="{{route('orderDetail')}}">Chi tiết bảng</a>
           </div>
         </div>
       </li>

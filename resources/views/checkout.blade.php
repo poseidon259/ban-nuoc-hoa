@@ -28,6 +28,15 @@
 
             <h4>Billing Details</h4>
             <form action="{{route('processCheckout')}}" method="POST" class="handleCheckout">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li style="padding-left: 12px">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 @csrf
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
@@ -35,41 +44,37 @@
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Fist Name<span>*</span></p>
-                                    <input type="text" name="firstname" required>
+                                    <input type="text" name="firstname">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Last Name<span>*</span></p>
-                                    <input type="text" name="lastname" required>
+                                    <input type="text" name="lastname">
                                 </div>
                             </div>
                         </div>
                         <div class="checkout__input">
-                            <p>Country<span>*</span></p>
-                            <input type="text" name="country" required>
-                        </div>
-                        <div class="checkout__input">
                             <p>Address<span>*</span></p>
-                            <input type="text" placeholder="Street Address" name="address" required class="checkout__input__add">
+                            <input type="text" name="address" class="checkout__input__add">
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Phone<span>*</span></p>
-                                    <input type="text" name="phone" required>
+                                    <input type="text" name="phone">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Email<span>*</span></p>
-                                    <input type="text" name="email" required>
+                                    <input type="text" name="email">
                                 </div>
                             </div>
                         </div>
                         <div class="checkout__input">
-                            <p>Order notes<span>*</span></p>
-                            <input type="text" name="ordernote" required placeholder="Notes about your order, e.g. special notes for delivery.">
+                            <p>Order notes</p>
+                            <textarea cols="5" rows="5" class="form-control" name="note" id="note" placeholder="Ghi chú những yêu cầu đặc biệt."></textarea>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -102,13 +107,5 @@
 </body>
 
 </html>
-
-<script>
-    let placeOrder = document.querySelector('.handleCheckout');
-    placeOrder.addEventListener('submit', function(e) {
-
-
-    })
-</script>
 
 @endsection

@@ -91,6 +91,21 @@ Route::post('/admin/inputDetail/edit/{id}/{pid}', 'AdminController@updateInputDe
 Route::get('/admin/inputDetail/delete/{id}/{pid}', 'AdminController@deleteInputDetail')->name('deleteInputDetail');
 
 
+Route::get('/admin/order', 'AdminController@order')->name('order');
+Route::get('/admin/order/insert', 'AdminController@viewInsertOrder')->name('insertOrder');
+Route::post('/admin/order/insert', 'AdminController@insertOrder');
+Route::get('/admin/order/edit/{id}', 'AdminController@viewEditOrder')->name('editOrder');
+Route::post('/admin/order/edit/{id}', 'AdminController@updateOrder');
+Route::get('/admin/order/delete/{id}', 'AdminController@deleteOrder')->name('deleteOrder');
 
+Route::get('/admin/orderDetail', 'AdminController@orderDetail')->name('orderDetail');
+Route::get('/admin/orderDetail/insert', 'AdminController@viewInsertOrderDetail')->name('insertOrderDetail');
+Route::post('/admin/orderDetail/insert', 'AdminController@insertOrderDetail');
+Route::get('/admin/orderDetail/edit/{id}/{pid}', 'AdminController@viewEditOrderDetail')->name('editOrderDetail');
+Route::post('/admin/orderDetail/edit/{id}/{pid}', 'AdminController@updateOrderDetail');
+Route::get('/admin/orderDetail/delete/{id}/{pid}', 'AdminController@deleteOrderDetail')->name('deleteOrderDetail');
+
+
+Route::get('/admin/order/sendmail/{id}', 'AdminController@sendMail')->name('sendMail');
 
 

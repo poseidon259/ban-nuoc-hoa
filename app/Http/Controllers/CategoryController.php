@@ -10,7 +10,7 @@ use App\Models\Product;
 
 class CategoryController extends Controller
 {
-    public function view($id) {
+    public function view() {
         return view('category');
     }
 

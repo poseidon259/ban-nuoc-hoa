@@ -11,10 +11,39 @@ use App\Models\Category;
 use App\Models\User;
 use App\Models\Input;
 use App\Models\InputDetail;
+use App\Models\Order;
+use App\Models\OrderDetail;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class AdminController extends Controller
 {
     //
+    public function sendMail(Request $request) {
+        if(Auth::check()) {
+            $data = Order::find($request->id);
+            $newMail = new SendMail($data);
+
+            Mail::to($data->email)->send($newMail);
+            if(count(Mail::failures()) > 0) {
+                return redirect()->intended('admin/order')->with('error', 'Đã có lỗi !! Không thể gửi !!');
+            }
+            $updateData = [
+                'status' => 1
+            ];
+
+            Order::where('id', $request->id)
+                ->update($updateData);
+            return redirect()->intended('admin/order')->with('success', 'Email đã được gửi');
+        } else {
+            return redirect('admin/login');
+        }
+    
+    
+    
+        // else do redirect back to normal
+
+    }
     public function index()
     {
         if (Auth::check()) {
@@ -31,6 +60,16 @@ class AdminController extends Controller
         if (Auth::check()) {
             $data = Product::paginate(10);
             $name = Auth::user()->name;
+
+            foreach ($data as $key => $value) {
+                $soLuongNhap = InputDetail::where('product_id', $value->product_id)->sum('quantity');
+                $soLuongNhap = is_null($soLuongNhap) ? 0 : $soLuongNhap;
+                $soLuongXuat = OrderDetail::where('product_id', $value->product_id)->sum('quantity');
+                $soLuongXuat = is_null($soLuongXuat) ? 0 : $soLuongXuat;
+                
+                $quantity = is_null($soLuongNhap - $soLuongXuat) ? 0 : $soLuongNhap - $soLuongXuat;
+                $value->quantity = $quantity;
+            }
             return view('admin.product.product', compact('name', 'data'));
         } else {
             return redirect()->intended('admin');
@@ -760,6 +799,97 @@ class AdminController extends Controller
                 ->update($newData);
 
             return redirect()->intended('admin/inputDetail')->with('success', 'Sửa thành công !');
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function order()
+    {
+        if (Auth::check()) {
+            $data = Order::orderby('status', 'asc')->paginate(6);
+            $name = Auth::user()->name;
+            return view('admin.order.order', compact('name', 'data'));
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function viewInsertOrder()
+    {
+        if (Auth::check()) {
+            $name = Auth::user()->name;
+            return view('admin.order.insert', compact('name'));
+        } else {
+            return redirect()->intended('admin');
+        }
+    }
+
+    public function insertOrder(Request $request)
+    {
+        if (Auth::check()) {
+            $request->validate([
+                'name' => 'required',
+                'address' => 'required',
+                'date' => 'required|after_or_equal:today',
+            ], [
+                'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
+                'after_or_equal' => 'Ngày tạo phải lớn hơn hoặc bằng ngày hiện tại'
+            ]);
+
+            $newData = new Input();
+            $newData->emp_name = $request->name;
+            $newData->created_at = $request->date;
+            $newData->address = $request->address;
+            $newData->save();
+
+            return redirect()->intended('admin/order')->with('success', 'Thêm mới thành công !');
+        } else {
+            return redirect()->intended('admin');
+        }
+    }
+
+    public function viewEditOrder($id)
+    {
+        if (Auth::check()) {
+            $name = Auth::user()->name;
+            $data = Input::where('id', $id)->first();
+
+            return view('admin.order.edit', compact('name', 'data'));
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function updateOrder($id, Request $request)
+    {
+        if (Auth::check()) {
+            $request->validate([
+                'name' => 'required',
+                'address' => 'required',
+                'date' => 'required|after_or_equal:today',
+            ], [
+                'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
+                'after_or_equal' => 'Ngày tạo phải lớn hơn hoặc bằng ngày hiện tại'
+            ]);
+
+            $newData = [
+                'emp_name' => $request->name,
+                'address' => $request->address,
+                'created_at' => $request->date
+            ];
+
+            Input::where('id', $id)
+                ->update($newData);
+
+            return redirect()->intended('admin/order')->with('success', 'Sửa thành công !');
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function deleteOrder($id)
+    {
+        if (Auth::check()) {
+            $data = Input::where('id', $id)->first();
+            $data->delete();
+            return redirect()->intended('admin/order')->with('success', 'Xóa thành công !');
         } else
             return redirect()->intended('admin');
     }

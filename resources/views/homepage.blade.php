@@ -2,6 +2,12 @@
 @extends('layouts.site')
 
 @section('slider')
+@if(Session::has('alert'))
+<script>
+    alert("{{Session::get('alert')}}");
+</script>
+@endif
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -71,12 +77,12 @@
                     </div>
                     <div class="featured__item__text">
                         <h6><a href="{{ route('product', ['id' => $product->product_id]) }}">{{$product->product_name}}</a></h6>
-                        <h5>${{$product->price}}</h5>
+                        <h5>${{$product->price - $product->price * $product->sale}}</h5>
                     </div>
                 </div>
             </div>
             @endforeach
-    </div>
+        </div>
     </div>
 </section>
 <!-- Featured Section End -->
@@ -91,25 +97,25 @@
             </div>
         </div>
         <div class="row featured__filter">
-            @foreach($productForWoman as $product) 
+            @foreach($productForWoman as $product)
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="featured__item">
                     <div class="featured__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/{{$product->image}}">
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i>
-                            </a></li>
+                                </a></li>
                             <li><a href="{{ route('handleCart', ['id' => $product->product_id]) }}"><i class="fa fa-shopping-cart "></i></a></li>
                         </ul>
                     </div>
                     <div class="featured__item__text">
                         <h6><a href="{{ route('product', ['id' => $product->product_id]) }}">{{$product->product_name}}</a></h6>
-                        <h5>${{$product->price}}</h5>
+                        <h5>${{$product->price - $product->price * $product->sale}}</h5>
                     </div>
                 </div>
             </div>
             @endforeach
-    </div>
+        </div>
     </div>
 </section>
 <!-- Featured Section End -->
@@ -132,7 +138,7 @@
     </div>
 </div>
 <!-- Banner End -->
- 
+
 <!-- Blog Section Begin -->
 <section class="from-blog spad">
     <div class="container">

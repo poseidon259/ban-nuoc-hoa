@@ -47,7 +47,7 @@
                                         <h5>{{$value['product_name']}}</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        {{$value['price']}}
+                                        {{$value['price'] - $value['price'] * $value['sale']}}
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
