@@ -38,7 +38,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
-                                <span>Sort By</span>
+                                <span>Sắp xếp</span>
                                 <select>
                                     <option value="0">Default</option>
                                     <option value="0">Default</option>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="filter__found">
-                                <h6><span></span> Products found</h6>
+                                <h6><span></span> Sản phẩm</h6>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-3">

@@ -56,8 +56,8 @@
                             @else
                             <td>Đã xác nhận</td>
                             @endif
-                            <td><a class="btn btn-primary btn-sm text-white" href="{{route('editInput', ['id' => $item->id])}}">Edit</a></td>
-                            <td><a class="btn btn-danger btn-sm text-white" href="{{route('deleteInput', ['id' => $item->id])}}" onClick="return confirm('Nếu bạn xóa hóa đơn này, tất cả sản phẩm trong hóa đơn cũng bị xóa !!')">Delete</a></td>
+                            <td><a class="btn btn-primary btn-sm text-white" href="{{route('editOrder', ['id' => $item->id])}}">Edit</a></td>
+                            <td><a class="btn btn-danger btn-sm text-white" href="{{route('deleteOrder', ['id' => $item->id])}}" onClick="return confirm('Nếu bạn xóa hóa đơn này, tất cả sản phẩm trong hóa đơn cũng bị xóa !!')">Delete</a></td>
                         </tr>
                         @endforeach
                     </tbody>

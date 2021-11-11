@@ -31,20 +31,31 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        $text= "Bạn thân mến \n
-        Cảm ơn bạn đã đặt hàng tại cửa hàng của chúng tôi. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất. \n
-        Thông tin đơn hàng của bạn là: \n
-        Mã đơn hàng: ".$this->data->id." \n
-        Tên khách hàng: ".$this->data->firstname. " ". $this->data->lastname ." \n
-        Số điện thoại: ".$this->data->phone." \n
-        Địa chỉ: ".$this->data->address." \n
-        Email: ".$this->data->email." \n
-        ";
+        $name = $this->data->firstname . ' ' . $this->data->lastname;
+        $date = $this->data->created_at;
+        $address = $this->data->address;
+        $phone = $this->data->phone;
+        $email = $this->data->email;
+        $total = 0;
+        $id = $this->data->id;
+        $order_details = OrderDetail::where('order_id', $id)
+            ->join('product', 'product.product_id', '=', 'order_detail.product_id')
+            ->select('product.product_name', 'order_detail.quantity', 'order_detail.price')
+            ->get();
+        foreach ($order_details as $value) {
+            $total += $value->quantity * ($value->price - $value->price * $value->sale);
+        }
         return $this->from('kaiso1st@gmail.com', 'Perfume')
                     ->subject('Xác nhận đơn hàng')
                     ->view('mail')
                     ->with([
-                        'text' => $text
+                        'name' => $name,
+                        'date' => $date,
+                        'address' => $address,
+                        'phone' => $phone,
+                        'email' => $email,
+                        'total' => $total,
+                        'order_details' => $order_details,
                     ]);
     }
 }

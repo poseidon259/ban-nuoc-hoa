@@ -51,14 +51,14 @@
                     </div>
                     <a href="{{route('handleCart', ['id' => $product_byID->product_id]) }}" class="primary-btn add-to-cart" style="margin-top: 4rem;">ADD TO CARD</a>
                     <ul>
-                        <li><b>Availability</b>
-                            @if ($product_byID->available = 0)
-                                <span>Out Stock</span>
+                        <li><b>Kho</b>
+                            @if ($product_byID->quantity <= 0)
+                                <span>Hết hàng</span>
                             @else
-                                <span>In Stock</span>
+                                <span>Còn hàng: {{$product_byID->quantity}}</span>
                             @endif
                         </li>
-                        <li><b>Share on</b>
+                        <li><b>Chia sẻ</b>
                             <div class="share">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -73,13 +73,13 @@
                 <div class="product__details__tab">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">Description</a>
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">Thông tin</a>
                         </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
+                                <h6>Thông tin sản phẩm</h6>
                                 <p>{{$product_byID->description}}</p>
                             </div>
                         </div>

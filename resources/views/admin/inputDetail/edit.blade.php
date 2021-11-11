@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Thêm phiếu nhập</h4>
+                    <h4 class="card-title">Sửa chi tiết phiếu nhập</h4>
 
                 </div>
                 @if ($errors->any())

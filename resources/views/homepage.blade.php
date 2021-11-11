@@ -145,7 +145,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title from-blog__title">
-                    <h2>From The Blog</h2>
+                    <h2>Bài viết</h2>
                 </div>
             </div>
         </div>

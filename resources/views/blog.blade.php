@@ -7,10 +7,10 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Blog</h2>
+                    <h2>Bài viết</h2>
                     <div class="breadcrumb__option">
-                        <a href="./">Home</a>
-                        <span>Blog</span>
+                        <a href="./">Trang chủ</a>
+                        <span>Bài viết</span>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="col-lg-4 col-md-5">
                 <div class="blog__sidebar">
                     <div class="blog__sidebar__item">
-                        <h4>Tags</h4>
+                        <h4>Liên quan</h4>
                         <ul>
                             @foreach ($blog as $item)
                                 <li><a>{{$item->tag}}</a></li>
@@ -50,7 +50,7 @@
                                     </ul>
                                     <h5><a>{{$item->title}}</a></h5>
                                     <p>{{Str::limit($item->description, 100)}}</p> </p>
-                                    <a href="{{route('blogdetail', ['id' => $item->blog_id])}}" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                                    <a href="{{route('blogdetail', ['id' => $item->blog_id])}}" class="blog__btn">CHI TIẾT <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>

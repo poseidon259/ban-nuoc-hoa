@@ -26,7 +26,7 @@
             <div class="col-lg-4 col-md-5 order-md-1 order-2">
                 <div class="blog__sidebar">
                     <div class="blog__sidebar__item">
-                        <h4>Tags</h4>
+                        <h4>Liên quan</h4>
                         <ul>
                             <li><a href="#">{{$blog->tag}}</a></li>
                         </ul>
@@ -45,7 +45,7 @@
                         <div class="col-lg-6">
                             <div class="blog__details__widget">
                                 <ul>
-                                    <li><span>Tags: </span>{{$blog->tag}}</li>
+                                    <li><span>Liên quan: </span>{{$blog->tag}}</li>
                                 </ul>
                                 <div class="blog__details__social">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -70,7 +70,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title related-blog-title">
-                    <h2>Post You May Like</h2>
+                    <h2>Có thể bạn quan tâm</h2>
                 </div>
             </div>
         </div>

@@ -8,10 +8,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2 style="color: #000000;">The Parfum Shop</h2>
+                        <h2 style="color: #000000;">Cửa hàng</h2>
                         <div class="breadcrumb__option">
-                            <a href="./" style="color: #000000;">Home</a>
-                            <span style="color: #000000;">Shop</span>
+                            <a href="./" style="color: #000000;">Trang chủ</a>
+                            <span style="color: #000000;">Cửa hàng</span>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                 <div class="col-lg-9 col-md-7">
                     <div class="product__discount">
                         <div class="section-title product__discount__title">
-                            <h2>Sale Off</h2>
+                            <h2>Giảm giá</h2>
                         </div>
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
@@ -81,7 +81,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>{{$amount}}</span> Products found</h6>
+                                    <h6><span>{{$amount}}</span> Sản phẩm</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">

@@ -9,10 +9,10 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Checkout</h2>
+                    <h2>Thanh toán</h2>
                     <div class="breadcrumb__option">
-                        <a href="./index.html">Home</a>
-                        <span>Checkout</span>
+                        <a href="./index.html">Trang chủ</a>
+                        <span>Thanh toán</span>
                     </div>
                 </div>
             </div>
@@ -26,8 +26,13 @@
     <div class="container">
         <div class="checkout__form">
 
-            <h4>Billing Details</h4>
+            <h4>Hóa đơn</h4>
             <form action="{{route('processCheckout')}}" method="POST" class="handleCheckout">
+                @if(Session::has('error'))
+                <div class="alert alert-danger" role="alert">
+                    <strong>{{Session::get('error')}}</strong>
+                </div>
+                @endif
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -43,25 +48,25 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Fist Name<span>*</span></p>
+                                    <p>Họ<span>*</span></p>
                                     <input type="text" name="firstname">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Last Name<span>*</span></p>
+                                    <p>Tên<span>*</span></p>
                                     <input type="text" name="lastname">
                                 </div>
                             </div>
                         </div>
                         <div class="checkout__input">
-                            <p>Address<span>*</span></p>
+                            <p>Địa chỉ<span>*</span></p>
                             <input type="text" name="address" class="checkout__input__add">
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Phone<span>*</span></p>
+                                    <p>Điện thoại<span>*</span></p>
                                     <input type="text" name="phone">
                                 </div>
                             </div>
@@ -73,14 +78,14 @@
                             </div>
                         </div>
                         <div class="checkout__input">
-                            <p>Order notes</p>
+                            <p>Ghi chú</p>
                             <textarea cols="5" rows="5" class="form-control" name="note" id="note" placeholder="Ghi chú những yêu cầu đặc biệt."></textarea>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
-                            <h4>Your Order</h4>
-                            <div class="checkout__order__products">Products <span>Total</span></div>
+                            <h4>Sản phẩm của bạn</h4>
+                            <div class="checkout__order__products">Sản phẩm <span>Giá x Số lượng</span></div>
                             @php
                             $total=0;
                             @endphp
@@ -95,8 +100,8 @@
                                 @endforeach
                             </ul>
 
-                            <div class="checkout__order__total">Total <span>{{$total}}</span></div>
-                            <button type="submit" class="site-btn">PLACE ORDER</button>
+                            <div class="checkout__order__total">Tổng tiền <span>{{$total}}</span></div>
+                            <button type="submit" class="site-btn">Xác nhận</button>
                         </div>
                     </div>
                 </div>

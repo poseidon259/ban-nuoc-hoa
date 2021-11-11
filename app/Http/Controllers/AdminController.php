@@ -34,22 +34,48 @@ class AdminController extends Controller
 
             Order::where('id', $request->id)
                 ->update($updateData);
-            return redirect()->intended('admin/order')->with('success', 'Email đã được gửi');
+            return redirect()->intended('admin/order')->with('success', 'Email đã được gửi đến địa chỉ '.$data->email);
         } else {
             return redirect('admin/login');
         }
-    
-    
-    
-        // else do redirect back to normal
-
     }
     public function index()
     {
         if (Auth::check()) {
             $name = Auth::user()->name;
-            $doanhthu = [300, 1000, 2000, 3000, 4000, 5000, 500, 3500, 8000, 9000, 2000, 11000];
-            return view('admin.dashboard', compact('name', 'doanhthu'));
+            $doanhthungay = 0;
+            $doanhthuthang = 0;
+            $dataNgay = Order::join('order_detail', 'order_id', '=', 'id')
+                        ->where('status', 1)
+                        ->where('created_at','=' ,date('Y-m-d'))
+                        ->get();
+            foreach ($dataNgay as $value) {
+                $doanhthungay += $value->price * $value->quantity;
+            }
+
+            $dataThang = Order::join('order_detail', 'order_id', '=', 'id')
+                        ->where('status', 1)
+                        ->whereMonth('created_at','=' ,date('m'))
+                        ->get();
+            foreach ($dataThang as $value) {
+                $doanhthuthang += $value->price * $value->quantity;
+            }
+
+            $donchoxacnhan = Order::where('status', 0)->count();
+            
+            $doanhthunam = [];
+            for($i = 0; $i < 12; $i++) {
+                $temp =Order::join('order_detail', 'order_id', '=', 'id')
+                        ->where('status', 1)
+                        ->whereMonth('created_at','=' ,$i+1)
+                        ->get();
+                $doanhthutemp = 0;
+                foreach ($temp as $value) {
+                    $doanhthutemp += $value->price * $value->quantity;
+                }
+                array_push($doanhthunam, $doanhthutemp);
+            }
+            return view('admin.dashboard', compact('name', 'doanhthungay', 'doanhthuthang', 'doanhthunam', 'donchoxacnhan'));
         } else {
             return redirect()->intended('admin/login');
         }
@@ -69,6 +95,7 @@ class AdminController extends Controller
                 
                 $quantity = is_null($soLuongNhap - $soLuongXuat) ? 0 : $soLuongNhap - $soLuongXuat;
                 $value->quantity = $quantity;
+                $value->save();
             }
             return view('admin.product.product', compact('name', 'data'));
         } else {
@@ -135,7 +162,7 @@ class AdminController extends Controller
             Product::where('product_id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/product')->with('success', 'Sửa thông tin thành công !');
+            return redirect()->intended('admin/product')->with('success', 'Sửa thông tin sản phẩm có mã '.$id.' thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -192,7 +219,7 @@ class AdminController extends Controller
             $newData->image = $fileName;
 
             $newData->save();
-            return redirect()->intended('admin/product')->with('success', 'Thêm mới thành công !');
+            return redirect()->intended('admin/product')->with('success', 'Thêm mới sản phẩm có mã thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -210,7 +237,7 @@ class AdminController extends Controller
 
                 Product::where('product_id', $id)
                     ->delete();
-                return redirect()->intended('admin/product')->with('success', 'Xóa thành công !');
+                return redirect()->intended('admin/product')->with('success', 'Xóa sản phẩm có mã '.$id.' thành công !');
             } else {
                 return redirect()->intended('admin/product')->with('error', 'Bạn không có quyền xóa sản phẩm này');
             }
@@ -287,7 +314,7 @@ class AdminController extends Controller
             Blog::where('blog_id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/blog')->with('success', 'Cập nhật thành công !');
+            return redirect()->intended('admin/blog')->with('success', 'Cập nhật bài viết có mã '.$id.' thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -339,7 +366,7 @@ class AdminController extends Controller
 
             $newData->save();
 
-            return redirect()->intended('admin/blog')->with('success', 'Thêm mới thành công !');
+            return redirect()->intended('admin/blog')->with('success', 'Thêm mới bài viết thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -358,7 +385,7 @@ class AdminController extends Controller
 
                 Blog::where('blog_id', $id)->delete();
 
-                return redirect()->intended('admin/blog')->with('success', 'Xóa thành công !');
+                return redirect()->intended('admin/blog')->with('success', 'Xóa bài viết có mã '.$id.' thành công !');
             } else {
                 return redirect()->intended('admin/blog')->with('error', 'Bạn không có quyền xóa bài viết này');
             }
@@ -409,7 +436,7 @@ class AdminController extends Controller
             Category::where('id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/category')->with('success', 'Sửa thành công !');
+            return redirect()->intended('admin/category')->with('success', 'Sửa danh mục có mã '.$id.' thành công !');
         } else
             return redirect()->intended('admin');
     }
@@ -445,7 +472,7 @@ class AdminController extends Controller
             $newData->category_name = $request->name;
 
             $newData->save();
-            return redirect()->intended('admin/category')->with('success', 'Thêm mới thành công !');
+            return redirect()->intended('admin/category')->with('success', 'Thêm mới danh mục thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -463,9 +490,9 @@ class AdminController extends Controller
                 if ($count == 0) {
                     Category::where('id', $id)
                         ->delete();
-                    return redirect()->intended('admin/category')->with('success', 'Xóa thành công !');
+                    return redirect()->intended('admin/category')->with('success', 'Xóa danh mục có mã '.$id.' thành công !');
                 } else {
-                    return redirect()->intended('admin/category')->with('error', 'Không thể xóa danh mục do đang có sản phẩm !');
+                    return redirect()->intended('admin/category')->with('error', 'Không thể xóa danh mục có mã '.$id.' do đang có sản phẩm !');
                 }
             } else {
                 return redirect()->intended('admin/category')->with('error', 'Bạn không có quyền xóa danh mục này');
@@ -528,7 +555,7 @@ class AdminController extends Controller
             $newData->role = $request->role;
             $newData->save();
 
-            return redirect()->intended('admin/user')->with('success', 'Thêm mới thành công !');
+            return redirect()->intended('admin/user')->with('success', 'Thêm mới tài khoản thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -545,7 +572,7 @@ class AdminController extends Controller
                 if ($admin_role < $user->role) {
                     return view('admin.user.edit', compact('name', 'user'));
                 } else {
-                    return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền sửa mục này');
+                    return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền sửa tài khoản này');
                 }
             } else {
                 return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền chỉnh sửa tài khoản quản trị');
@@ -584,7 +611,7 @@ class AdminController extends Controller
             User::where('id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/user')->with('success', 'Sửa thành công !');
+            return redirect()->intended('admin/user')->with('success', 'Sửa thông tin tài khoản thành công !');
         } else
             return redirect()->intended('admin');
     }
@@ -598,7 +625,7 @@ class AdminController extends Controller
                 $user = User::where('id', $id)->first();
                 if ($admin_role < $user->role) {
                     $user->delete();
-                    return redirect()->intended('admin/user')->with('success', 'Xóa thành công !');
+                    return redirect()->intended('admin/user')->with('success', 'Xóa tài khoản có mã '.$id.' thành công !');
                 } else {
                     return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền xóa người dùng này');
                 }
@@ -647,7 +674,7 @@ class AdminController extends Controller
             $newData->address = $request->address;
             $newData->save();
 
-            return redirect()->intended('admin/input')->with('success', 'Thêm mới thành công !');
+            return redirect()->intended('admin/input')->with('success', 'Thêm mới phiếu nhập thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -685,7 +712,7 @@ class AdminController extends Controller
             Input::where('id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/input')->with('success', 'Sửa thành công !');
+            return redirect()->intended('admin/input')->with('success', 'Sửa hóa đơn có mã '.$id.' thành công !');
         } else
             return redirect()->intended('admin');
     }
@@ -695,7 +722,7 @@ class AdminController extends Controller
         if (Auth::check()) {
             $data = Input::where('id', $id)->first();
             $data->delete();
-            return redirect()->intended('admin/input')->with('success', 'Xóa thành công !');
+            return redirect()->intended('admin/input')->with('success', 'Xóa hóa đơn có mã '.$id.' thành công !');
         } else
             return redirect()->intended('admin');
     }
@@ -735,11 +762,11 @@ class AdminController extends Controller
                 'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
                 'numeric' => 'Dữ liệu phải là số',
                 'quantity.min' => 'Số lượng phải lớn hơn 0',
-                'price.min' => 'Số lượng phải lớn hơn 0',
+                'price.min' => 'Giá phải lớn hơn 0',
             ]);
             $checkData = InputDetail::where('input_id', $request->id)->where('product_id', $request->pid)->count();
             if($checkData > 0) {
-                return redirect()->intended('admin/inputDetail')->with('error', 'Sản phẩm này đã được nhập trong phiếu nhập này');
+                return redirect()->intended('admin/inputDetail')->with('error', 'Sản phẩm có mã '.$request->pid.' đã được nhập trong phiếu nhập có mã '.$request->id);
             } else {
                 $newData = new InputDetail();
                 $newData->input_id = $request->id;
@@ -748,10 +775,8 @@ class AdminController extends Controller
                 $newData->price = $request->price;
                 $newData->save();
 
-                return redirect()->intended('admin/inputDetail')->with('success', 'Thêm mới thành công !');
+                return redirect()->intended('admin/inputDetail')->with('success', 'Thêm mới thành công sản phẩm có mã '.$request->pid.' vào phiếu nhập '.$request->id.' !');
             }
-
-            return redirect()->intended('admin/inputDetail')->with('success', 'Thêm mới thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -761,7 +786,7 @@ class AdminController extends Controller
     {
         if (Auth::check()) {
             InputDetail::where('input_id', $id)->where('product_id', $pid)->delete();
-            return redirect()->intended('admin/inputDetail')->with('success', 'Xóa thành công !');
+            return redirect()->intended('admin/inputDetail')->with('success', 'Xóa thành công sản phẩm có mã '.$pid.' vào hóa đơn '.$id.' !');
         } else
             return redirect()->intended('admin');
     }
@@ -787,7 +812,7 @@ class AdminController extends Controller
                 'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
                 'numeric' => 'Dữ liệu phải là số',
                 'quantity.min' => 'Số lượng phải lớn hơn 0',
-                'price.min' => 'Số lượng phải lớn hơn 0',
+                'price.min' => 'Giá phải lớn hơn 0',
             ]);
 
             $newData = [
@@ -798,7 +823,7 @@ class AdminController extends Controller
             InputDetail::where('input_id', $id)->where('product_id', $pid)
                 ->update($newData);
 
-            return redirect()->intended('admin/inputDetail')->with('success', 'Sửa thành công !');
+            return redirect()->intended('admin/inputDetail')->with('success', 'Sửa thành công sản phẩm có mã '.$pid.' vào hóa đơn '.$id.' !');
         } else
             return redirect()->intended('admin');
     }
@@ -827,21 +852,30 @@ class AdminController extends Controller
     {
         if (Auth::check()) {
             $request->validate([
-                'name' => 'required',
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'email' => 'required|email',
+                'phone' => 'required|numeric',
                 'address' => 'required',
-                'date' => 'required|after_or_equal:today',
+                'date' => 'required|after_or_equal:today'
             ], [
                 'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
+                'email' => 'Email không hợp lệ',
+                'numeric' => 'Số điện thoại phải là số',
                 'after_or_equal' => 'Ngày tạo phải lớn hơn hoặc bằng ngày hiện tại'
             ]);
 
-            $newData = new Input();
-            $newData->emp_name = $request->name;
+            $newData = new Order();
+            $newData->firstname = $request->firstname;
+            $newData->lastname = $request->lastname;
+            $newData->email = $request->email;
+            $newData->phone = $request->phone;
+            $newData->note = $request->note;
             $newData->created_at = $request->date;
             $newData->address = $request->address;
             $newData->save();
 
-            return redirect()->intended('admin/order')->with('success', 'Thêm mới thành công !');
+            return redirect()->intended('admin/order')->with('success', 'Thêm mới hóa đơn thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -850,10 +884,13 @@ class AdminController extends Controller
     public function viewEditOrder($id)
     {
         if (Auth::check()) {
+            $check = Order::where('id', $id)->count();
             $name = Auth::user()->name;
-            $data = Input::where('id', $id)->first();
-
-            return view('admin.order.edit', compact('name', 'data'));
+            if($check != 0 ) {
+                $data = Order::where('id', $id)->first();
+                return view('admin.order.edit', compact('name', 'data'));
+            } else
+                return redirect()->intended('admin/order')->with('error', 'Không tìm thấy hóa đơn có mã ' .$id. ' !');
         } else
             return redirect()->intended('admin');
     }
@@ -862,24 +899,34 @@ class AdminController extends Controller
     {
         if (Auth::check()) {
             $request->validate([
-                'name' => 'required',
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'email' => 'required|email',
+                'phone' => 'required|numeric',
                 'address' => 'required',
-                'date' => 'required|after_or_equal:today',
+                'date' => 'required|after_or_equal:today'
             ], [
                 'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
+                'email' => 'Email không hợp lệ',
+                'numeric' => 'Số điện thoại phải là số',
                 'after_or_equal' => 'Ngày tạo phải lớn hơn hoặc bằng ngày hiện tại'
             ]);
 
             $newData = [
-                'emp_name' => $request->name,
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'email' => $request->email,
+                'phone' => $request->phone,
                 'address' => $request->address,
-                'created_at' => $request->date
+                'created_at' => $request->date,
+                'note' => $request->note,
+                'status' => 0
             ];
 
-            Input::where('id', $id)
+            Order::where('id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/order')->with('success', 'Sửa thành công !');
+            return redirect()->intended('admin/order')->with('success', 'Sửa thành công hóa đơn có mã '.$id.' !');
         } else
             return redirect()->intended('admin');
     }
@@ -887,10 +934,118 @@ class AdminController extends Controller
     public function deleteOrder($id)
     {
         if (Auth::check()) {
-            $data = Input::where('id', $id)->first();
-            $data->delete();
-            return redirect()->intended('admin/order')->with('success', 'Xóa thành công !');
+            $check = Order::where('id', $id)->count();
+            if($check != 0 ) {
+                Order::where('id', $id)->delete();
+                return redirect()->intended('admin/order')->with('success', 'Xóa thành công hóa đơn có mã '.$id.' !');
+            } else
+                return redirect()->intended('admin/order')->with('error', 'Không tìm thấy dữ liệu !');
         } else
             return redirect()->intended('admin');
     }
+
+    public function orderDetail()
+    {
+        if (Auth::check()) {
+            $data = OrderDetail::orderby('order_id', 'asc')->paginate(6);
+            $name = Auth::user()->name;
+            return view('admin.order_detail.orderDetail', compact('name', 'data'));
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function viewInsertOrderDetail()
+    {
+        if (Auth::check()) {
+            $name = Auth::user()->name;
+            $order = Order::all();
+            $product = Product::all();
+            return view('admin.order_detail.insert', compact('name', 'order', 'product'));
+        } else {
+            return redirect()->intended('admin');
+        }
+    }
+
+    public function insertOrderDetail(Request $request)
+    {
+        if (Auth::check()) {
+            $maxQuantity = Product::where('product_id', $request->pid)->first()->quantity;
+            $request->validate([
+                'id' => 'required',
+                'pid' => 'required',
+                'quantity' => 'required|numeric|min:1|max:'.$maxQuantity,
+                'price' => 'required|numeric|min:1'
+            ], [
+                'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
+                'numeric' => 'Dữ liệu phải là số',
+                'quantity.min' => 'Số lượng sản phẩm phải lớn hơn 0',
+                'quantity.max' => 'Số lượng sản phẩm trong kho không đủ',
+                'price.min' => 'Giá sản phẩm phải lớn hơn 0',
+            ]);
+            $checkData = OrderDetail::where('order_id', $request->id)->where('product_id', $request->pid)->count();
+            if($checkData > 0) {
+                return redirect()->intended('admin/orderDetail')->with('error', 'Sản phẩm này đã có trong hóa đơn '.$request->id. ' !');
+            } else {
+                $newData = new OrderDetail();
+                $newData->order_id = $request->id;
+                $newData->product_id = $request->pid;
+                $newData->quantity = $request->quantity;
+                $newData->price = $request->price;
+                $newData->save();
+
+                return redirect()->intended('admin/orderDetail')->with('success', 'Thêm mới thành công sản phẩm có mã '.$request->pid.' vào hóa đơn '.$request->id.' !');
+            }
+        } else {
+            return redirect()->intended('admin');
+        }
+    }
+
+    public function viewEditOrderDetail($id, $pid)
+    {
+        if (Auth::check()) {
+            $name = Auth::user()->name;
+            $data = OrderDetail::where('order_id', $id)->where('product_id', $pid)->first();
+
+            return view('admin.order_detail.edit', compact('name', 'data'));
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function updateOrderDetail($id, $pid, Request $request)
+    {
+        if (Auth::check()) {
+            $maxQuantity = Product::where('product_id', $request->pid)->first()->quantity;
+            $request->validate([
+                'quantity' => 'required|numeric|min:1|max:'.$maxQuantity,
+                'price' => 'required|numeric|min:1'
+            ], [
+                'required' => 'Không được bỏ trống bất kỳ trường dữ liệu nào',
+                'numeric' => 'Dữ liệu phải là số',
+                'quantity.min' => 'Số lượng sản phẩm phải lớn hơn 0',
+                'quantity.max' => 'Số lượng sản phẩm trong kho không đủ',
+                'price.min' => 'Giá sản phẩm phải lớn hơn 0',
+            ]);
+
+            $newData = [
+                'quantity' => $request->quantity,
+                'price' => $request->price
+            ];
+
+            OrderDetail::where('order_id', $id)->where('product_id', $pid)
+                ->update($newData);
+
+            return redirect()->intended('admin/orderDetail')->with('success', 'Sửa thành công sản phẩm có mã '.$request->pid.' vào hóa đơn '.$request->id.' !');
+        } else
+            return redirect()->intended('admin');
+    }
+
+    public function deleteOrderDetail($id, $pid)
+    {
+        if (Auth::check()) {
+            OrderDetail::where('order_id', $id)->where('product_id', $pid)->delete();
+            return redirect()->intended('admin/orderDetail')->with('success', 'Xóa thành công sản phẩm có mã '.$pid.' vào hóa đơn '.$id.' !');
+        } else
+            return redirect()->intended('admin');
+    }
+
 }

@@ -74,25 +74,25 @@
                         <a href="{{route('home')}}"><img src="{{url('public/frontend')}}/img/logo1.png" alt="" width="200px" height="100px"></a>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="{{route('home')}}">Home</a></li>
-                            <li><a href="{{route('shop')}}">Shop</a></li>
-                            <li><a href="#">Pages</a>
+                            <li class="active"><a href="{{route('home')}}">Trang chủ</a></li>
+                            <li><a href="{{route('shop')}}">Cửa hàng</a></li>
+                            <li><a href="#">Thanh toán</a>
                                 <ul class="header__menu__dropdown">
                                     
-                                    <li><a href="{{route('shop-cart')}}">Shoping Cart</a></li>
-                                    <li><a href="{{route('checkout')}}">Check Out</a></li>
+                                    <li><a href="{{route('shop-cart')}}">Giỏ hàng</a></li>
+                                    <li><a href="{{route('checkout')}}">Thanh toán</a></li>
                                     
                                 </ul>
                             </li>
-                            <li><a href="{{route('blog')}}">Blog</a></li>
-                            <li><a href="{{route('contact')}}">Contact</a></li>
+                            <li><a href="{{route('blog')}}">Bài viết</a></li>
+                            <li><a href="{{route('contact')}}">Liên hệ</a></li>
                         </ul>
                     </nav>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-2">
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -113,7 +113,7 @@
                         <div class="hero__categories">
                             <div class="hero__categories__all">
                                 <i class="fa fa-bars"></i>
-                                <span>Categories</span>
+                                <span>Danh mục</span>
                             </div>
                             <ul>
                                 @foreach($data as $item)
@@ -130,8 +130,8 @@
                                         Perfume
                                         <span class="arrow_carrot-down"></span>
                                     </div>
-                                    <input type="text" placeholder="What do yo u need?">
-                                    <button type="submit" class="site-btn">SEARCH</button>
+                                    <input type="text" placeholder="Bạn muốn tìm kiếm ?">
+                                    <button type="submit" class="site-btn">Tìm kiếm</button>
                                 </form>
                             </div>
                             <div class="hero__search__phone">
@@ -139,8 +139,8 @@
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="hero__search__phone__text">
-                                    <h5>+65 11.188.888</h5>
-                                    <span>support 24/7 time</span>
+                                    <h5>+84 999 888 777</h5>
+                                    <span>hỗ trợ 24/7</span>
                                 </div>
         
                             </div>

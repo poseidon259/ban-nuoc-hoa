@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Product;
+
 
 class CheckOutController extends Controller
 {
@@ -30,6 +32,7 @@ class CheckOutController extends Controller
     }
     public function checkout(Request $request)
     {
+        
         $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
@@ -52,21 +55,23 @@ class CheckOutController extends Controller
         $newOrder->note = $request->note;
         $newOrder->save();
 
-        $total = 0;
         $dataProducts = session()->all();
         foreach ($dataProducts as $key => $value) {
             if (is_numeric($key)) {
-                $newOrderDetail = new OrderDetail();
-                $newOrderDetail->order_id = $newOrder->id;
-                $newOrderDetail->product_id = $value['product_id'];
-                $newOrderDetail->quantity = $value['quantity'];
-                $newOrderDetail->price = $value['price'];
-                $total += $value['quantity'] * ($value['price'] - $value['price'] * $value['sale']);
-                $newOrderDetail->save();
+                $dataCheck = Product::where('product_id', $value['product_id'])->first();
+                if($dataCheck->quantity < $value['quantity']){
+                    Order::where('id', $newOrder->id)->delete();
+                    return redirect()->intended('/checkout')->with('error', 'Số lượng sản phẩm '. $dataCheck->product_name .' trong kho là '. $dataCheck->quantity .', không đủ để đặt hàng');
+                } else {
+                    $newOrderDetail = new OrderDetail();
+                    $newOrderDetail->order_id = $newOrder->id;
+                    $newOrderDetail->product_id = $value['product_id'];
+                    $newOrderDetail->quantity = $value['quantity'];
+                    $newOrderDetail->price = $value['price'] - ($value['price'] * $value['sale']);
+                    $newOrderDetail->save();
+                }               
             }
         }
-        $newOrder->total = $total;
-        $newOrder->save();
 
         return redirect()->intended('/')->with('alert', 'Đặt hàng thành công');
     }
