@@ -15,21 +15,29 @@ class CheckOutController extends Controller
     {
         $data = Category::all();
         $cart = session()->all();
-        $quantity = $request->all();
-
+        $count = 0;
         foreach ($cart as $key => $value) {
-            if (is_numeric($key)) {
-                foreach ($quantity as $key2 => $value2) {
-                    if ($key == $key2 && is_numeric($key2)) {
-                        $value['quantity'] = intval($value2);
-                        session()->put($key, $value);
+            if(is_numeric($key)) $count++;
+        }
+
+        if($count > 0) {
+            $quantity = $request->all();
+            foreach ($cart as $key => $value) {
+                if (is_numeric($key)) {
+                    foreach ($quantity as $key2 => $value2) {
+                        if ($key == $key2 && is_numeric($key2)) {
+                            $value['quantity'] = intval($value2);
+                            session()->put($key, $value);
+                        }
                     }
                 }
             }
+            $cart = session()->all();
+            return view('checkout', compact('data', 'cart'));
+        } else {
+            return redirect()->route('home')->with('alert', 'Giỏ hàng chưa có sản phẩm nào !');
         }
-        $cart = session()->all();
-        return view('checkout', compact('data', 'cart'));
-    }
+    } 
     public function checkout(Request $request)
     {
         
