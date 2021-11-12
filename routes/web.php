@@ -31,6 +31,9 @@ Route::get('/category/{id}', 'CategoryController@detail')->name('category');
 
 Route::get('/product/{id}', 'ProductController@view')->name('product');
 
+Route::get('/checkorder', 'CheckOrderController@index')->name('checkorder');
+Route::post('/checkorder', 'CheckOrderController@process');
+
 //Route::get('shop/add-to-cart/{id}', 'ShopController@addToCart')->name('addToCart');
 
 //Route::get('shop-cart/{id}', 'ShopController@deleteCart')->name('deleteCart');
@@ -107,5 +110,6 @@ Route::get('/admin/orderDetail/delete/{id}/{pid}', 'AdminController@deleteOrderD
 
 
 Route::get('/admin/order/sendmail/{id}', 'AdminController@sendMail')->name('sendMail');
+
 
 

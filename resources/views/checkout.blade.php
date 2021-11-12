@@ -11,7 +11,7 @@
                 <div class="breadcrumb__text">
                     <h2>Thanh toán</h2>
                     <div class="breadcrumb__option">
-                        <a href="./index.html">Trang chủ</a>
+                        <a href="">Trang chủ</a>
                         <span>Thanh toán</span>
                     </div>
                 </div>

@@ -84,6 +84,7 @@
                                     
                                     <li><a href="{{route('shop-cart')}}">Giỏ hàng</a></li>
                                     <li><a href="{{route('checkout')}}">Thanh toán</a></li>
+                                    <li><a href="{{route('checkorder')}}">Theo dõi hóa đơn</a></li>
                                     
                                 </ul>
                             </li>
