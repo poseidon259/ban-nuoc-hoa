@@ -49,6 +49,7 @@ class SendMail extends Mailable
                     ->subject('Xác nhận đơn hàng')
                     ->view('mail')
                     ->with([
+                        'id' => $id,
                         'name' => $name,
                         'date' => $date,
                         'address' => $address,

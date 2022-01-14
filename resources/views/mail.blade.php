@@ -13,7 +13,7 @@ Cửa hàng chúng tôi gửi đến quý khách hàng lá thư này nhằm xác
 <br> Nếu có thắc mắc xin vui lòng liên hệ: <b>098.868.8686</b> 
 <br> <i>Trân trọng cảm ơn</i> 
 
-<br> Đơn hàng
+<br> Đơn hàng có mã <b> {{ $id }} </b>
 <br> Họ và tên: <b>{{ $name }}</b>
 <br> Địa chỉ: {{ $address }}
 <br> Số điện thoại: {{ $phone }}

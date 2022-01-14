@@ -81,6 +81,6 @@ class CheckOutController extends Controller
             }
         }
 
-        return redirect()->intended('/')->with('alert', 'Đặt hàng thành công');
+        return redirect()->intended('/')->with('alert', 'Đặt hàng thành công, mã đơn hàng của bạn là '. $newOrder->id);
     }
 }

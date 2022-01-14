@@ -55,7 +55,7 @@ CREATE TABLE `blog` (
   `img` varchar(255) COLLATE utf8_bin NOT NULL,
   `description` text COLLATE utf8_bin NOT NULL,
   `tag` varchar(100) COLLATE utf8_bin DEFAULT NULL,
-  `created_at` date DEFAULT current_timestamp(),
+  `created_at` date,
   `author` varchar(100) COLLATE utf8_bin DEFAULT 'Admin'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -118,7 +118,7 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `input` (
   `id` int(11) NOT NULL,
-  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `created_at` date,
   `emp_name` varchar(200) NOT NULL,
   `address` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -197,7 +197,7 @@ CREATE TABLE `order` (
   `firstname` varchar(200) COLLATE utf8_bin NOT NULL,
   `lastname` varchar(200) COLLATE utf8_bin NOT NULL,
   `note` text COLLATE utf8_bin DEFAULT NULL COMMENT 'NULL',
-  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `created_at` date,
   `status` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -324,7 +324,7 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` int(11) NOT NULL DEFAULT 2,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `created_at` timestamp,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
