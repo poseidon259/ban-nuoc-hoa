@@ -62,6 +62,7 @@ class AdminController extends Controller
             }
 
             $donchoxacnhan = Order::where('status', 0)->count();
+            $dangvanchuyen = Order::where('status', 1)->count();
             
             $doanhthunam = [];
             for($i = 0; $i < 12; $i++) {
@@ -75,7 +76,7 @@ class AdminController extends Controller
                 }
                 array_push($doanhthunam, $doanhthutemp);
             }
-            return view('admin.dashboard', compact('name', 'doanhthungay', 'doanhthuthang', 'doanhthunam', 'donchoxacnhan'));
+            return view('admin.dashboard', compact('name', 'doanhthungay', 'doanhthuthang', 'doanhthunam', 'donchoxacnhan', 'dangvanchuyen'));
         } else {
             return redirect()->intended('admin/login');
         }
