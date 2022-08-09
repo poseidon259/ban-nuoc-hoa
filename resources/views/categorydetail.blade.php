@@ -28,12 +28,12 @@
                         </ul>
                         @endforeach
                     </div>
-            
-                    
+
+
                 </div>
             </div>
             <div class="col-lg-9 col-md-7">
-                
+
                 <div class="filter__item">
                     <div class="row">
                         <div class="col-lg-4 col-md-5">
@@ -66,7 +66,7 @@
                                 <ul class="product__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="{{ route('product', ['id' => $item->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
-                                    <li><a href="{{ route('handleCart', ['id' => $item->product_id]) }}"><i class="fa fa-shopping-cart"></i></a></li>
+                                    <li><a href="{{ route('addProductToCart', ['id' => $item->product_id]) }}"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">

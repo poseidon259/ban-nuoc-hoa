@@ -72,7 +72,7 @@
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
-                            <li><a href="{{ route('handleCart', ['id' => $product->product_id]) }}"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="{{ route('addProductToCart', ['id' => $product->product_id]) }}"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
                     <div class="featured__item__text">
@@ -105,7 +105,7 @@
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
                             <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i>
                                 </a></li>
-                            <li><a href="{{ route('handleCart', ['id' => $product->product_id]) }}"><i class="fa fa-shopping-cart "></i></a></li>
+                            <li><a href="{{ route('addProductToCart', ['id' => $product->product_id]) }}"><i class="fa fa-shopping-cart "></i></a></li>
                         </ul>
                     </div>
                     <div class="featured__item__text">
@@ -160,7 +160,7 @@
                         <ul>
                             <li><i class="fa fa-calendar-o"></i>{{$item->created_at}}</li>
                         </ul>
-                        <h5><a href="{{route('blogdetail', ['id' => $item->blog_id])}}">{{$item->title}}</a></h5>
+                        <h5><a href="{{route('blogDetail', ['id' => $item->blog_id])}}">{{$item->title}}</a></h5>
                         <p>{{Str::limit($item->description, 100)}}</p>
                     </div>
                 </div>

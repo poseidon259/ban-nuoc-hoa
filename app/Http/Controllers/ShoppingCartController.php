@@ -5,16 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+
 class ShoppingCartController extends Controller
 {
 
-    public function view(Request $request) {
+    public function view(Request $request)
+    {
         $data = Category::all();
         $cart = session()->all();
         return view('shop-cart', compact('data', 'cart'));
     }
 
-    public function handle($id) {
+    public function handle($id)
+    {
         $data = Product::where('product_id', $id)->first();
 
         $newData = [
@@ -30,27 +33,30 @@ class ShoppingCartController extends Controller
         ];
 
         session()->put($id, $newData);
-        return redirect()->intended('/shop-cart');
+        return redirect()->route('shopCart');
     }
 
-    public function getData() {
+    public function getData()
+    {
         $data = session()->all();
         dd($data);
     }
-    
-    public function deleteData() {
+
+    public function deleteData()
+    {
         session()->flush();
     }
 
-    public function deleteDataByID($id) {
+    public function deleteDataById($id)
+    {
         $data = session()->all();
         unset($data[$id]);
 
         session()->flush();
-        foreach($data as $index => $product) {
+        foreach ($data as $index => $product) {
             session()->put($index, $product);
         }
 
-        return redirect()->intended('/shop-cart');
+        return redirect()->route('shopCart');
     }
 }

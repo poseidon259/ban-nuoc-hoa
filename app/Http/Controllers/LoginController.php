@@ -24,7 +24,7 @@ class LoginController extends Controller
 
 		if(Auth::attempt($arr)) {
 			// Kiểm tra đúng email và mật khẩu sẽ chuyển trang
-            return redirect()->intended('admin/dashboard')->with('success', 'Đăng nhập thành công');
+            return redirect()->route('dashboard')->with('success', 'Đăng nhập thành công');
 		} else {
 			// Kiểm tra không đúng ko cho đăng nhập
             return redirect()->intended('admin/login')->with('error', 'Đăng nhập không thành công');
@@ -34,6 +34,6 @@ class LoginController extends Controller
 
    public function logout() {
        Auth::logout();
-       return redirect()->intended('admin/login');
+       return redirect()->route('login');
    }
 }

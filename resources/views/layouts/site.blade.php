@@ -81,11 +81,11 @@
                             <li><a href="{{route('shop')}}">Cửa hàng</a></li>
                             <li><a href="#">Thanh toán</a>
                                 <ul class="header__menu__dropdown">
-                                    
-                                    <li><a href="{{route('shop-cart')}}">Giỏ hàng</a></li>
+
+                                    <li><a href="{{route('shopCart')}}">Giỏ hàng</a></li>
                                     <li><a href="{{route('checkout')}}">Thanh toán</a></li>
-                                    <li><a href="{{route('checkorder')}}">Theo dõi hóa đơn</a></li>
-                                    
+                                    <li><a href="{{route('checkOrder')}}">Theo dõi hóa đơn</a></li>
+
                                 </ul>
                             </li>
                             <li><a href="{{route('blog')}}">Bài viết</a></li>
@@ -97,7 +97,7 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="{{route('shop-cart')}}"><i class="fa fa-shopping-bag"></i></a></li>
+                            <li><a href="{{route('shopCart')}}"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
             </div>
-            
+
         </div>
         <section class="hero">
             <div class="container">
@@ -143,7 +143,7 @@
                                     <h5>+84 999 888 777</h5>
                                     <span>hỗ trợ 24/7</span>
                                 </div>
-        
+
                             </div>
                         </div>
                         @yield('slider')
@@ -154,7 +154,7 @@
     </header>
     <!-- Header Section End -->
 
-    
+
 
     @yield('child-ui')
 

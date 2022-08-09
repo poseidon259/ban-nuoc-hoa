@@ -63,7 +63,7 @@ class AdminController extends Controller
 
             $donchoxacnhan = Order::where('status', 0)->count();
             $dangvanchuyen = Order::where('status', 1)->count();
-            
+
             $doanhthunam = [];
             for($i = 0; $i < 12; $i++) {
                 $temp =Order::join('order_detail', 'order_id', '=', 'id')
@@ -93,7 +93,7 @@ class AdminController extends Controller
                 $soLuongNhap = is_null($soLuongNhap) ? 0 : $soLuongNhap;
                 $soLuongXuat = OrderDetail::where('product_id', $value->product_id)->sum('quantity');
                 $soLuongXuat = is_null($soLuongXuat) ? 0 : $soLuongXuat;
-                
+
                 $quantity = is_null($soLuongNhap - $soLuongXuat) ? 0 : $soLuongNhap - $soLuongXuat;
                 $value->quantity = $quantity;
                 $value->save();
@@ -114,7 +114,7 @@ class AdminController extends Controller
 
                 return view('admin.product.edit', compact('pEdit', 'name', 'category'));
             }
-            return redirect()->intended('admin/product')->with('error', 'Bạn không có quyền chỉnh sửa sản phẩm này');
+            return redirect()->route('adminProduct')->with('error', 'Bạn không có quyền chỉnh sửa sản phẩm này');
         } else {
             return redirect()->intended('admin');
         }
@@ -163,13 +163,13 @@ class AdminController extends Controller
             Product::where('product_id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/product')->with('success', 'Sửa thông tin sản phẩm có mã '.$id.' thành công !');
+            return redirect()->route('adminProduct')->with('success', 'Sửa thông tin sản phẩm có mã '.$id.' thành công !');
         } else {
             return redirect()->intended('admin');
         }
     }
 
-    public function viewInsertP()
+    public function viewInsertProduct()
     {
         $name = Auth::user()->name;
         $category = Category::all();
@@ -178,7 +178,7 @@ class AdminController extends Controller
             if (Auth::user()->role < 2) {
                 return view('admin.product.insert', compact('name', 'category'));
             }
-            return redirect()->intended('admin/product')->with('error', 'Bạn không có quyền thêm mới sản phẩm');
+            return redirect()->route('adminProduct')->with('error', 'Bạn không có quyền thêm mới sản phẩm');
         } else {
             return redirect()->intended('admin');
         }
@@ -220,7 +220,7 @@ class AdminController extends Controller
             $newData->image = $fileName;
 
             $newData->save();
-            return redirect()->intended('admin/product')->with('success', 'Thêm mới sản phẩm có mã thành công !');
+            return redirect()->route('adminProduct')->with('success', 'Thêm mới sản phẩm có mã thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -238,9 +238,9 @@ class AdminController extends Controller
 
                 Product::where('product_id', $id)
                     ->delete();
-                return redirect()->intended('admin/product')->with('success', 'Xóa sản phẩm có mã '.$id.' thành công !');
+                return redirect()->route('adminProduct')->with('success', 'Xóa sản phẩm có mã '.$id.' thành công !');
             } else {
-                return redirect()->intended('admin/product')->with('error', 'Bạn không có quyền xóa sản phẩm này');
+                return redirect()->route('adminProduct')->with('error', 'Bạn không có quyền xóa sản phẩm này');
             }
         } else {
             return redirect()->intended('admin');
@@ -266,7 +266,7 @@ class AdminController extends Controller
                 $data = Blog::where('blog_id', $id)->first();
                 return view('admin.blog.edit', compact('name', 'data'));
             } else {
-                return redirect()->intended('admin/blog')->with('error', 'Bạn không có quyền chỉnh sửa bài viết này');
+                return redirect()->route('adminBlog')->with('error', 'Bạn không có quyền chỉnh sửa bài viết này');
             }
         } else {
             return redirect()->intended('admin');
@@ -315,7 +315,7 @@ class AdminController extends Controller
             Blog::where('blog_id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/blog')->with('success', 'Cập nhật bài viết có mã '.$id.' thành công !');
+            return redirect()->route('adminBlog')->with('success', 'Cập nhật bài viết có mã '.$id.' thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -328,7 +328,7 @@ class AdminController extends Controller
                 $name = Auth::user()->name;
                 return view('admin.blog.insert', compact('name'));
             } else {
-                return redirect()->intended('admin/blog')->with('error', 'Bạn không có quyền thêm mới bài viết');
+                return redirect()->route('adminBlog')->with('error', 'Bạn không có quyền thêm mới bài viết');
             }
         } else {
             return redirect()->intended('admin');
@@ -367,7 +367,7 @@ class AdminController extends Controller
 
             $newData->save();
 
-            return redirect()->intended('admin/blog')->with('success', 'Thêm mới bài viết thành công !');
+            return redirect()->route('adminBlog')->with('success', 'Thêm mới bài viết thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -386,9 +386,9 @@ class AdminController extends Controller
 
                 Blog::where('blog_id', $id)->delete();
 
-                return redirect()->intended('admin/blog')->with('success', 'Xóa bài viết có mã '.$id.' thành công !');
+                return redirect()->route('adminBlog')->with('success', 'Xóa bài viết có mã '.$id.' thành công !');
             } else {
-                return redirect()->intended('admin/blog')->with('error', 'Bạn không có quyền xóa bài viết này');
+                return redirect()->route('adminBlog')->with('error', 'Bạn không có quyền xóa bài viết này');
             }
         } else {
             return redirect()->intended('admin');
@@ -415,7 +415,7 @@ class AdminController extends Controller
             if ($admin_role < 2) {
                 return view('admin.category.edit', compact('name', 'data'));
             } else {
-                return redirect()->intended('admin/category')->with('error', 'Bạn không có quyền sửa danh mục này');
+                return redirect()->route('adminCategory')->with('error', 'Bạn không có quyền sửa danh mục này');
             }
         } else
             return redirect()->intended('admin');
@@ -437,7 +437,7 @@ class AdminController extends Controller
             Category::where('id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/category')->with('success', 'Sửa danh mục có mã '.$id.' thành công !');
+            return redirect()->route('adminCategory')->with('success', 'Sửa danh mục có mã '.$id.' thành công !');
         } else
             return redirect()->intended('admin');
     }
@@ -452,7 +452,7 @@ class AdminController extends Controller
             if ($admin_role < 2) {
                 return view('admin.category.insert', compact('name'));
             } else {
-                return redirect()->intended('admin/category')->with('error', 'Bạn không có quyền thêm danh mục');
+                return redirect()->route('adminCategory')->with('error', 'Bạn không có quyền thêm danh mục');
             }
         } else
             return redirect()->intended('admin');
@@ -473,7 +473,7 @@ class AdminController extends Controller
             $newData->category_name = $request->name;
 
             $newData->save();
-            return redirect()->intended('admin/category')->with('success', 'Thêm mới danh mục thành công !');
+            return redirect()->route('adminCategory')->with('success', 'Thêm mới danh mục thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -491,12 +491,12 @@ class AdminController extends Controller
                 if ($count == 0) {
                     Category::where('id', $id)
                         ->delete();
-                    return redirect()->intended('admin/category')->with('success', 'Xóa danh mục có mã '.$id.' thành công !');
+                    return redirect()->route('adminCategory')->with('success', 'Xóa danh mục có mã '.$id.' thành công !');
                 } else {
-                    return redirect()->intended('admin/category')->with('error', 'Không thể xóa danh mục có mã '.$id.' do đang có sản phẩm !');
+                    return redirect()->route('adminCategory')->with('error', 'Không thể xóa danh mục có mã '.$id.' do đang có sản phẩm !');
                 }
             } else {
-                return redirect()->intended('admin/category')->with('error', 'Bạn không có quyền xóa danh mục này');
+                return redirect()->route('adminCategory')->with('error', 'Bạn không có quyền xóa danh mục này');
             }
         } else
             return redirect()->intended('admin');
@@ -520,7 +520,7 @@ class AdminController extends Controller
             if (Auth::user()->role < 2) {
                 return view('admin.user.insert', compact('name'));
             } else {
-                return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền thêm mới tài khoản quản trị');
+                return redirect()->route('user')->with('error', 'Bạn không có quyền thêm mới tài khoản quản trị');
             }
         } else {
             return redirect()->intended('admin');
@@ -556,7 +556,7 @@ class AdminController extends Controller
             $newData->role = $request->role;
             $newData->save();
 
-            return redirect()->intended('admin/user')->with('success', 'Thêm mới tài khoản thành công !');
+            return redirect()->route('user')->with('success', 'Thêm mới tài khoản thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -573,10 +573,10 @@ class AdminController extends Controller
                 if ($admin_role < $user->role) {
                     return view('admin.user.edit', compact('name', 'user'));
                 } else {
-                    return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền sửa tài khoản này');
+                    return redirect()->route('user')->with('error', 'Bạn không có quyền sửa tài khoản này');
                 }
             } else {
-                return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền chỉnh sửa tài khoản quản trị');
+                return redirect()->route('user')->with('error', 'Bạn không có quyền chỉnh sửa tài khoản quản trị');
             }
         } else
             return redirect()->intended('admin');
@@ -612,7 +612,7 @@ class AdminController extends Controller
             User::where('id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/user')->with('success', 'Sửa thông tin tài khoản thành công !');
+            return redirect()->route('user')->with('success', 'Sửa thông tin tài khoản thành công !');
         } else
             return redirect()->intended('admin');
     }
@@ -626,12 +626,12 @@ class AdminController extends Controller
                 $user = User::where('id', $id)->first();
                 if ($admin_role < $user->role) {
                     $user->delete();
-                    return redirect()->intended('admin/user')->with('success', 'Xóa tài khoản có mã '.$id.' thành công !');
+                    return redirect()->route('user')->with('success', 'Xóa tài khoản có mã '.$id.' thành công !');
                 } else {
-                    return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền xóa người dùng này');
+                    return redirect()->route('user')->with('error', 'Bạn không có quyền xóa người dùng này');
                 }
             } else {
-                return redirect()->intended('admin/user')->with('error', 'Bạn không có quyền xóa người dùng này');
+                return redirect()->route('user')->with('error', 'Bạn không có quyền xóa người dùng này');
             }
         } else
             return redirect()->intended('admin');
@@ -675,7 +675,7 @@ class AdminController extends Controller
             $newData->address = $request->address;
             $newData->save();
 
-            return redirect()->intended('admin/input')->with('success', 'Thêm mới phiếu nhập thành công !');
+            return redirect()->route('input')->with('success', 'Thêm mới phiếu nhập thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -713,7 +713,7 @@ class AdminController extends Controller
             Input::where('id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/input')->with('success', 'Sửa hóa đơn có mã '.$id.' thành công !');
+            return redirect()->route('input')->with('success', 'Sửa hóa đơn có mã '.$id.' thành công !');
         } else
             return redirect()->intended('admin');
     }
@@ -723,7 +723,7 @@ class AdminController extends Controller
         if (Auth::check()) {
             $data = Input::where('id', $id)->first();
             $data->delete();
-            return redirect()->intended('admin/input')->with('success', 'Xóa hóa đơn có mã '.$id.' thành công !');
+            return redirect()->route('input')->with('success', 'Xóa hóa đơn có mã '.$id.' thành công !');
         } else
             return redirect()->intended('admin');
     }
@@ -767,7 +767,7 @@ class AdminController extends Controller
             ]);
             $checkData = InputDetail::where('input_id', $request->id)->where('product_id', $request->pid)->count();
             if($checkData > 0) {
-                return redirect()->intended('admin/inputDetail')->with('error', 'Sản phẩm có mã '.$request->pid.' đã được nhập trong phiếu nhập có mã '.$request->id);
+                return redirect()->route('inputDetail')->with('error', 'Sản phẩm có mã '.$request->pid.' đã được nhập trong phiếu nhập có mã '.$request->id);
             } else {
                 $newData = new InputDetail();
                 $newData->input_id = $request->id;
@@ -776,7 +776,7 @@ class AdminController extends Controller
                 $newData->price = $request->price;
                 $newData->save();
 
-                return redirect()->intended('admin/inputDetail')->with('success', 'Thêm mới thành công sản phẩm có mã '.$request->pid.' vào phiếu nhập '.$request->id.' !');
+                return redirect()->route('inputDetail')->with('success', 'Thêm mới thành công sản phẩm có mã '.$request->pid.' vào phiếu nhập '.$request->id.' !');
             }
         } else {
             return redirect()->intended('admin');
@@ -787,7 +787,7 @@ class AdminController extends Controller
     {
         if (Auth::check()) {
             InputDetail::where('input_id', $id)->where('product_id', $pid)->delete();
-            return redirect()->intended('admin/inputDetail')->with('success', 'Xóa thành công sản phẩm có mã '.$pid.' vào hóa đơn '.$id.' !');
+            return redirect()->route('inputDetail')->with('success', 'Xóa thành công sản phẩm có mã '.$pid.' vào hóa đơn '.$id.' !');
         } else
             return redirect()->intended('admin');
     }
@@ -824,7 +824,7 @@ class AdminController extends Controller
             InputDetail::where('input_id', $id)->where('product_id', $pid)
                 ->update($newData);
 
-            return redirect()->intended('admin/inputDetail')->with('success', 'Sửa thành công sản phẩm có mã '.$pid.' vào hóa đơn '.$id.' !');
+            return redirect()->route('input')->with('success', 'Sửa thành công sản phẩm có mã '.$pid.' vào hóa đơn '.$id.' !');
         } else
             return redirect()->intended('admin');
     }
@@ -876,7 +876,7 @@ class AdminController extends Controller
             $newData->address = $request->address;
             $newData->save();
 
-            return redirect()->intended('admin/order')->with('success', 'Thêm mới hóa đơn thành công !');
+            return redirect()->route('order')->with('success', 'Thêm mới hóa đơn thành công !');
         } else {
             return redirect()->intended('admin');
         }
@@ -891,7 +891,7 @@ class AdminController extends Controller
                 $data = Order::where('id', $id)->first();
                 return view('admin.order.edit', compact('name', 'data'));
             } else
-                return redirect()->intended('admin/order')->with('error', 'Không tìm thấy hóa đơn có mã ' .$id. ' !');
+                return redirect()->route('order')->with('error', 'Không tìm thấy hóa đơn có mã ' .$id. ' !');
         } else
             return redirect()->intended('admin');
     }
@@ -927,7 +927,7 @@ class AdminController extends Controller
             Order::where('id', $id)
                 ->update($newData);
 
-            return redirect()->intended('admin/order')->with('success', 'Sửa thành công hóa đơn có mã '.$id.' !');
+            return redirect()->route('order')->with('success', 'Sửa thành công hóa đơn có mã '.$id.' !');
         } else
             return redirect()->intended('admin');
     }
@@ -938,9 +938,9 @@ class AdminController extends Controller
             $check = Order::where('id', $id)->count();
             if($check != 0 ) {
                 Order::where('id', $id)->delete();
-                return redirect()->intended('admin/order')->with('success', 'Xóa thành công hóa đơn có mã '.$id.' !');
+                return redirect()->route('order')->with('success', 'Xóa thành công hóa đơn có mã '.$id.' !');
             } else
-                return redirect()->intended('admin/order')->with('error', 'Không tìm thấy dữ liệu !');
+                return redirect()->route('order')->with('error', 'Không tìm thấy dữ liệu !');
         } else
             return redirect()->intended('admin');
     }
@@ -985,7 +985,7 @@ class AdminController extends Controller
             ]);
             $checkData = OrderDetail::where('order_id', $request->id)->where('product_id', $request->pid)->count();
             if($checkData > 0) {
-                return redirect()->intended('admin/orderDetail')->with('error', 'Sản phẩm này đã có trong hóa đơn '.$request->id. ' !');
+                return redirect()->route('orderDetail')->with('error', 'Sản phẩm này đã có trong hóa đơn '.$request->id. ' !');
             } else {
                 $newData = new OrderDetail();
                 $newData->order_id = $request->id;
@@ -1035,7 +1035,7 @@ class AdminController extends Controller
             OrderDetail::where('order_id', $id)->where('product_id', $pid)
                 ->update($newData);
 
-            return redirect()->intended('admin/orderDetail')->with('success', 'Sửa thành công sản phẩm có mã '.$request->pid.' vào hóa đơn '.$request->id.' !');
+            return redirect()->route('orderDetail')->with('success', 'Sửa thành công sản phẩm có mã '.$request->pid.' vào hóa đơn '.$request->id.' !');
         } else
             return redirect()->intended('admin');
     }
@@ -1044,7 +1044,7 @@ class AdminController extends Controller
     {
         if (Auth::check()) {
             OrderDetail::where('order_id', $id)->where('product_id', $pid)->delete();
-            return redirect()->intended('admin/orderDetail')->with('success', 'Xóa thành công sản phẩm có mã '.$pid.' vào hóa đơn '.$id.' !');
+            return redirect()->route('orderDetail')->with('success', 'Xóa thành công sản phẩm có mã '.$pid.' vào hóa đơn '.$id.' !');
         } else
             return redirect()->intended('admin');
     }
