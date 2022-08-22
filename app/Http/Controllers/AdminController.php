@@ -994,7 +994,7 @@ class AdminController extends Controller
                 $newData->price = $request->price;
                 $newData->save();
 
-                return redirect()->intended('admin/orderDetail')->with('success', 'Thêm mới thành công sản phẩm có mã '.$request->pid.' vào hóa đơn '.$request->id.' !');
+                return redirect()->route('orderDetail')->with('success', 'Thêm mới thành công sản phẩm có mã '.$request->pid.' vào hóa đơn '.$request->id.' !');
             }
         } else {
             return redirect()->intended('admin');

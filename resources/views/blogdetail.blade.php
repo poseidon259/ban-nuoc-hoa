@@ -41,7 +41,7 @@
                 </div>
                 <div class="blog__details__content">
                     <div class="row">
-           
+
                         <div class="col-lg-6">
                             <div class="blog__details__widget">
                                 <ul>
@@ -86,7 +86,7 @@
                         <ul>
                             <li><i class="fa fa-calendar-o"></i>{{$item->created_at}}</li>
                         </ul>
-                        <h5><a href="{{route('blogdetail', ['id' => $item->blog_id])}}">{{$item->title}}</a></h5>
+                        <h5><a href="{{route('blogDetail', ['id' => $item->blog_id])}}">{{$item->title}}</a></h5>
                         <p>{{Str::limit($item->description, 100)}}</p>
                     </div>
                 </div>

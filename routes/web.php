@@ -143,9 +143,9 @@ Route::prefix('admin')->group(function() {
         // quản lý chi tiết hàng nhập
         Route::prefix('orderDetail')->group(function() {
             Route::get('/', [AdminController::class, 'orderDetail'])->name('orderDetail');
-            Route::get('/edit/{id}', [AdminController::class, 'viewEditOrderDetail'])->name('insertOrderDetail');
+            Route::get('/edit/{id}', [AdminController::class, 'viewEditOrderDetail'])->name('editOrderDetail');
             Route::post('/edit/{id}', [AdminController::class, 'updateOrderDetail']);
-            Route::get('/add', [AdminController::class, 'viewInsertOrderDetail'])->name('editOrderDetail');
+            Route::get('/add', [AdminController::class, 'viewInsertOrderDetail'])->name('insertOrderDetail');
             Route::post('/add', [AdminController::class, 'insertOrderDetail']);
             Route::get('/delete/{id}', [AdminController::class, 'deleteOrderDetail'])->name('deleteOrderDetail');
         });

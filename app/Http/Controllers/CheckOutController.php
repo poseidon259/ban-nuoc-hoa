@@ -37,10 +37,10 @@ class CheckOutController extends Controller
         } else {
             return redirect()->route('home')->with('alert', 'Giỏ hàng chưa có sản phẩm nào !');
         }
-    } 
+    }
     public function checkout(Request $request)
     {
-        
+
         $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
@@ -69,7 +69,7 @@ class CheckOutController extends Controller
                 $dataCheck = Product::where('product_id', $value['product_id'])->first();
                 if($dataCheck->quantity < $value['quantity']){
                     Order::where('id', $newOrder->id)->delete();
-                    return redirect()->intended('/checkout')->with('error', 'Số lượng sản phẩm '. $dataCheck->product_name .' trong kho là '. $dataCheck->quantity .', không đủ để đặt hàng');
+                    return redirect()->route('checkout')->with('error', 'Số lượng sản phẩm '. $dataCheck->product_name .' trong kho là '. $dataCheck->quantity .', không đủ để đặt hàng');
                 } else {
                     $newOrderDetail = new OrderDetail();
                     $newOrderDetail->order_id = $newOrder->id;
@@ -77,7 +77,7 @@ class CheckOutController extends Controller
                     $newOrderDetail->quantity = $value['quantity'];
                     $newOrderDetail->price = $value['price'] - ($value['price'] * $value['sale']);
                     $newOrderDetail->save();
-                }               
+                }
             }
         }
 

@@ -25,10 +25,10 @@ class CheckOrderController extends Controller
                             ->join('product', 'order_detail.product_id', '=', 'product.product_id')
                             ->select('order_detail.*', 'product.product_name', 'product.image')
                             ->get();
-            
+
             return view('order.orderdetail', compact('data', 'order', 'order_detail'));
         } else {
-            return redirect()->intended('/checkorder')->with('error', 'Mã hóa đơn không tồn tại !');
+            return redirect()->route('checkOrder')->with('error', 'Mã hóa đơn không tồn tại !');
         }
     }
 }

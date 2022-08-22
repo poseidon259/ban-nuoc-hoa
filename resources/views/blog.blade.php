@@ -33,7 +33,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="col-lg-8 col-md-7">
@@ -50,7 +50,7 @@
                                     </ul>
                                     <h5><a>{{$item->title}}</a></h5>
                                     <p>{{Str::limit($item->description, 100)}}</p> </p>
-                                    <a href="{{route('blogdetail', ['id' => $item->blog_id])}}" class="blog__btn">CHI TIẾT <span class="arrow_right"></span></a>
+                                    <a href="{{route('blogDetail', ['id' => $item->blog_id])}}" class="blog__btn">CHI TIẾT <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                 </div>
                 {{$blog->links()}}
             </div>
-            
+
         </div>
     </div>
 </section>

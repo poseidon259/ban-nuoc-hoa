@@ -34,8 +34,8 @@
                                 @endforeach
                             </ul>
                         </div>
-                
-                       
+
+
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
@@ -54,7 +54,7 @@
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                                 <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
-                                                <li ><a href="{{ route('handleCart', ['id' => $product->product_id]) }}"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li ><a href="{{ route('addProductToCart', ['id' => $product->product_id]) }}"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
@@ -94,14 +94,14 @@
                     </div>
                     <div class="row">
                         @foreach($products as $product)
-                       
+
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="{{url('public/frontend')}}/img/product/{{$product->image}}">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="{{ route('product', ['id' => $product->product_id]) }}"><i class="fa fa-info" aria-hidden="true"></i></a></li>
-                                        <li><a href="{{ route('handleCart', ['id' => $product->product_id]) }}"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="{{ route('addProductToCart', ['id' => $product->product_id]) }}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -114,7 +114,7 @@
                     </div>
                     <div class="">
                         {{ $products->links() }}
-                        
+
                     </div>
                 </div>
             </div>
